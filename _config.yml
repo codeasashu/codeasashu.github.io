@@ -7,7 +7,7 @@ urls:
     - text: About Me
       url: /about/
     - text: Github
-      url: https://github.com/agusmakmun
+      url: https://github.com/ashutosh2k12
     - text: XML Feed
       url: /feed.xml
 url: "https://agusmakmun.github.io"
