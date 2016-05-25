@@ -72,6 +72,7 @@
 		"name": "Pre CDI",
 		"image": "9.png",
 		"date": "March 2016",
+		"url": "http://107.170.45.123/demos/cdi/",
 		"tags": ["Angular JS"]
 	},
 	{
@@ -105,6 +106,7 @@
 		"name": "Instagram fetcher",
 		"image": "14.png",
 		"date": "Feb 2015",
+		"url": "http://107.170.45.123/demos/instagram/",
 		"tags": ["nodejs"]
 	},
 	{
