@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="shortcut icon" href="/static/img/favicon.ico" />
+        <title>Get video links from Coursera - Ashutosh Chaudhary</title>
+        <meta name="author" content="Ashutosh Chaudhary" />
+        <meta name="description" content="Get video links from Coursera" />
+        <meta name="keywords" content="Get video links from Coursera, Ashutosh Chaudhary, Javascript" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+        <link rel="stylesheet" href="https://use.fontawesome.com/74dfc6cf47.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/static/css/syntax.css">
+
+        <!-- Bootstrap core CSS -->
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Fonts -->
+        <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,300italic,300,400italic,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+        <!-- Custom CSS -->        
+        <link rel="stylesheet" href="/static/css/thickbox.css">
+        <link rel="stylesheet" href="/static/css/super-search.css">
+        <link rel="stylesheet" href="/static/css/projects.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="col-sm-3">
+                <a href="/"><img id="about" src="/static/img/avatar.jpg" height="75px" width="75px" /></a>
+                <h1 class="author-name">Ashutosh Chaudhary</h1>
+                
+                <div id="about">
+                    Freelance web, apps developer
+                </div>
+                
+
+                <div class="social">
+	<ul>
+		
+			<li><a href="http://facebook.com/ashutosh2k12" target="_blank"><i class="fa fa-facebook"></i></a></li>
+		
+			<li><a href="skype:ashu2k111" target="_blank"><i class="fa fa-skype"></i></a></li>
+		
+			<li><a href="http://twitter.com/216ashutosh" target="_blank"><i class="fa fa-twitter"></i></a></li>
+		
+			<li><a href="https://in.linkedin.com/in/codeasashu" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+		
+			<li><a href="http://stackexchange.com/users/1155850/ashutosh" target="_blank"><i class="fa fa-stack-exchange"></i></a></li>
+		
+	</ul>
+</div>
+               
+                <div class="search" id="js-search">
+                  <input type="text" placeholder="(sitemap)~$ type to search" class="search__input form-control" id="js-search__input">
+                  <ul class="search__results" id="js-search__results"></ul>
+                </div>
+                <hr />
+                <div class="navigation">
+                <strong>Navigation</strong><br />
+                    &raquo; <a href="/">Home</a> <br />
+                
+                    &raquo; <a class="about" href="/about/">About Me</a><br />
+                
+                    &raquo; <a class="about" href="/projects/">Projects</a><br />
+                
+                    &raquo; <a class="about" href="https://drive.google.com/file/d/0B3Xfz0jTV0TnSjlMRS1DNGlSaTlxaHBEZHdoaGZWd1Q1Wkpn/view?usp=sharing">Resume</a><br />
+                
+                    &raquo; <a class="about" href="https://github.com/ashutosh2k12">Github</a><br />
+                
+                    &raquo; <a class="about" href="/feed.xml">XML Feed</a><br />
+                
+                </div>
+            </div>
+
+            <div class="col-sm-8 col-offset-1">
+                <h1>Get video links from Coursera</h1>
+<span class="time">27 Jan 2016</span>
+
+<span class="categories">
+    &raquo; <a href="/category/Javascript">Javascript</a>
+</span>
+
+
+<div class="content">
+    <div class="post"><p>I have gone threw coursera classes now and then. What I felt is need for a coursera video downloader. I searched but couldn’t found any good working one.</p>
+
+<p>Hence here is a small script I developed which would give you all video links from coursera. Here is what you’ll have to do:</p>
+
+<ol>
+  <li>Goto your class. For ex- Mine was  https://www.coursera.org/course/startup</li>
+  <li>Enroll and go to “video lectures” from left tab. Here is the screenshot</li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;a href="http://aboutashu.com/blog/wp-content/uploads/2016/01/v1.jpg" rel="attachment wp-att-79"&gt;&lt;img class="alignnone size-medium wp-image-79" src="http://aboutashu.com/blog/wp-content/uploads/2016/01/v1-300x277.jpg" alt="v1" width="300" height="277" srcset="http://107.170.45.123/blog/wp-content/uploads/2016/01/v1-300x277.jpg 300w, http://107.170.45.123/blog/wp-content/uploads/2016/01/v1.jpg 702w" sizes="(max-width: 300px) 100vw, 300px" /&gt;&lt;/a&gt;   3. in chrome, press \`f12\` to bring up chrome inspector. You can also right click anywhere on webpage and click &amp;#8220;inspect element&amp;#8221;. Go to **console** tab.   4. Paste the following script into the console. Screenshot:
+  
+&lt;a href="http://aboutashu.com/blog/wp-content/uploads/2016/01/v2.jpg" rel="attachment wp-att-80"&gt;&lt;img class="alignnone size-medium wp-image-80" src="http://aboutashu.com/blog/wp-content/uploads/2016/01/v2-300x86.jpg" alt="v2" width="300" height="86" srcset="http://107.170.45.123/blog/wp-content/uploads/2016/01/v2-300x86.jpg 300w, http://107.170.45.123/blog/wp-content/uploads/2016/01/v2-768x221.jpg 768w, http://107.170.45.123/blog/wp-content/uploads/2016/01/v2-1024x295.jpg 1024w, http://107.170.45.123/blog/wp-content/uploads/2016/01/v2.jpg 1366w" sizes="(max-width: 300px) 100vw, 300px" /&gt;&lt;/a&gt;Script:&lt;/p&gt; &lt;pre class="lang:js decode:true"&gt;(function($){ $("ul.course-item-list-section-list &amp;gt; li").each(function(){ var link = $(this).find("a[data-link-type=\"lecture:download.mp4\"]").attr('href'); console.log(link) }); })(jQuery);&lt;/pre&gt;
+</code></pre>
+</div>
+
+<ol>
+  <li>Press enter and hopefully, it will parse every video link in the page.</li>
+</ol>
+
+<p>Hope you’ve liked the article and it helped you. Please do comment if I owe any explanations. Share, it might be helpful to others.</p>
+</div>
+</div>
+
+
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+
+
+<div class="PageNavigation">
+  
+    <a class="prev" href="/how-to-download-multiple-videos-from-youtube-dl/">&laquo; How to download multiple videos from youtube-dl</a>
+  
+  
+    <a class="next" href="/xmpp-chat-server/">Creating XMPP chat server &raquo;</a>
+  
+</div>
+
+
+<div class="disqus-comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* <![CDATA[ */
+
+        var disqus_shortname = "aboutashu";
+        var disqus_identifier = "http://localhost:4000_Get video links from Coursera";
+        var disqus_title = "Get video links from Coursera";
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    /* ]]> */
+    </script>
+</div>
+
+                <footer>
+                    &copy; Ashutosh Chaudhary
+                     
+                    - <a href="https://github.com/ashutosh2k12">https://github.com/ashutosh2k12</a> - Powered by Jekyll.
+                    
+                </footer>
+            </div><!-- end /.col-sm-8 -->
+        </div><!-- end /.container -->
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <!--
+        <script src="/static/js/jquery.min.js"></script>
+        -->
+        <script src="/static/js/thickbox-compressed.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/static/js/super-search.js"></script>
+        <script src="/static/js/main.js"></script>
+        <script src="/static/js/projects.js"></script>
+    </body>
+</html>

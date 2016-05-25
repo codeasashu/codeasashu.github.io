@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="shortcut icon" href="/static/img/favicon.ico" />
+        <title>WordPress: HTML encoded image alternate text - Ashutosh Chaudhary</title>
+        <meta name="author" content="Ashutosh Chaudhary" />
+        <meta name="description" content="WordPress: HTML encoded image alternate text" />
+        <meta name="keywords" content="WordPress: HTML encoded image alternate text, Ashutosh Chaudhary, Wordpress" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+        <link rel="stylesheet" href="https://use.fontawesome.com/74dfc6cf47.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/static/css/syntax.css">
+
+        <!-- Bootstrap core CSS -->
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Fonts -->
+        <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,300italic,300,400italic,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+        <!-- Custom CSS -->        
+        <link rel="stylesheet" href="/static/css/thickbox.css">
+        <link rel="stylesheet" href="/static/css/super-search.css">
+        <link rel="stylesheet" href="/static/css/projects.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="col-sm-3">
+                <a href="/"><img id="about" src="/static/img/avatar.jpg" height="75px" width="75px" /></a>
+                <h1 class="author-name">Ashutosh Chaudhary</h1>
+                
+                <div id="about">
+                    Freelance web, apps developer
+                </div>
+                
+
+                <div class="social">
+	<ul>
+		
+			<li><a href="http://facebook.com/ashutosh2k12" target="_blank"><i class="fa fa-facebook"></i></a></li>
+		
+			<li><a href="skype:ashu2k111" target="_blank"><i class="fa fa-skype"></i></a></li>
+		
+			<li><a href="http://twitter.com/216ashutosh" target="_blank"><i class="fa fa-twitter"></i></a></li>
+		
+			<li><a href="https://in.linkedin.com/in/codeasashu" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+		
+			<li><a href="http://stackexchange.com/users/1155850/ashutosh" target="_blank"><i class="fa fa-stack-exchange"></i></a></li>
+		
+	</ul>
+</div>
+               
+                <div class="search" id="js-search">
+                  <input type="text" placeholder="(sitemap)~$ type to search" class="search__input form-control" id="js-search__input">
+                  <ul class="search__results" id="js-search__results"></ul>
+                </div>
+                <hr />
+                <div class="navigation">
+                <strong>Navigation</strong><br />
+                    &raquo; <a href="/">Home</a> <br />
+                
+                    &raquo; <a class="about" href="/about/">About Me</a><br />
+                
+                    &raquo; <a class="about" href="/projects/">Projects</a><br />
+                
+                    &raquo; <a class="about" href="https://drive.google.com/file/d/0B3Xfz0jTV0TnSjlMRS1DNGlSaTlxaHBEZHdoaGZWd1Q1Wkpn/view?usp=sharing">Resume</a><br />
+                
+                    &raquo; <a class="about" href="https://github.com/ashutosh2k12">Github</a><br />
+                
+                    &raquo; <a class="about" href="/feed.xml">XML Feed</a><br />
+                
+                </div>
+            </div>
+
+            <div class="col-sm-8 col-offset-1">
+                <h1>WordPress: HTML encoded image alternate text</h1>
+<span class="time">07 May 2016</span>
+
+<span class="categories">
+    &raquo; <a href="/category/Wordpress">Wordpress</a>
+</span>
+
+
+<div class="content">
+    <div class="post"><p>The WordPress media manager allows you to add captions to your images, which can be inserted into your post content wrapped in the <strong>caption</strong> shortcode. However, image alternate text are inserted as plaintext. You can now use HTML encoded image alternate text with few lines of code.</p>
+
+<div id="attachment_145" style="width: 295px" class="wp-caption aligncenter">
+  <a href="http://aboutashu.com/blog/wp-content/uploads/2016/05/image_alt.png"><img class="wp-image-145 size-full" title="Image alternate text" src="http://aboutashu.com/blog/wp-content/uploads/2016/05/image_alt.png" alt="Sample gallery image" width="285" height="480" srcset="http://107.170.45.123/blog/wp-content/uploads/2016/05/image_alt.png 285w, http://107.170.45.123/blog/wp-content/uploads/2016/05/image_alt-178x300.png 178w" sizes="(max-width: 285px) 100vw, 285px" /></a>
+  
+  <p class="wp-caption-text">
+    Sample gallery image
+  </p>
+</div>
+
+<p>As you can see, I’ve left the “Alt text” section blank, while providing the caption for the image. The caption I provided contains HTML string, containing <i> and <br /> attributes. You may also want to include links to original author of image, or may want to link to some sources.  Wordpress, upon encountering blank image alternate text (Alt text section in above image), uses caption to fill the “alt” attribute of the image. Hence the image on post page will look like:</i></p>
+
+<p>[code] &lt;img src=”http://someexamplesite.com/path/to/image/image.jpg” alt=”your caption in plaintext here” …. /&gt;[/code]</p>
+
+<h3 id="the-problem">The problem</h3>
+
+<p>When you are using some plugins to show image gallery, they generally rely on caption and alternate text to show image description. In such cases, it becomes necessity to have alternate text in HTML entity rather than plaintext. But wordpress converts down the caption to plaintext and then fills up alt attribute of image. Hence, even if your caption reads</p>
+
+<p>[code]<b>Hey, this is <i>caption</i></b>[/code]</p>
+
+<p>, the image alt will come up like:</p>
+
+<p>[code] <img src="http://image-url/image.jpg" alt="Hey, this is caption" />[/code]</p>
+
+<p>This is when you might want to fill up image alt attribute in HTML encoded string, or in simple words, may want the above image tag to look something like this:</p>
+
+<p>[code] <img src="http://image-url/image.jpg" alt="&lt;b&gt;Hey, this is &lt;i&gt;caption&lt;/i&gt;&lt;/b&gt;" />[/code]</p>
+
+<h3 id="the-solution">The solution</h3>
+
+<p>Luckily, WordPress provides image hooks which you can use to modify image attributes on the fly. Hence, Here is one function which I think would work best</p>
+
+<p>[code]<a href="https://developer.wordpress.org/reference/hooks/wp\_get\_attachment\_image\_attributes/">wp_get_attachment_image_attributes</a>[/code]</p>
+
+<p>. Here is my solution. You can just copy paste the below code and drop into your theme’s functions.php.</p>
+
+<p>[code lang=”php”]</p>
+
+<p>function my_filter_gallery_img_atts( $atts, $attachment ) {</p>
+
+<p>$atts[‘alt’] = get_post($attachment-&gt;ID)-&gt;post_excerpt; //This get HTML encoded caption for an image</p>
+
+<p>return $atts;</p>
+
+<p>}</p>
+
+<p>add_filter( ‘wp_get_attachment_image_attributes’, ‘my_filter_gallery_img_atts’, 10, 2 );</p>
+
+<p>[/code]</p>
+
+<p> </p>
+
+<p>Hope it works for you. See you next time.</p>
+</div>
+</div>
+
+
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+
+
+<div class="PageNavigation">
+  
+    <a class="prev" href="/implement-xmpp-chat-client-android-part-1/">&laquo; Implement XMPP chat client in Android &#8211; Part 1</a>
+  
+  
+</div>
+
+
+<div class="disqus-comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* <![CDATA[ */
+
+        var disqus_shortname = "aboutashu";
+        var disqus_identifier = "http://localhost:4000_WordPress: HTML encoded image alternate text";
+        var disqus_title = "WordPress: HTML encoded image alternate text";
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    /* ]]> */
+    </script>
+</div>
+
+                <footer>
+                    &copy; Ashutosh Chaudhary
+                     
+                    - <a href="https://github.com/ashutosh2k12">https://github.com/ashutosh2k12</a> - Powered by Jekyll.
+                    
+                </footer>
+            </div><!-- end /.col-sm-8 -->
+        </div><!-- end /.container -->
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <!--
+        <script src="/static/js/jquery.min.js"></script>
+        -->
+        <script src="/static/js/thickbox-compressed.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/static/js/super-search.js"></script>
+        <script src="/static/js/main.js"></script>
+        <script src="/static/js/projects.js"></script>
+    </body>
+</html>

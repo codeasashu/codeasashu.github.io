@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="shortcut icon" href="/static/img/favicon.ico" />
+        <title>How to add wishlist to shopify - Ashutosh Chaudhary</title>
+        <meta name="author" content="Ashutosh Chaudhary" />
+        <meta name="description" content="How to add wishlist to shopify" />
+        <meta name="keywords" content="How to add wishlist to shopify, Ashutosh Chaudhary, Shopify" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+        <link rel="stylesheet" href="https://use.fontawesome.com/74dfc6cf47.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/static/css/syntax.css">
+
+        <!-- Bootstrap core CSS -->
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Fonts -->
+        <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,300italic,300,400italic,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+        <!-- Custom CSS -->        
+        <link rel="stylesheet" href="/static/css/thickbox.css">
+        <link rel="stylesheet" href="/static/css/super-search.css">
+        <link rel="stylesheet" href="/static/css/projects.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="col-sm-3">
+                <a href="/"><img id="about" src="/static/img/avatar.jpg" height="75px" width="75px" /></a>
+                <h1 class="author-name">Ashutosh Chaudhary</h1>
+                
+                <div id="about">
+                    Freelance web, apps developer
+                </div>
+                
+
+                <div class="social">
+	<ul>
+		
+			<li><a href="http://facebook.com/ashutosh2k12" target="_blank"><i class="fa fa-facebook"></i></a></li>
+		
+			<li><a href="skype:ashu2k111" target="_blank"><i class="fa fa-skype"></i></a></li>
+		
+			<li><a href="http://twitter.com/216ashutosh" target="_blank"><i class="fa fa-twitter"></i></a></li>
+		
+			<li><a href="https://in.linkedin.com/in/codeasashu" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+		
+			<li><a href="http://stackexchange.com/users/1155850/ashutosh" target="_blank"><i class="fa fa-stack-exchange"></i></a></li>
+		
+	</ul>
+</div>
+               
+                <div class="search" id="js-search">
+                  <input type="text" placeholder="(sitemap)~$ type to search" class="search__input form-control" id="js-search__input">
+                  <ul class="search__results" id="js-search__results"></ul>
+                </div>
+                <hr />
+                <div class="navigation">
+                <strong>Navigation</strong><br />
+                    &raquo; <a href="/">Home</a> <br />
+                
+                    &raquo; <a class="about" href="/about/">About Me</a><br />
+                
+                    &raquo; <a class="about" href="/projects/">Projects</a><br />
+                
+                    &raquo; <a class="about" href="https://drive.google.com/file/d/0B3Xfz0jTV0TnSjlMRS1DNGlSaTlxaHBEZHdoaGZWd1Q1Wkpn/view?usp=sharing">Resume</a><br />
+                
+                    &raquo; <a class="about" href="https://github.com/ashutosh2k12">Github</a><br />
+                
+                    &raquo; <a class="about" href="/feed.xml">XML Feed</a><br />
+                
+                </div>
+            </div>
+
+            <div class="col-sm-8 col-offset-1">
+                <h1>How to add wishlist to shopify</h1>
+<span class="time">09 Jul 2015</span>
+
+<span class="categories">
+    &raquo; <a href="/category/Shopify">Shopify</a>
+</span>
+
+
+<div class="content">
+    <div class="post"><p>Shopify does not provide “add wishlist” feature natively. It becomes an obvious need for theme developers. So I will help you how to add wishlist to shopify.  <a href="https://github.com/jimlakey/Shopify-Wish-List" title="Wishlist-Shopify">This Github Repo</a> is all you need for a minimal effort development of this feature. So, I am going to tell how can you use the repo files and have the wishlist functionality to your shopify store.</p>
+
+<p><strong>STEP 1</strong>: Download the repo or clone it. you will get 3 files:</p>
+
+<ul>
+  <li>wish-list.js</li>
+  <li>wishlist-page.liquid</li>
+  <li>wishlist-product.liquid</li>
+</ul>
+
+<p><strong>STEP 2</strong>: Go to your shopify store’s admin panel. Navigate to your theme (http://your-store-url.com/admin/themes) and choose “Edit HTML/CSS” from the dropdown of active theme.</p>
+
+<p><strong>STEP 3</strong>: Upload wish-list.js in “assets” directory. [<img src="http://codeasashu.tk/blog/wp-content/uploads/2015/07/add-assets-1024x318.jpg" alt="add-assets" class="aligncenter wp-image-31 size-large" width="1024" height="318" />] Now you have to create wishlist-page.liquid and wishlist-product.liquid in snippets (just above “assets”). Create both the files and copy the contents of the same files you downloaded. [<img src="http://codeasashu.tk/blog/wp-content/uploads/2015/07/wishlist.jpg" alt="wishlist" class="aligncenter wp-image-32 size-full" width="969" height="273" />] Now that you’ve uploaded the 3 files to your shopify, you can forward to next step.</p>
+
+<p><strong>STEP 4</strong>: Now let’s get the things running. So you need 2 things:</p>
+
+<ol>
+  <li>Adding a wishlist button to product pages</li>
+  <li>Making a page where customers can view their wishlist</li>
+</ol>
+
+<p>So, open up product.liquid. What I’m going to do next is very important. So, make sure you do it carefully not making any mistake.</p>
+
+<p>Include the “wishlist-product.liquid” to get the “Add to wishlist” button. So include it as:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">{</span><span class="sx">% include </span><span class="s1">'wishlist-product'</span> <span class="o">%</span><span class="p">}</span>
+ </code></pre></figure>
+
+<p>You can include it anywhere in product.liquid, but within “Add to cart” form. <strong>Make sure it is outside “Add to cart” form or it won’t work</strong>. So, for a minimal example, it will go like:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> 
+<span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s2">"/cart/add"</span> <span class="nb">method</span><span class="o">=</span><span class="s2">"post"</span> <span class="n">enctype</span><span class="o">=</span><span class="s2">"multipart/form-data"</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"product"</span> <span class="n">itemscope</span> <span class="n">itemtype</span><span class="o">=</span><span class="s2">"http://schema.org/Product"</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">meta</span> <span class="n">itemprop</span><span class="o">=</span><span class="s2">"url"</span> <span class="n">content</span><span class="o">=</span><span class="s2">"{{ shop.url }}{{ product.url }}"</span> <span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="n">meta</span> <span class="n">itemprop</span><span class="o">=</span><span class="s2">"image"</span> <span class="n">content</span><span class="o">=</span><span class="s2">"{{ product | img_url: 'grande' }}"</span> <span class="o">/&gt;</span>
+  <span class="p">{</span><span class="sx">% if </span><span class="n">product</span><span class="p">.</span><span class="nf">images</span><span class="p">.</span><span class="nf">size</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">%</span><span class="p">}</span>
+    <span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"images"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">div</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"main_image"</span><span class="o">&gt;&lt;</span><span class="n">img</span> <span class="n">src</span><span class="o">=</span><span class="s2">"{{ '' | img_url: 'grande' }}"</span><span class="o">&gt;&lt;</span><span class="sr">/div&gt;
+      &lt;div id="thumbnails"&gt;
+      &lt;div class="thumbs"&gt;&lt;img src="{{ '' | img_url: 'grande' }}"&gt;&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">div</span> <span class="k">class</span><span class="o">=</span><span class="s2">"thumbs"</span><span class="o">&gt;&lt;</span><span class="n">img</span> <span class="n">src</span><span class="o">=</span><span class="s2">"{{ '' | img_url: 'grande' }}"</span><span class="o">&gt;&lt;</span><span class="sr">/div&gt;
+      &lt;div class="thumbs"&gt;&lt;img src="{{ '' | img_url: 'grande' }}"&gt;&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="sr">/div&gt;&lt;!-- #thumbnails --&gt;
+    &lt;/</span><span class="n">div</span><span class="o">&gt;&lt;!--</span> <span class="c1">#images --&gt;</span>
+  <span class="p">{</span><span class="sx">% else </span><span class="o">%</span><span class="p">}</span>
+
+  <span class="p">{</span><span class="sx">% assign </span><span class="n">featured_image</span> <span class="o">=</span> <span class="n">product</span><span class="p">.</span><span class="nf">selected_or_first_available_variant</span><span class="p">.</span><span class="nf">featured_image</span> <span class="o">|</span> <span class="ss">default: </span><span class="n">product</span><span class="p">.</span><span class="nf">featured_image</span> <span class="sx">%}
+
+&lt;div id="images"&gt;
+&lt;div id="main_image"&gt;&lt;img class="showlight" src="{{ featured_image | img_url: 'grande' }</span><span class="p">}</span><span class="s2">"&gt;&lt;/div&gt;
+  &lt;div id="</span><span class="n">thumbnails</span><span class="s2">"&gt;
+  {% if product.images.size &gt; 1 %}
+        {% for image in product.images %}
+        {% if forloop.index &lt;= 3 %} 
+        &lt;div class="</span><span class="n">thumbs</span><span class="s2">"&gt;&lt;img src="</span><span class="p">{{</span> <span class="n">image</span> <span class="o">|</span> <span class="ss">img_url: </span><span class="s1">'small'</span> <span class="p">}}</span><span class="s2">"&gt;&lt;/div&gt;
+        {% endif %}
+        {% endfor %}
+  {% else %}
+    &lt;div class="</span><span class="n">thumbs</span><span class="s2">"&gt;&lt;img src="</span><span class="p">{{</span> <span class="s1">''</span> <span class="o">|</span> <span class="ss">img_url: </span><span class="s1">'grande'</span> <span class="p">}}</span><span class="s2">"&gt;&lt;/div&gt;
+  {% endif %}
+  &lt;/div&gt;
+  {% endif %}
+  &lt;/div&gt;
+
+&lt;div id="</span><span class="n">info</span><span class="s2">"&gt;
+&lt;div id="</span><span class="nb">name</span><span class="s2">"&gt;{{ product.title }}&lt;/div&gt;
+  {% assign variant = product.selected_or_first_available_variant %}
+          {% if product.compare_at_price &gt; product.price %}
+          &lt;div id="</span><span class="n">price2</span><span class="s2">"&gt;{ variant.price | money }}&lt;/div&gt;
+          &lt;s class="</span><span class="n">product</span><span class="o">-</span><span class="n">compare</span><span class="o">-</span><span class="n">price</span><span class="s2">"&gt;{{ variant.compare_at_price | money }}&lt;/s&gt;
+          {% else %}
+          &lt;div id="</span><span class="n">price2</span><span class="s2">"&gt;{{ variant.price | money }}&lt;/div&gt;
+          {% endif %}
+&lt;div id="</span><span class="n">description</span><span class="s2">"&gt;{{ product.description }}&lt;/div&gt;
+  &lt;div id="</span><span class="n">product</span><span class="o">-</span><span class="n">variants</span><span class="s2">"&gt;
+        &lt;select id="</span><span class="n">product</span><span class="o">-</span><span class="nb">select</span><span class="s2">" name="</span><span class="nb">id</span><span class="s2">"&gt;
+        {% for variant in product.variants %}
+          &lt;option{% if variant == product.selected_or_first_available_variant %} selected{% endif %} value="</span><span class="p">{{</span> <span class="n">variant</span><span class="p">.</span><span class="nf">id</span> <span class="p">}}</span><span class="s2">"&gt;
+          {{ variant.title }} - {{ variant.price | money }}
+          &lt;/option&gt;
+        {% endfor %}
+        &lt;/select&gt;
+      &lt;/div&gt;     
+&lt;div id="</span><span class="n">add</span><span class="s2">"&gt;&lt;input type="</span><span class="n">submit</span><span class="s2">" name="</span><span class="n">add</span><span class="s2">" id="</span><span class="n">addtocart</span><span class="s2">" class="</span><span class="n">primary</span> <span class="n">button</span><span class="s2">" value="</span><span class="p">{{</span> <span class="n">add_to_cart</span> <span class="o">|</span> <span class="n">escape</span> <span class="p">}}</span><span class="s2">"&gt;&lt;/div&gt;
+&lt;/form&gt;
+
+{% include 'wishlist-product' %} &lt;!-- Notice this is outside the "</span><span class="no">Add</span> <span class="n">to</span> <span class="n">cart</span><span class="s2">" form --&gt;
+&lt;/div&gt;
+{{ 'wish-list.js' | asset_url | script_tag }} &lt;!-- Placed at bottom of product.liquid --&gt;</span></code></pre></figure>
+
+<p>If you save the file, you can see a “Add to wishlist” button on product page. Remember, you must be logged-in to make the button work. We’ve completed most of the hard part. The only thing remaining is to view the items of your wishlist.  For that, see next step.</p>
+
+<p><strong>STEP 5</strong>:  Creating a page to view wishlist items- Since there might be many pages already in your store, you should design a separate page for wishlist. Shopify provides it in much convenient way. Basic idea to get a unique page to display some unique content is to have a separate template for that page, then selecting that template in the unique page you create. Since you want wishlist page to show only wishlist items and no other bullshit, here is what you’d do:</p>
+
+<ol>
+  <li>Create a template for wishlist. Go to “Templates” - “Add a new template”. Select “page” from the dropdown and enter “wishlist” into textbox next to it. [<img src="http://codeasashu.tk/blog/wp-content/uploads/2015/07/wishlist-page.jpg" alt="wishlist-page" class="aligncenter wp-image-34 size-full" width="1018" height="281" />]</li>
+  <li>
+    <p>It will create a blank “page.wishlist.liquid” file. Enter following contents to it:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="err">%</span><span class="w"> </span><span class="err">include</span><span class="w"> </span><span class="err">'wishlist-page'</span><span class="w"> </span><span class="err">%</span><span class="p">}</span><span class="w">
+</span><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">'wish-list.js'</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">asset_url</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">script_tag</span><span class="w"> </span><span class="p">}</span><span class="err">}</span><span class="w">
+</span></code></pre>
+    </div>
+  </li>
+</ol>
+
+<p>Note that the “wish-list.js” acts as a controller to wishlist. Removing it will disable the functionality.</p>
+
+<ol>
+  <li>Create a page from “http://your-store-url.com/admin/pages” . Enter Title “Wishlist” and scroll down. You can see a dropdown at bottom, in the “template” section. See the screenshot below[<img src="http://codeasashu.tk/blog/wp-content/uploads/2015/07/page-1024x521.jpg" alt="page" class="aligncenter wp-image-35 size-large" width="1024" height="521" />]</li>
+  <li>Select “page.wishlist” from the dropdown. It is the same template you just create in previous steps. If you are not seeing any “template” section or dropdown like this, this means you have only “page.liquid” in “template” directory. Create “page.wishlist.liquid” as explained.</li>
+</ol>
+
+<p>Now that you have this page where you can view your wishlist, you have completed all the steps. Try logging in and add a product to wishlist. Go to the wishlist page you created and it will show your wishlist items.</p>
+
+<p>Please do comment below if you need any help.</p>
+
+</div>
+</div>
+
+
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+
+
+<div class="PageNavigation">
+  
+    <a class="prev" href="/ruby/2013/12/22/ruby-json.html">&laquo; Parsing JSON with Ruby</a>
+  
+  
+    <a class="next" href="/mobile-computing-notes/">Mobile Computing notes &raquo;</a>
+  
+</div>
+
+
+<div class="disqus-comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* <![CDATA[ */
+
+        var disqus_shortname = "aboutashu";
+        var disqus_identifier = "http://localhost:4000_How to add wishlist to shopify";
+        var disqus_title = "How to add wishlist to shopify";
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    /* ]]> */
+    </script>
+</div>
+
+                <footer>
+                    &copy; Ashutosh Chaudhary
+                     
+                    - <a href="https://github.com/ashutosh2k12">https://github.com/ashutosh2k12</a> - Powered by Jekyll.
+                    
+                </footer>
+            </div><!-- end /.col-sm-8 -->
+        </div><!-- end /.container -->
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <!--
+        <script src="/static/js/jquery.min.js"></script>
+        -->
+        <script src="/static/js/thickbox-compressed.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/static/js/super-search.js"></script>
+        <script src="/static/js/main.js"></script>
+        <script src="/static/js/projects.js"></script>
+    </body>
+</html>

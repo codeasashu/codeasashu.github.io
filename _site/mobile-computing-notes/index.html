@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="shortcut icon" href="/static/img/favicon.ico" />
+        <title>Mobile Computing notes - Ashutosh Chaudhary</title>
+        <meta name="author" content="Ashutosh Chaudhary" />
+        <meta name="description" content="Mobile Computing notes" />
+        <meta name="keywords" content="Mobile Computing notes, Ashutosh Chaudhary, M.Tech, Mobile Computing" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+        <link rel="stylesheet" href="https://use.fontawesome.com/74dfc6cf47.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/static/css/syntax.css">
+
+        <!-- Bootstrap core CSS -->
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Fonts -->
+        <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,300italic,300,400italic,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+        <!-- Custom CSS -->        
+        <link rel="stylesheet" href="/static/css/thickbox.css">
+        <link rel="stylesheet" href="/static/css/super-search.css">
+        <link rel="stylesheet" href="/static/css/projects.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="col-sm-3">
+                <a href="/"><img id="about" src="/static/img/avatar.jpg" height="75px" width="75px" /></a>
+                <h1 class="author-name">Ashutosh Chaudhary</h1>
+                
+                <div id="about">
+                    Freelance web, apps developer
+                </div>
+                
+
+                <div class="social">
+	<ul>
+		
+			<li><a href="http://facebook.com/ashutosh2k12" target="_blank"><i class="fa fa-facebook"></i></a></li>
+		
+			<li><a href="skype:ashu2k111" target="_blank"><i class="fa fa-skype"></i></a></li>
+		
+			<li><a href="http://twitter.com/216ashutosh" target="_blank"><i class="fa fa-twitter"></i></a></li>
+		
+			<li><a href="https://in.linkedin.com/in/codeasashu" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+		
+			<li><a href="http://stackexchange.com/users/1155850/ashutosh" target="_blank"><i class="fa fa-stack-exchange"></i></a></li>
+		
+	</ul>
+</div>
+               
+                <div class="search" id="js-search">
+                  <input type="text" placeholder="(sitemap)~$ type to search" class="search__input form-control" id="js-search__input">
+                  <ul class="search__results" id="js-search__results"></ul>
+                </div>
+                <hr />
+                <div class="navigation">
+                <strong>Navigation</strong><br />
+                    &raquo; <a href="/">Home</a> <br />
+                
+                    &raquo; <a class="about" href="/about/">About Me</a><br />
+                
+                    &raquo; <a class="about" href="/projects/">Projects</a><br />
+                
+                    &raquo; <a class="about" href="https://drive.google.com/file/d/0B3Xfz0jTV0TnSjlMRS1DNGlSaTlxaHBEZHdoaGZWd1Q1Wkpn/view?usp=sharing">Resume</a><br />
+                
+                    &raquo; <a class="about" href="https://github.com/ashutosh2k12">Github</a><br />
+                
+                    &raquo; <a class="about" href="/feed.xml">XML Feed</a><br />
+                
+                </div>
+            </div>
+
+            <div class="col-sm-8 col-offset-1">
+                <h1>Mobile Computing notes</h1>
+<span class="time">27 Sep 2015</span>
+
+<span class="categories">
+    &raquo; <a href="/category/M.Tech">M.Tech</a>, <a href="/category/Mobile Computing">Mobile Computing</a>
+</span>
+
+
+<div class="content">
+    <div class="post"><p>This is only a gentle introduction. I will try to cover as much as I can in further posts. Will make posts topic wise so as to cover everything related to a topic in a single post.</p>
+
+<p><strong>Process Migration- </strong></p>
+
+<ul>
+  <li>Act of transferring processes between two computers, through a wired or wireless medium.</li>
+  <li>A process has its process table, code segments, some data and pointers etc. This all needs to be transferred by some logic.</li>
+  <li>Used to balance load on systems. One overloaded machine can transfer process to an under-loaded one.</li>
+  <li>Originated with distributed systems. Still used in multicore(multiple processors) systems as part of process scheduling of OS.</li>
+</ul>
+
+<p><strong>Mobile Computing-</strong></p>
+
+<ul>
+  <li>Defined as <em>ability to use technology</em>(<em>this part is called as computing</em>) to access to some centrally located resources/information by remote and mobile devices such as  smartphones.</li>
+  <li>Mobility is divided into 3 categories:
+    <ol>
+      <li><span style="text-decoration: underline;">Macro Mobility</span>: When moving into and out of a global network. Maintaining connectivity is main challenge here. <em>Mobile IP</em> take cares for this one.</li>
+      <li><span style="text-decoration: underline;">Micro Mobility</span>: When moving inside one region(cell) only. <em>Cellular IP</em> take cares for this</li>
+      <li><span style="text-decoration: underline;">Ad hoc Mobility</span>: Refers to mobility within an Mobile Ad hoc Networks(MANET). Happens due to continuous changes in the network infrastructure. Thus, the infrastructure-less networks (<em>MANET</em>) take cares for this one.</li>
+    </ol>
+  </li>
+  <li>Major benefit is increased computation power regardless of location/infrastructure. Wether be it a office or restaurant, you’ll always be connected to remote services, thus increasing productivity.</li>
+</ul>
+
+<p><strong>Mobile Agents</strong>–</p>
+
+<ul>
+  <li>Programs that moves across the networks, here and there, on behalf of user.</li>
+  <li>Gathers information as well as execute automated tasks given by users.</li>
+  <li>Specifically, “<em>A mobile agent is a composition of computer program, data, and execution state, which is able to move from one computer to another autonomously and continue its execution on the destination computer</em>“</li>
+  <li>Widely used by e-commerce industries, stock holders etc. It is a specific form of <a title="Wikipedia" href="https://en.wikipedia.org/wiki/Mobile_code" target="_blank">mobile code</a></li>
+  <li>Examples are- agent Tcl, aglet etc.</li>
+  <li><strong>Working (TL;DR)</strong> : The program can suspend its execution at an arbitrary point, transport itself to another machine, and then resume execution from the point of suspension.</li>
+</ul>
+
+<p> </p>
+
+<p> </p>
+</div>
+</div>
+
+
+
+    
+    
+        
+            
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+            
+        
+    
+
+    
+    
+        
+            
+                
+                <div class="panel-body">
+                <h4>Related Posts</h4>
+                <ul>
+                
+                <li class="relatedPost">
+                    <a href="http://localhost:4000/process-migration/">Process Migration</a>
+                    
+                        (Categories: <a href="/category/M.Tech">M.Tech</a>, <a href="/category/Mobile Computing">Mobile Computing</a>)
+                    
+                </li>
+                
+                
+            
+        
+            
+        
+    
+        
+            
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+            
+        
+    
+        
+            
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+            
+        
+    
+
+
+    </ul>
+    </div>
+
+
+<div class="PageNavigation">
+  
+    <a class="prev" href="/how-to-add-wishlist-to-shopify/">&laquo; How to add wishlist to shopify</a>
+  
+  
+    <a class="next" href="/process-migration/">Process Migration &raquo;</a>
+  
+</div>
+
+
+<div class="disqus-comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* <![CDATA[ */
+
+        var disqus_shortname = "aboutashu";
+        var disqus_identifier = "http://localhost:4000_Mobile Computing notes";
+        var disqus_title = "Mobile Computing notes";
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    /* ]]> */
+    </script>
+</div>
+
+                <footer>
+                    &copy; Ashutosh Chaudhary
+                     
+                    - <a href="https://github.com/ashutosh2k12">https://github.com/ashutosh2k12</a> - Powered by Jekyll.
+                    
+                </footer>
+            </div><!-- end /.col-sm-8 -->
+        </div><!-- end /.container -->
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <!--
+        <script src="/static/js/jquery.min.js"></script>
+        -->
+        <script src="/static/js/thickbox-compressed.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/static/js/super-search.js"></script>
+        <script src="/static/js/main.js"></script>
+        <script src="/static/js/projects.js"></script>
+    </body>
+</html>

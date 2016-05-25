@@ -1,0 +1,49 @@
+---
+layout: default
+---
+<article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <hr />
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+
+    <div class="projects">
+    {% include project_tags.html %}
+    {% for i in site.data.projects %}
+    	<div class="project-item project-outer" data-tags='{{ i.tags | jsonify | downcase }}'>
+    		<div class="project-inner">
+    			<a href="/static/projects/{{ i.image }}" class="thickbox">
+    			<div class="project-img bordered" style="background-image: url('/static/projects/{{ i.image }}');"></div>
+                </a>
+                <a href="#">
+    			<h3 class="project-headlines">{{ i.name }}</h3>
+    			</a>
+    			<div class="project-content">
+    				<div class="tag-holder">
+    				{% if i.tags %} 
+    					{% for j in i.tags %}
+    					<span class="tags tag-filter" data-tag="{{ j | downcase }}"><a href="#">{{ j }}</a></span>
+    					{% endfor %}
+    				{% endif %}
+    				</div>
+    				
+    			</div>
+    			<div class="project-footer"> 
+    				{% if i.url %} 
+    				<a href="#" class="project-link">View</a>
+    				{% endif %}
+    				<span class="project-timeline">Jan 2014</span>
+    			</div>
+    		</div>
+    		<hr>
+    	</div>
+
+    {% endfor %}
+    </div>
+  </div>
+
+</article>

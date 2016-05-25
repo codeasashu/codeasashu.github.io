@@ -1,528 +1,614 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Stack Problems</title>
-    <description>My Personal Stack Problems</description>
-    <link>https://agusmakmun.github.io/</link>
-    <atom:link href="https://agusmakmun.github.io/sitemap.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 19 May 2016 07:03:25 +0530</pubDate>
-    <lastBuildDate>Thu, 19 May 2016 07:03:25 +0530</lastBuildDate>
+    <title>Ashutosh Chaudhary</title>
+    <description>My Personal Blog</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/sitemap.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 25 May 2016 12:55:42 +0530</pubDate>
+    <lastBuildDate>Wed, 25 May 2016 12:55:42 +0530</lastBuildDate>
     <generator>Jekyll v3.1.3</generator>
     
       <item>
-        <title>Javascript Validator for Input Number</title>
-        <description>&lt;p&gt;This javascript will validate/allow the number only when event key is pressed.
-For example result of it:&lt;/p&gt;
+        <title>WordPress: HTML encoded image alternate text</title>
+        <description>&lt;p&gt;The WordPress media manager allows you to add captions to your images, which can be inserted into your post content wrapped in the &lt;strong&gt;caption&lt;/strong&gt; shortcode. However, image alternate text are inserted as plaintext. You can now use HTML encoded image alternate text with few lines of code.&lt;/p&gt;
 
-&lt;iframe width=&quot;100%&quot; height=&quot;350&quot; src=&quot;//jsfiddle.net/agaust/3qz105nn/embedded/html,result/dark/&quot; allowfullscreen=&quot;allowfullscreen&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+&lt;div id=&quot;attachment_145&quot; style=&quot;width: 295px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
+  &lt;a href=&quot;http://aboutashu.com/blog/wp-content/uploads/2016/05/image_alt.png&quot;&gt;&lt;img class=&quot;wp-image-145 size-full&quot; title=&quot;Image alternate text&quot; src=&quot;http://aboutashu.com/blog/wp-content/uploads/2016/05/image_alt.png&quot; alt=&quot;Sample gallery image&quot; width=&quot;285&quot; height=&quot;480&quot; srcset=&quot;http://107.170.45.123/blog/wp-content/uploads/2016/05/image_alt.png 285w, http://107.170.45.123/blog/wp-content/uploads/2016/05/image_alt-178x300.png 178w&quot; sizes=&quot;(max-width: 285px) 100vw, 285px&quot; /&gt;&lt;/a&gt;
+  
+  &lt;p class=&quot;wp-caption-text&quot;&gt;
+    Sample gallery image
+  &lt;/p&gt;
+&lt;/div&gt;
 
-&lt;p&gt;tutorial above, when you can not directly add the attribute inside html tag.
-but if you can add it, you can following this tutorial bellow:&lt;/p&gt;
+&lt;p&gt;As you can see, I’ve left the “Alt text” section blank, while providing the caption for the image. The caption I provided contains HTML string, containing &lt;i&gt; and &lt;br /&gt; attributes. You may also want to include links to original author of image, or may want to link to some sources.  Wordpress, upon encountering blank image alternate text (Alt text section in above image), uses caption to fill the “alt” attribute of the image. Hence the image on post page will look like:&lt;/i&gt;&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;id_price&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;number&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;min=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;onkeypress=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;return isNumber(event)&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;isNumber&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;evt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;evt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;evt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;evt&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;charCode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;evt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;which&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;evt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;which&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;evt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;keyCode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;charCode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;charCode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;48&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;charCode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;57&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;p&gt;[code] &amp;lt;img src=”http://someexamplesite.com/path/to/image/image.jpg” alt=”your caption in plaintext here” …. /&amp;gt;[/code]&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Refference:&lt;/strong&gt; &lt;a href=&quot;http://stackoverflow.com/a/7295864&quot;&gt;http://stackoverflow.com/a/7295864&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;the-problem&quot;&gt;The problem&lt;/h3&gt;
 
-&lt;p&gt;hope it usefull.&lt;/p&gt;
+&lt;p&gt;When you are using some plugins to show image gallery, they generally rely on caption and alternate text to show image description. In such cases, it becomes necessity to have alternate text in HTML entity rather than plaintext. But wordpress converts down the caption to plaintext and then fills up alt attribute of image. Hence, even if your caption reads&lt;/p&gt;
+
+&lt;p&gt;[code]&lt;b&gt;Hey, this is &lt;i&gt;caption&lt;/i&gt;&lt;/b&gt;[/code]&lt;/p&gt;
+
+&lt;p&gt;, the image alt will come up like:&lt;/p&gt;
+
+&lt;p&gt;[code] &lt;img src=&quot;http://image-url/image.jpg&quot; alt=&quot;Hey, this is caption&quot; /&gt;[/code]&lt;/p&gt;
+
+&lt;p&gt;This is when you might want to fill up image alt attribute in HTML encoded string, or in simple words, may want the above image tag to look something like this:&lt;/p&gt;
+
+&lt;p&gt;[code] &lt;img src=&quot;http://image-url/image.jpg&quot; alt=&quot;&amp;lt;b&amp;gt;Hey, this is &amp;lt;i&amp;gt;caption&amp;lt;/i&amp;gt;&amp;lt;/b&amp;gt;&quot; /&gt;[/code]&lt;/p&gt;
+
+&lt;h3 id=&quot;the-solution&quot;&gt;The solution&lt;/h3&gt;
+
+&lt;p&gt;Luckily, WordPress provides image hooks which you can use to modify image attributes on the fly. Hence, Here is one function which I think would work best&lt;/p&gt;
+
+&lt;p&gt;[code]&lt;a href=&quot;https://developer.wordpress.org/reference/hooks/wp\_get\_attachment\_image\_attributes/&quot;&gt;wp_get_attachment_image_attributes&lt;/a&gt;[/code]&lt;/p&gt;
+
+&lt;p&gt;. Here is my solution. You can just copy paste the below code and drop into your theme’s functions.php.&lt;/p&gt;
+
+&lt;p&gt;[code lang=”php”]&lt;/p&gt;
+
+&lt;p&gt;function my_filter_gallery_img_atts( $atts, $attachment ) {&lt;/p&gt;
+
+&lt;p&gt;$atts[‘alt’] = get_post($attachment-&amp;gt;ID)-&amp;gt;post_excerpt; //This get HTML encoded caption for an image&lt;/p&gt;
+
+&lt;p&gt;return $atts;&lt;/p&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;add_filter( ‘wp_get_attachment_image_attributes’, ‘my_filter_gallery_img_atts’, 10, 2 );&lt;/p&gt;
+
+&lt;p&gt;[/code]&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Hope it works for you. See you next time.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 26 Apr 2016 02:49:22 +0530</pubDate>
-        <link>https://agusmakmun.github.io/others/2016/04/26/javascript-validator-for-input-number.html</link>
-        <guid isPermaLink="true">https://agusmakmun.github.io/others/2016/04/26/javascript-validator-for-input-number.html</guid>
+        <pubDate>Sat, 07 May 2016 12:50:59 +0530</pubDate>
+        <link>http://localhost:4000/wordpress-html-encoded-image-alternate-text/</link>
+        <guid isPermaLink="true">http://localhost:4000/wordpress-html-encoded-image-alternate-text/</guid>
+        
+        <category>filter</category>
+        
+        <category>image</category>
+        
+        <category>wordpress</category>
         
         
-        <category>others</category>
+        <category>Wordpress</category>
         
       </item>
     
       <item>
-        <title>Setup Django in apache2 Raspberry Pi</title>
-        <description>&lt;p&gt;Setup Django in apache2 Raspberry Pi. Example in this configuration for monitoring the server raspberry pi using &lt;a href=&quot;https://github.com/k3oni/pydash/&quot;&gt;https://github.com/k3oni/pydash/&lt;/a&gt;.&lt;/p&gt;
+        <title>Implement XMPP chat client in Android &amp;#8211; Part 1</title>
+        <description>&lt;p&gt;In the &lt;a href=&quot;http://aboutashu.com/blog/xmpp-chat-server/&quot;&gt;last post&lt;/a&gt; of this series, I talked about setting up XMPP based chat server, using ejabberd. In this post, I will be talking about how to implement XMPP chat client in android and let two users talk to each other. After reading this post, you’ll be able to&lt;/p&gt;
 
-&lt;p&gt;As following this configurations &lt;a href=&quot;https://github.com/k3oni/pydash/wiki/Install-pyDash#3-setup-apache&quot;&gt;https://github.com/k3oni/pydash/wiki/Install-pyDash#3-setup-apache&lt;/a&gt;, how to setup it.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Implement chat system such as whatsapp in your own android app&lt;/li&gt;
+  &lt;li&gt;Allow multiple users to chat with each other&lt;/li&gt;
+  &lt;li&gt;Making the chat as service so that chat messages still come through even while app is in background&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Edit in your:&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2 id=&quot;xmpp-client&quot;&gt;XMPP Client&lt;/h2&gt;
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/etc/apache2/sites-available/pydash.conf
+&lt;p&gt;XMPP Clients is a software or application which allows you to connect to XMPP servers for instant messaging with other people. Simple enough!! If you are a frequent internet user, you must’ve used one to many XMPP clients such as pidgin, gtalk, Yahoo! IM etc. which allows you to send Instant Message to other users you are connected to. What we will do this in post is to make one such client in android.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-you-will-need&quot;&gt;What You will need&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;An android IDE for app development. While I prefer &lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;Android Studio&lt;/a&gt;, while &lt;a href=&quot;https://eclipse.org/&quot;&gt;Eclipse&lt;/a&gt; also does the job.&lt;/li&gt;
+  &lt;li&gt;Decent Working internet.&lt;/li&gt;
+  &lt;li&gt;1-2 hours patience&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;starting-the-project&quot;&gt;Starting the Project&lt;/h2&gt;
+
+&lt;p&gt;Lets begin!!&lt;/p&gt;
+
+&lt;h4 id=&quot;creating-the-project&quot;&gt;Creating the project:&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Open Android studio and hit the button “Start a new Android Studio project”.&lt;/li&gt;
+  &lt;li&gt;Enter anything in “Application name”. For ex- Chatterbox . Hit &lt;em&gt;next&lt;/em&gt; button.&lt;/li&gt;
+  &lt;li&gt;Choose API level here. Google for what you should choose. Mine have API level 15. Hit &lt;em&gt;next.&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;Choose “Blank Activity” in next screen and hit the &lt;em&gt;next&lt;/em&gt; button.&lt;/li&gt;
+  &lt;li&gt;Click “finish” button to start your project.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;After this, android studio will bring up XML layout editor and Activity with some default code. We will be using same activity to start a chat.&lt;/p&gt;
+
+&lt;h4 id=&quot;importing-necessary-things-i-mean-libraries&quot;&gt;Importing necessary things (I mean, libraries):&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;In the left pane of android studio, you will see lots of directory list and some files. Choose app’s build.gradle (not the one outside the app folder). See image below for reference.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[&amp;lt;img class=&quot;aligncenter size-full wp-image-138&quot; src=&quot;http://aboutashu.com/blog/wp-content/uploads/2016/04/gt1.png&quot; alt=&quot;gt1&quot; width=&quot;242&quot; height=&quot;309&quot; srcset=&quot;http://107.170.45.123/blog/wp-content/uploads/2016/04/gt1.png 242w, http://107.170.45.123/blog/wp-content/uploads/2016/04/gt1-235x300.png 235w&quot; sizes=&quot;(max-width: 242px) 100vw, 242px&quot; /&amp;gt;](http://aboutashu.com/blog/wp-content/uploads/2016/04/gt1.png)   2. Enter following code in dependencies list 
+[code]
+  
+dependencies {
+  
+compile fileTree(dir: &amp;amp;#8216;libs&amp;amp;#8217;, include: [&amp;amp;#8216;*.jar&amp;amp;#8217;])
+  
+compile &amp;amp;#8216;com.android.support:appcompat-v7:22.2.0&amp;amp;#8217;
+  
+compile &quot;org.igniterealtime.smack:smack-android-extensions:4.1.0&quot;
+  
+compile &quot;org.igniterealtime.smack:smack-tcp:4.1.0&quot;
+  
+[/code]
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;and then, add this configuration:&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Listen&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;192&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;168&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;27&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8001&lt;/span&gt;
-
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;VirtualHost&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8001&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;no&quot;&gt;ServerName&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;192&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;168&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;27&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pydash&lt;/span&gt;
-    &lt;span class=&quot;no&quot;&gt;ServerAlias&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;192&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;168&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;27&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8001&lt;/span&gt;
-    &lt;span class=&quot;no&quot;&gt;DocumentRoot&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/var/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;www&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pydash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;
-    &lt;span class=&quot;no&quot;&gt;WSGIDaemonProcess&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pydash&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;%{GROUP}&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;python&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/var/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;www&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pydash&lt;/span&gt;
-    &lt;span class=&quot;no&quot;&gt;WSGIProcessGroup&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pydash&lt;/span&gt;
-    &lt;span class=&quot;no&quot;&gt;WSGIScriptAlias&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/ /&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;www&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pydash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pydash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wsgi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;py&lt;/span&gt;
-    &lt;span class=&quot;no&quot;&gt;Alias&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/static /&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;www&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pydash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;static&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;
-    &lt;span class=&quot;no&quot;&gt;Alias&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/media /&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;www&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pydash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;media&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/VirtualHost&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Now restart or reload your apache&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;service apache2 restart
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;And then, you can access from another client with IP: &lt;code class=&quot;highlighter-rouge&quot;&gt;192.168.1.27:8001&lt;/code&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Thanks to: &lt;em&gt;Nabil Abdat&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
 </description>
-        <pubDate>Wed, 20 Apr 2016 21:02:34 +0530</pubDate>
-        <link>https://agusmakmun.github.io/django/raspberry/2016/04/20/setup-django-in-apache2-raspberry-pi.html</link>
-        <guid isPermaLink="true">https://agusmakmun.github.io/django/raspberry/2016/04/20/setup-django-in-apache2-raspberry-pi.html</guid>
+        <pubDate>Sun, 01 May 2016 14:09:37 +0530</pubDate>
+        <link>http://localhost:4000/implement-xmpp-chat-client-android-part-1/</link>
+        <guid isPermaLink="true">http://localhost:4000/implement-xmpp-chat-client-android-part-1/</guid>
         
         
-        <category>django</category>
-        
-        <category>raspberry</category>
+        <category>Uncategorized</category>
         
       </item>
     
       <item>
-        <title>Adding BroadCast Mail to All Users Registered inside Django Admin</title>
-        <description>&lt;p&gt;Adding BroadCast Mail to All User Registered in Django Admin. This is my last problem, we need custom default Django Admin to can submit BroadCast mail to All User. Because this is perfectly to make a promotions.&lt;/p&gt;
+        <title>Creating XMPP chat server</title>
+        <description>&lt;h2 id=&quot;creating-xmpp-chatserver&quot;&gt;Creating XMPP chat server&lt;/h2&gt;
 
-&lt;p&gt;This problem has been helped by our Danny W. Adair who are answered someone’s question about the &lt;a href=&quot;http://stackoverflow.com/a/5803941/3445802&quot;&gt;“Django Admin Customizing”&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In this part of series, I am going to show you how to create an XMPP chat server.&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;In this configuration, we use gmail for email backend. Please following this tutorial first &lt;a href=&quot;https://agusmakmun.github.io/python/django/2016/04/18/email-backend-with-smtp-gmail.html&quot;&gt;Email BackEnd with SMTP Gmail&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;To build your own XMPP based chat solution in android, you need to have two important things:&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;ol&gt;
+  &lt;li&gt;XMPP based chat server&lt;/li&gt;
+  &lt;li&gt;XMPP integration in your android code&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; In your &lt;code class=&quot;highlighter-rouge&quot;&gt;models.py&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;XMPP chat server or XMPP server is the one that handles chat database, configurations, user, options etc. Basically, it is a chat server that handles your chat backend. What remains is to implement the chat in your own language and have fun.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BroadCast_Email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;subject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;created&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateTimeField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;timezone&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;now&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RichTextUploadingField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;p&gt;There are many variations of XMPP chat servers available today. You can use any of them depending on your requirements and available configurations. What I would recommend are &lt;a href=&quot;http://www.igniterealtime.org/projects/openfire/&quot;&gt;openfire&lt;/a&gt; and &lt;a href=&quot;https://www.ejabberd.im/&quot;&gt;ejabberd&lt;/a&gt;.&lt;/p&gt;
 
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__unicode__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subject&lt;/span&gt;
+&lt;p&gt;Personally, I am going to use ejabberd to setup XMPP chat server. Let’s get into action. For now, I am using &lt;a href=&quot;https://www.digitalocean.com&quot;&gt;DigitalOcean VPS&lt;/a&gt; with Ubuntu Server 14.04 LTS installed, to host the server. You can test it with your own localhost machine.&lt;/p&gt;
 
-    &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Meta&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;verbose_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;BroadCast Email to all Member&quot;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;verbose_name_plural&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;BroadCast Email&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;ol&gt;
+  &lt;li&gt;Connect to your ubuntu box using SSH. This will bring you to console screen. If you are using ubuntu in your local machine, you can safely skip this step.&lt;/li&gt;
+  &lt;li&gt;Run the command &lt;span class=&quot;lang:default decode:true crayon-inline&quot;&gt;sudo apt-get update&lt;/span&gt; to update any packages.&lt;/li&gt;
+  &lt;li&gt;Enter following command to install ejabberd to your ubuntu powered machine:&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;hr /&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[code]sudo apt-get -y install ejabberd[/code]&amp;lt;/p&amp;gt; 
+This will install ejabberd and will also create a configuration file which you can edit to have your own jabberd configuration. We will be editing the file in below step.&amp;lt;/li&amp;gt; 
 
-&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt; In your &lt;code class=&quot;highlighter-rouge&quot;&gt;admin.py&lt;/code&gt;, importing some module for “admin” and for “email setup”.&lt;/p&gt;
+  * Time to edit the configuration file now. Enter the following command to bring up nano editor &amp;lt;span class=&quot;lang:default decode:true crayon-inline &quot;&amp;gt;sudo nano /etc/ejabberd/ejabberd.cfg&amp;lt;/span&amp;gt; . You&amp;amp;#8217;ll see a lot of text there and lot of options. Don&amp;amp;#8217;t worry. You only have edit 3-4 options overall. I&amp;amp;#8217;ll be doing them below, so pay attention.
+  * In the nano screen, you will see the configuration file as shown below &amp;lt;div id=&quot;attachment_130&quot; style=&quot;width: 1336px&quot; class=&quot;wp-caption aligncenter&quot;&amp;gt;
+      &amp;lt;a href=&quot;http://aboutashu.com/blog/wp-content/uploads/2016/04/nano.png&quot;&amp;gt;&amp;lt;img class=&quot;wp-image-130 size-full&quot; title=&quot;ejabberd.cfg&quot; src=&quot;http://aboutashu.com/blog/wp-content/uploads/2016/04/nano.png&quot; alt=&quot;ejabberd.cfg&quot; width=&quot;1326&quot; height=&quot;619&quot; srcset=&quot;http://107.170.45.123/blog/wp-content/uploads/2016/04/nano.png 1326w, http://107.170.45.123/blog/wp-content/uploads/2016/04/nano-300x140.png 300w, http://107.170.45.123/blog/wp-content/uploads/2016/04/nano-768x359.png 768w, http://107.170.45.123/blog/wp-content/uploads/2016/04/nano-1024x478.png 1024w&quot; sizes=&quot;(max-width: 1326px) 100vw, 1326px&quot; /&amp;gt;&amp;lt;/a&amp;gt;
+      
+      &amp;lt;p class=&quot;wp-caption-text&quot;&amp;gt;
+        ejabberd configuration file
+      &amp;lt;/p&amp;gt;
+    &amp;lt;/div&amp;gt;
+    
+    Use your cursor to move below and find the line which has this text:
+    
+    &amp;lt;pre class=&quot;&quot;&amp;gt;&amp;lt;code&amp;gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%% %% Options which are set by Debconf and managed by ucf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.contrib&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;admin&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.utils.safestring&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mark_safe&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;threading&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.conf&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;settings&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.http&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.core.mail&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send_mail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BadHeaderError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;EmailMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.contrib.auth.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;
+&lt;p&gt;%% Admin user
+{acl, admin, {user, “admin”, “localhost”}}.&lt;/p&gt;
 
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;EmailThread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;threading&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;subject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;html_content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recipient_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;subject&lt;/span&gt;
-        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recipient_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recipient_list&lt;/span&gt;
-        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html_content&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;html_content&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;threading&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Thread&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;p&gt;%% Hostname
+{hosts, [“localhost”]}.&lt;/p&gt;
 
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;EmailMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;html_content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;settings&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;EMAIL_HOST_USER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recipient_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content_subtype&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;html&quot;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BadHeaderError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;Invalid header found.&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;p&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&amp;lt;/code&amp;gt;
+&amp;lt;/pre&amp;gt;&lt;/p&gt;
 
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BroadCast_Email_Admin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ModelAdmin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BroadCast_Email&lt;/span&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    `{acl, admin, {user, &quot;admin&quot;, &quot;localhost&quot;}}.` This line tells that user with username &amp;amp;#8220;admin@localhost&amp;amp;#8221; is admin of ejabberd configuration. We can add multiple users here to make them admin. Let&amp;amp;#8217;s add one. So, press enter key and add similar line with different username.
+    
+    &amp;lt;span class=&quot;lang:default decode:true crayon-inline &quot;&amp;gt;{acl, admin, {user, &amp;amp;#8220;myusername&amp;amp;#8221;, &amp;amp;#8220;localhost&amp;amp;#8221;}}.&amp;lt;/span&amp;gt;
+    
+    %% Hostname defines the server at which ejabberd should listen and connect. If you are not using a local machine (i.e you are using VPS such as DigitalOcean) to host the XMPP chat server, you can mention the domain name or IP address here. I am assuming example.com as my VPS domain name, hence I will modify this line as:
+    
+    &amp;lt;pre class=&quot;&quot;&amp;gt;&amp;lt;code&amp;gt;%% Hostname {hosts, [&quot;localhost&quot;,&quot;example.com&quot;]}.&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
+    
+    Thats all the changes you have to make for now. Once you have made the above changes, the cfg file will now look like:
+    
+    &amp;lt;pre class=&quot;&quot;&amp;gt;&amp;lt;code&amp;gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%% %% Options which are set by Debconf and managed by ucf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;submit_email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#`obj` is queryset, so there we only use first selection, exacly obj[0]&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;list_email_user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#: if p.email != settings.EMAIL_HOST_USER   #this for exception&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;obj_selected&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;EmailThread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;obj_selected&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;subject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mark_safe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;obj_selected&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list_email_user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;submit_email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;short_description&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;Submit BroadCast (1 Select Only)&#39;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;submit_email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;allow_tags&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+&lt;p&gt;%% Admin user
+{acl, admin, {user, “admin”, “localhost”}}.
+&amp;lt;/code&amp;gt;&lt;code&gt;{acl, admin, {user, &quot;myusername&quot;, &quot;localhost&quot;}}&lt;/code&gt;&lt;/p&gt;
 
-    &lt;span class=&quot;n&quot;&gt;actions&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;submit_email&#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;p&gt;&amp;lt;/code&amp;gt;&lt;code&gt; %% Hostname 
+{hosts, [&quot;localhost&quot;,&quot;example.com&quot;]}.&lt;/code&gt;&lt;/p&gt;
 
-    &lt;span class=&quot;n&quot;&gt;list_display&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;subject&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;created&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;search_fields&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;subject&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,]&lt;/span&gt;
+&lt;p&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&lt;/p&gt;
 
-&lt;span class=&quot;n&quot;&gt;admin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BroadCast_Email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BroadCast_Email_Admin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  * Now exit the nano editor by pressing CTRL + X. This will prompt you if you want to overwrite the previous cfg file, press &amp;amp;#8220;Y&amp;amp;#8221;, then press Enter again to confirm. This will bring you back to terminal screen.
+  * We have mentioned that &amp;amp;#8220;myusername&amp;amp;#8221; is another user holding administrative rights to ejabberd, but we still didn&amp;amp;#8217;t mentioned his password. User &amp;amp;#8220;myusername&amp;amp;#8221; has to be registered to XMPP server, right? Lets register him as well. Enter following command to register: &amp;lt;pre class=&quot;&quot;&amp;gt;ejabberdctl register myusername localhost password
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&amp;lt;/pre&amp;gt;&lt;/p&gt;
 
-&lt;hr /&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    Replace &amp;amp;#8220;password&amp;amp;#8221; with whatever password you want to use to login. Once you are done with this, You have to re-start your ejabberd server by issuing this command:
+    
+    &amp;lt;pre class=&quot;&quot;&amp;gt;service ejabberd restart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&amp;lt;/pre&amp;gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;3.&lt;/strong&gt; And then, you can see. we have &lt;strong&gt;Submit BroadCast&lt;/strong&gt; selection, just click button &lt;strong&gt;Go&lt;/strong&gt; to submit broadcast mail.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  * Fire up your public domain name in your favorite browser on port 5280 to login to ejabberd server: http://example.com:5280 .This will bring up webpage asking you for username and password. Login with username: myusername@localhost, password: whatever you mentioned in step 7.**NOTE**: If you are using local machine, your domain would be your local ip address. In windows, you can find this by executing _ipconfig _command in command prompt (It will be in the form 192.168.0.xxx), while for ubuntu, you can use _ifconfig. _
+  
+    [&amp;lt;img class=&quot;aligncenter size-full wp-image-131&quot; src=&quot;http://aboutashu.com/blog/wp-content/uploads/2016/04/ejabberd-amin.png&quot; alt=&quot;ejabberd amin&quot; width=&quot;1366&quot; height=&quot;561&quot; srcset=&quot;http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-amin.png 1366w, http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-amin-300x123.png 300w, http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-amin-768x315.png 768w, http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-amin-1024x421.png 1024w&quot; sizes=&quot;(max-width: 1366px) 100vw, 1366px&quot; /&amp;gt;](http://aboutashu.com/blog/wp-content/uploads/2016/04/ejabberd-amin.png)
+  * Once logged in, you&amp;amp;#8217;ll see admin panel like this[&amp;lt;img class=&quot;aligncenter size-full wp-image-132&quot; src=&quot;http://aboutashu.com/blog/wp-content/uploads/2016/04/ejabberd-admin-2.png&quot; alt=&quot;ejabberd admin portal&quot; width=&quot;1366&quot; height=&quot;364&quot; srcset=&quot;http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-admin-2.png 1366w, http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-admin-2-300x80.png 300w, http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-admin-2-768x205.png 768w, http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-admin-2-1024x273.png 1024w&quot; sizes=&quot;(max-width: 1366px) 100vw, 1366px&quot; /&amp;gt;](http://aboutashu.com/blog/wp-content/uploads/2016/04/ejabberd-admin-2.png)&amp;lt;/ol&amp;gt; 
 
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/agusmakmun/agusmakmun.github.io/master/static/img/_posts/Broadcast_Mail.png&quot; alt=&quot;Screenshot broadcast&quot; title=&quot;Screenshot broadcast&quot; /&gt;&lt;/p&gt;
+&amp;amp;nbsp;
 
+You have now successfully installed ejabberd on your machine and can be used to connect to any XMPP based chat client. In the next post, you&amp;amp;#8217;ll learn how to implement XMPP chat client in android code. Have fun!!
+
+Thanks for going threw entire long post. Please like and share if you like the article. Ask anything in comments below.
+
+### Troubleshooting:
+
+Sometimes, ejabberd might not open up in your browser and will give &amp;amp;#8220;Connection timed out&amp;amp;#8221; error. It usually happens if firewall is blocking ports on which ejabberd relies for communication stuffs. Usually those ports are 5222, 5269, 5280. You can try opening those ports like I did below:
+
+  1. Enter following commands in terminal: 
+        iptables -A INPUT -p tcp --dport 5222 -j ACCEPT
+        iptables -A INPUT -p tcp --dport 5269 -j ACCEPT
+        iptables -A INPUT -p tcp --dport 5280 -j ACCEPT
+
+  2. Open up **/etc/hosts** file by &amp;lt;span class=&quot;lang:default decode:true crayon-inline &quot;&amp;gt;sudo nano /etc/hosts&amp;lt;/span&amp;gt;  and add your domain name into it (assuming your public ip address is 123.123.10.210) : 
+        123.123.10.210 example.com
+
+  3. Allow ubuntu firewall 
+        sudo ufw allow 5222
+        sudo ufw allow 5269
+        sudo ufw allow 5280
+    
+    &amp;amp;nbsp;&amp;lt;/li&amp;gt; &amp;lt;/ol&amp;gt; 
+    
+    This will open the ports and allow public connections, which should fix the issue.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 </description>
-        <pubDate>Wed, 20 Apr 2016 18:21:02 +0530</pubDate>
-        <link>https://agusmakmun.github.io/python/django/2016/04/20/adding-broadcast-mail-to-all-users-registered-inside-django-admin.html</link>
-        <guid isPermaLink="true">https://agusmakmun.github.io/python/django/2016/04/20/adding-broadcast-mail-to-all-users-registered-inside-django-admin.html</guid>
+        <pubDate>Sat, 30 Apr 2016 15:32:06 +0530</pubDate>
+        <link>http://localhost:4000/xmpp-chat-server/</link>
+        <guid isPermaLink="true">http://localhost:4000/xmpp-chat-server/</guid>
+        
+        
+        <category>Uncategorized</category>
+        
+      </item>
+    
+      <item>
+        <title>Get video links from Coursera</title>
+        <description>&lt;p&gt;I have gone threw coursera classes now and then. What I felt is need for a coursera video downloader. I searched but couldn’t found any good working one.&lt;/p&gt;
+
+&lt;p&gt;Hence here is a small script I developed which would give you all video links from coursera. Here is what you’ll have to do:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Goto your class. For ex- Mine was  https://www.coursera.org/course/startup&lt;/li&gt;
+  &lt;li&gt;Enroll and go to “video lectures” from left tab. Here is the screenshot&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;a href=&quot;http://aboutashu.com/blog/wp-content/uploads/2016/01/v1.jpg&quot; rel=&quot;attachment wp-att-79&quot;&amp;gt;&amp;lt;img class=&quot;alignnone size-medium wp-image-79&quot; src=&quot;http://aboutashu.com/blog/wp-content/uploads/2016/01/v1-300x277.jpg&quot; alt=&quot;v1&quot; width=&quot;300&quot; height=&quot;277&quot; srcset=&quot;http://107.170.45.123/blog/wp-content/uploads/2016/01/v1-300x277.jpg 300w, http://107.170.45.123/blog/wp-content/uploads/2016/01/v1.jpg 702w&quot; sizes=&quot;(max-width: 300px) 100vw, 300px&quot; /&amp;gt;&amp;lt;/a&amp;gt;   3. in chrome, press \`f12\` to bring up chrome inspector. You can also right click anywhere on webpage and click &amp;amp;#8220;inspect element&amp;amp;#8221;. Go to **console** tab.   4. Paste the following script into the console. Screenshot:
+  
+&amp;lt;a href=&quot;http://aboutashu.com/blog/wp-content/uploads/2016/01/v2.jpg&quot; rel=&quot;attachment wp-att-80&quot;&amp;gt;&amp;lt;img class=&quot;alignnone size-medium wp-image-80&quot; src=&quot;http://aboutashu.com/blog/wp-content/uploads/2016/01/v2-300x86.jpg&quot; alt=&quot;v2&quot; width=&quot;300&quot; height=&quot;86&quot; srcset=&quot;http://107.170.45.123/blog/wp-content/uploads/2016/01/v2-300x86.jpg 300w, http://107.170.45.123/blog/wp-content/uploads/2016/01/v2-768x221.jpg 768w, http://107.170.45.123/blog/wp-content/uploads/2016/01/v2-1024x295.jpg 1024w, http://107.170.45.123/blog/wp-content/uploads/2016/01/v2.jpg 1366w&quot; sizes=&quot;(max-width: 300px) 100vw, 300px&quot; /&amp;gt;&amp;lt;/a&amp;gt;Script:&amp;lt;/p&amp;gt; &amp;lt;pre class=&quot;lang:js decode:true&quot;&amp;gt;(function($){ $(&quot;ul.course-item-list-section-list &amp;amp;gt; li&quot;).each(function(){ var link = $(this).find(&quot;a[data-link-type=\&quot;lecture:download.mp4\&quot;]&quot;).attr(&#39;href&#39;); console.log(link) }); })(jQuery);&amp;lt;/pre&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Press enter and hopefully, it will parse every video link in the page.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Hope you’ve liked the article and it helped you. Please do comment if I owe any explanations. Share, it might be helpful to others.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 27 Jan 2016 11:20:23 +0530</pubDate>
+        <link>http://localhost:4000/get-video-links-from-coursera/</link>
+        <guid isPermaLink="true">http://localhost:4000/get-video-links-from-coursera/</guid>
+        
+        <category>coursera</category>
+        
+        <category>download</category>
+        
+        <category>javascript</category>
+        
+        <category>jquery</category>
+        
+        
+        <category>Javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>How to download multiple videos from youtube-dl</title>
+        <description>&lt;p&gt;Like me, you must’ve also faced a similar situation when you needed to download multiple videos from a site. In case you’re also a frequent webnair/seminar viewer or a youtube fan, you must’ve came across a beautiful ultility called &lt;a title=&quot;Youtube-dl &quot; href=&quot;https://rg3.github.io/youtube-dl&quot; target=&quot;_blank&quot;&gt;Youtube-dl&lt;/a&gt; to download videos from your favourite sites such as youtube, vimeo etc.&lt;/p&gt;
+
+&lt;p&gt;Here is how to download multiple videos from your favourite sites (I am using videmo as an example).&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Open up a command prompt (windows) or terminal(Linux), and go to location where you want to download the videos.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt; Create a blank text file in that location. Paste your list of URLs in that file. Remember to press Enter after each link. Lets say, you named the file “download.txt”&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Copy and paste the following command in your terminal/command prompt&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre class=&quot;lang:batch decode:true &quot;&gt; youtube-dl -ci --batch-file=download.txt&lt;/pre&gt;
+
+&lt;p&gt;This will start downloading every url mentioned in the file.&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;For me, the download speed was slow as compared to some download accelerator programs. I wanted just the download links, so I can download it via some custom made downloaders. Here is how you can output the links to another file.&lt;/p&gt;
+
+&lt;pre class=&quot;lang:batch decode:true&quot;&gt;youtube-dl -cgi --batch-file=download.txt &amp;gt; output.txt&lt;/pre&gt;
+
+&lt;p&gt;If you also want the titles along with each link to be printed, just add “-e” switch to above command. This will become&lt;/p&gt;
+
+&lt;pre class=&quot;lang:batch decode:true&quot;&gt;youtube-dl -cgei --batch-file=download.txt &amp;gt; output.txt
+&lt;/pre&gt;
+</description>
+        <pubDate>Tue, 26 Jan 2016 00:08:03 +0530</pubDate>
+        <link>http://localhost:4000/how-to-download-multiple-videos-from-youtube-dl/</link>
+        <guid isPermaLink="true">http://localhost:4000/how-to-download-multiple-videos-from-youtube-dl/</guid>
+        
+        <category>download</category>
+        
+        <category>python</category>
+        
+        <category>youtube-dl</category>
         
         
         <category>python</category>
         
-        <category>django</category>
-        
       </item>
     
       <item>
-        <title>Custom redirect urls django</title>
-        <description>&lt;p&gt;Example in this problem we need redirect the url &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:8000/a/b/C/123/4/5/&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:8000/abC12345&lt;/code&gt; without &lt;code class=&quot;highlighter-rouge&quot;&gt;/&lt;/code&gt; slash.&lt;/p&gt;
+        <title>Process Migration</title>
+        <description>&lt;p&gt;A general block diagram of process in an OS looks something like this figure:&lt;/p&gt;
 
-&lt;h4 id=&quot;in-your-viewspy&quot;&gt;1. In your &lt;code class=&quot;highlighter-rouge&quot;&gt;views.py&lt;/code&gt;&lt;/h4&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.http&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.views.generic.base&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RedirectView&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.core.urlresolvers&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reverse&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;#Ref: http://stackoverflow.com/a/16627830/3445802&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserRedirectView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RedirectView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;permanent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;get_redirect_url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;pk&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&#39;&#39;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;/&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reverse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;pool_fix_page&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kwargs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;pk&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;pool_fix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;You&#39;re looking at question &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;s.&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h4 id=&quot;in-your-urlspy&quot;&gt;2. In your &lt;code class=&quot;highlighter-rouge&quot;&gt;urls.py&lt;/code&gt;&lt;/h4&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.conf.urls&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;urlpatterns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;# first view the pool to doing redirection&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;r&#39;^pool/(?P&amp;lt;pk&amp;gt;[0-9a-zA-Z&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/]+)/$&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UserRedirectView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;as_view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;pool&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-
-    &lt;span class=&quot;c&quot;&gt;# allow decimal and words only.&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;r&#39;^pool/(?P&amp;lt;pk&amp;gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;w_]+)$&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;views&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pool_fix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;pool_fix_page&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-</description>
-        <pubDate>Wed, 20 Apr 2016 08:11:20 +0530</pubDate>
-        <link>https://agusmakmun.github.io/python/django/2016/04/20/custom-redirect-urls-django.html</link>
-        <guid isPermaLink="true">https://agusmakmun.github.io/python/django/2016/04/20/custom-redirect-urls-django.html</guid>
-        
-        
-        <category>python</category>
-        
-        <category>django</category>
-        
-      </item>
-    
-      <item>
-        <title>Replace backend gmail to Postmarkapp for Django</title>
-        <description>&lt;h4 id=&quot;install-module-of-python-postmark&quot;&gt;1. Install module of Python Postmark&lt;/h4&gt;
-
-&lt;p&gt;Install this module manually from souce inside your environtment: &lt;a href=&quot;https://github.com/themartorana/python-postmark&quot;&gt;https://github.com/themartorana/python-postmark&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;If you work on &lt;code class=&quot;highlighter-rouge&quot;&gt;Django==1.9.*&lt;/code&gt;, requirements only &lt;code class=&quot;highlighter-rouge&quot;&gt;mock&lt;/code&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&quot;register-and-put-the-server-keys&quot;&gt;2. Register and Put the Server Keys&lt;/h4&gt;
-
-&lt;p&gt;Register and put your server API token here: https://account.postmarkapp.com/servers/101010/credentials . &lt;code class=&quot;highlighter-rouge&quot;&gt;101010&lt;/code&gt; is id of your server.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Makesure verified your SPF and DKIM. this configurations to allowing the permission from your domain for signature.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h4 id=&quot;configure-in-settingspy&quot;&gt;3. Configure in &lt;code class=&quot;highlighter-rouge&quot;&gt;settings.py&lt;/code&gt;&lt;/h4&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;EMAIL_USE_TLS&lt;/span&gt;        &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;True&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;EMAIL_HOST&lt;/span&gt;           &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;smtp.postmarkapp.com&#39;&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;EMAIL_PORT&lt;/span&gt;           &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;587&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;POSTMARK_API_KEY&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;yourkey-yourkey-yourkey-yourkey&#39;&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;POSTMARK_SENDER&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;your_company_email@domain.com&#39;&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;EMAIL_HOST_USER&lt;/span&gt;      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;POSTMARK_SENDER&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;DEFAULT_FROM_EMAIL&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;POSTMARK_SENDER&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;POSTMARK_TEST_MODE&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;False&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;POSTMARK_TRACK_OPENS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;False&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;EMAIL_BACKEND&lt;/span&gt;        &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;postmark.django_backend.EmailBackend&#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-</description>
-        <pubDate>Tue, 19 Apr 2016 18:45:33 +0530</pubDate>
-        <link>https://agusmakmun.github.io/django/2016/04/19/replace-email-backend-gmail-to-postmarkapp-for-django.html</link>
-        <guid isPermaLink="true">https://agusmakmun.github.io/django/2016/04/19/replace-email-backend-gmail-to-postmarkapp-for-django.html</guid>
-        
-        
-        <category>django</category>
-        
-      </item>
-    
-      <item>
-        <title>Download recrusive files inside index-of in Linux using wget</title>
-        <description>&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ wget -r --no-parent --reject &quot;index.html*&quot; http://125.160.17.22/dokumen/IGN/Panduan_OpenOffice.org_2.0/
-&lt;/code&gt;&lt;/pre&gt;
+&lt;div style=&quot;width: 480px&quot; class=&quot;wp-caption alignnone&quot;&gt;
+  &lt;img class=&quot;&quot; src=&quot;http://www.csie.ntnu.edu.tw/~swanky/os/chap4/PCB.png&quot; alt=&quot;Process Control Block diagram&quot; width=&quot;470&quot; height=&quot;830&quot; /&gt;
+  
+  &lt;p class=&quot;wp-caption-text&quot;&gt;
+    Process Control Block diagram
+  &lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;For me I have to pass the –no-parent option, otherwise it will follow the link in the directory index on my site to the parent directory. So the command would look like this:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget -r --no-parent http://mysite.com/configs/.vim/
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Edit: To avoid downloading the index.html files, use this command:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget -r --no-parent --reject &quot;index.html*&quot; http://mysite.com/configs/.vim/
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;The Parameters are:&lt;/p&gt;
+&lt;p&gt;Main things to consider regarding a process are:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-r&lt;/code&gt;     //recursive Download&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--no-parent&lt;/code&gt; // Don´t download something from the parent directory&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-l1&lt;/code&gt; //just download the directory (tzivi in your case)&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-l2&lt;/code&gt; //download the directory and all level 1 subfolders (‘tzivi/something’ but not ‘tivizi/somthing/foo’)&lt;/li&gt;
+  &lt;li&gt;Process state&lt;/li&gt;
+  &lt;li&gt;Data being used by a process&lt;/li&gt;
+  &lt;li&gt;Pointers and stuff in the Program counter&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;And so on. If you insert no &lt;code class=&quot;highlighter-rouge&quot;&gt;-l&lt;/code&gt; option, wget will use &lt;code class=&quot;highlighter-rouge&quot;&gt;-l&lt;/code&gt; 5 automatically.&lt;br /&gt;
-If you insert a -l 0 you´ll download the whole internet, because wget will follow every link it finds.&lt;/p&gt;
+&lt;p&gt;To move a process to another machine, above things have to be created in the destination machine. This is what process migration is all about.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Refference:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Remember, process is just a program in execution. so, basically, we have to create new process with set of thread that are executing in source machine.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Steps in process migration&lt;/strong&gt;–&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Source machine request destination machine if migration can happen. Known as _migration request. _After some kind of negotiation, it is granted.&lt;/li&gt;
+  &lt;li&gt;The source machine then halt the process. communication is also temporarily queued so that it can later to sent to the new copy of current process in destination machine.&lt;/li&gt;
+  &lt;li&gt;System then analyze and collect process’s state, which includes memory state(memory content owned by process), processor state(content in CPU registers) as well as open files or any kernel context codes(if any). Some files and kernel code are OS dependent which is not allowed for transfer.&lt;/li&gt;
+  &lt;li&gt;A new process instance on destination machine is then created. The state saved in previous step is now transferred to this new instance. Sometimes, not all the states are required immediately, so they gets transferred later.&lt;/li&gt;
+  &lt;li&gt;Once the sufficient amount of state transfer is done, process gets activated on destination machine.&lt;/li&gt;
+  &lt;li&gt;The communication, which was being queues(in step 2), is now redirected to this new process. The queuing process runs parallel wrt STEP 3,4,5.&lt;/li&gt;
+  &lt;li&gt;Sometimes, OS makes reference of migrated process, in order to control or communicate the process in future.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt; &lt;/p&gt;
+</description>
+        <pubDate>Mon, 28 Sep 2015 10:23:38 +0530</pubDate>
+        <link>http://localhost:4000/process-migration/</link>
+        <guid isPermaLink="true">http://localhost:4000/process-migration/</guid>
+        
+        <category>mobile computing</category>
+        
+        <category>mtech</category>
+        
+        
+        <category>M.Tech</category>
+        
+        <category>Mobile Computing</category>
+        
+      </item>
+    
+      <item>
+        <title>Mobile Computing notes</title>
+        <description>&lt;p&gt;This is only a gentle introduction. I will try to cover as much as I can in further posts. Will make posts topic wise so as to cover everything related to a topic in a single post.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Process Migration- &lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/a/19695143/3445802&quot;&gt;http://stackoverflow.com/a/19695143/3445802&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/a/273776/3445802&quot;&gt;http://stackoverflow.com/a/273776/3445802&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Act of transferring processes between two computers, through a wired or wireless medium.&lt;/li&gt;
+  &lt;li&gt;A process has its process table, code segments, some data and pointers etc. This all needs to be transferred by some logic.&lt;/li&gt;
+  &lt;li&gt;Used to balance load on systems. One overloaded machine can transfer process to an under-loaded one.&lt;/li&gt;
+  &lt;li&gt;Originated with distributed systems. Still used in multicore(multiple processors) systems as part of process scheduling of OS.&lt;/li&gt;
 &lt;/ul&gt;
 
-</description>
-        <pubDate>Tue, 19 Apr 2016 18:09:02 +0530</pubDate>
-        <link>https://agusmakmun.github.io/bash/2016/04/19/download-recrusive-files-inside-index-of-in-linux-using-wget.html</link>
-        <guid isPermaLink="true">https://agusmakmun.github.io/bash/2016/04/19/download-recrusive-files-inside-index-of-in-linux-using-wget.html</guid>
-        
-        
-        <category>bash</category>
-        
-      </item>
-    
-      <item>
-        <title>Python Permutations</title>
-        <description>&lt;p&gt;This simply how to implement the module of permutations in python.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itertools&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;permutations&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;perms&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;@gmail.com&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;permutations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;abc&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;perms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;     &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;perms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; 
-&lt;span class=&quot;nf&quot;&gt;abc&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@gmail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;acb&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@gmail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;bac&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@gmail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;bca&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@gmail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;cab&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@gmail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;cba&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@gmail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;com&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-</description>
-        <pubDate>Tue, 19 Apr 2016 18:01:43 +0530</pubDate>
-        <link>https://agusmakmun.github.io/python/2016/04/19/python-permutations.html</link>
-        <guid isPermaLink="true">https://agusmakmun.github.io/python/2016/04/19/python-permutations.html</guid>
-        
-        
-        <category>python</category>
-        
-      </item>
-    
-      <item>
-        <title>Simple bash scripting for login before open the terminal</title>
-        <description>&lt;p&gt;Add this in your file of &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/bash.bashrc&lt;/code&gt;, makesure you logged in as root.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;### ===============================================&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;### Simple bash scripting for login before open the terminal.&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;### Credit: &amp;lt;Summon Agus&amp;gt; - agus@python.web.id&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;### Location, end script of: /etc/bash.bashrc&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;### ===============================================&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;# Don&#39;t exit at Ctrl-C&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;trap&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;echo&quot;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SIGINT&lt;/span&gt;
-
-  &lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot; Who are you guys? &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;read&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;$name&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;agus&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;reset&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; Welcome my KING! you are the best!!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot; Please start your activity with Basmalah&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;printf&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; Heey you! why you here!! You are not owner of this machine!&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;fi&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;done&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;### ===============================================&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;### END&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;### ===============================================&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-</description>
-        <pubDate>Tue, 19 Apr 2016 17:49:21 +0530</pubDate>
-        <link>https://agusmakmun.github.io/bash/2016/04/19/simple-bash-scripting-for-login-before-open-the-terminal.html</link>
-        <guid isPermaLink="true">https://agusmakmun.github.io/bash/2016/04/19/simple-bash-scripting-for-login-before-open-the-terminal.html</guid>
-        
-        
-        <category>bash</category>
-        
-      </item>
-    
-      <item>
-        <title>Remove all files .pyc with recrusive method</title>
-        <description>&lt;p&gt;This method simple but important. Example in your project dir is like this:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;project_dir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;
-           &lt;span class=&quot;n&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;py&lt;/span&gt;
-           &lt;span class=&quot;n&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pyc&lt;/span&gt;
-           &lt;span class=&quot;n&quot;&gt;something&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;py&lt;/span&gt;
-           &lt;span class=&quot;n&quot;&gt;something&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pyc&lt;/span&gt;
-           &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
-           &lt;span class=&quot;nf&quot;&gt;core&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;
-               &lt;span class=&quot;n&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;py&lt;/span&gt;
-               &lt;span class=&quot;n&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pyc&lt;/span&gt;
-               &lt;span class=&quot;n&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;py&lt;/span&gt;
-               &lt;span class=&quot;n&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pyc&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Deleting the &lt;code class=&quot;highlighter-rouge&quot;&gt;.pyc&lt;/code&gt; files one by one would be spending a lot of time. and you will be bored. There is sample how to handle it.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ find your_dir -name *.pyc -delete
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;OR, if you work inside current directory.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ find . -name *.pyc -delete
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-</description>
-        <pubDate>Tue, 19 Apr 2016 13:09:34 +0530</pubDate>
-        <link>https://agusmakmun.github.io/python/bash/2016/04/19/remove-all-files-pyc-with-recrusive-method.html</link>
-        <guid isPermaLink="true">https://agusmakmun.github.io/python/bash/2016/04/19/remove-all-files-pyc-with-recrusive-method.html</guid>
-        
-        
-        <category>python</category>
-        
-        <category>bash</category>
-        
-      </item>
-    
-      <item>
-        <title>Email BackEnd with SMTP Gmail</title>
-        <description>&lt;p&gt;Add this configurations in your &lt;code class=&quot;highlighter-rouge&quot;&gt;settings.py&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;This configurations is if you work with &lt;code class=&quot;highlighter-rouge&quot;&gt;smtp.gmail.com&lt;/code&gt;, other smtp is similiar with configurations.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Mobile Computing-&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Unlock Captha: &lt;a href=&quot;https://accounts.google.com/DisplayUnlockCaptcha&quot;&gt;https://accounts.google.com/DisplayUnlockCaptcha&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Change to active: &lt;a href=&quot;https://www.google.com/settings/security/lesssecureapps&quot;&gt;https://www.google.com/settings/security/lesssecureapps&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Defined as &lt;em&gt;ability to use technology&lt;/em&gt;(&lt;em&gt;this part is called as computing&lt;/em&gt;) to access to some centrally located resources/information by remote and mobile devices such as  smartphones.&lt;/li&gt;
+  &lt;li&gt;Mobility is divided into 3 categories:
+    &lt;ol&gt;
+      &lt;li&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;Macro Mobility&lt;/span&gt;: When moving into and out of a global network. Maintaining connectivity is main challenge here. &lt;em&gt;Mobile IP&lt;/em&gt; take cares for this one.&lt;/li&gt;
+      &lt;li&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;Micro Mobility&lt;/span&gt;: When moving inside one region(cell) only. &lt;em&gt;Cellular IP&lt;/em&gt; take cares for this&lt;/li&gt;
+      &lt;li&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;Ad hoc Mobility&lt;/span&gt;: Refers to mobility within an Mobile Ad hoc Networks(MANET). Happens due to continuous changes in the network infrastructure. Thus, the infrastructure-less networks (&lt;em&gt;MANET&lt;/em&gt;) take cares for this one.&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Major benefit is increased computation power regardless of location/infrastructure. Wether be it a office or restaurant, you’ll always be connected to remote services, thus increasing productivity.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;EMAIL_HOST          = &#39;smtp.gmail.com&#39;
-EMAIL_PORT          = 587
-EMAIL_HOST_USER     = &#39;your_gmail@gmail.com&#39;
-EMAIL_HOST_PASSWORD = &#39;your_password&#39;
-EMAIL_USE_TLS       = True
-DEFAULT_FROM_EMAIL  = EMAIL_HOST_USER
-EMAIL_BACKEND       = &#39;django.core.mail.backends.smtp.EmailBackend&#39;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Mobile Agents&lt;/strong&gt;–&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Programs that moves across the networks, here and there, on behalf of user.&lt;/li&gt;
+  &lt;li&gt;Gathers information as well as execute automated tasks given by users.&lt;/li&gt;
+  &lt;li&gt;Specifically, “&lt;em&gt;A mobile agent is a composition of computer program, data, and execution state, which is able to move from one computer to another autonomously and continue its execution on the destination computer&lt;/em&gt;“&lt;/li&gt;
+  &lt;li&gt;Widely used by e-commerce industries, stock holders etc. It is a specific form of &lt;a title=&quot;Wikipedia&quot; href=&quot;https://en.wikipedia.org/wiki/Mobile_code&quot; target=&quot;_blank&quot;&gt;mobile code&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Examples are- agent Tcl, aglet etc.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Working (TL;DR)&lt;/strong&gt; : The program can suspend its execution at an arbitrary point, transport itself to another machine, and then resume execution from the point of suspension.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
 </description>
-        <pubDate>Tue, 19 Apr 2016 00:58:15 +0530</pubDate>
-        <link>https://agusmakmun.github.io/python/django/2016/04/19/email-backend-with-smtp-gmail.html</link>
-        <guid isPermaLink="true">https://agusmakmun.github.io/python/django/2016/04/19/email-backend-with-smtp-gmail.html</guid>
+        <pubDate>Sun, 27 Sep 2015 21:43:55 +0530</pubDate>
+        <link>http://localhost:4000/mobile-computing-notes/</link>
+        <guid isPermaLink="true">http://localhost:4000/mobile-computing-notes/</guid>
+        
+        <category>mobile computing</category>
+        
+        <category>mtech</category>
         
         
-        <category>python</category>
+        <category>M.Tech</category>
         
-        <category>django</category>
+        <category>Mobile Computing</category>
         
       </item>
     
       <item>
-        <title>Welcome to Simply Grey</title>
-        <description>&lt;p&gt;SimplyGrey is a simple, easy to use theme for Jekyll that compromises of mainly grey colours. A lot of people enjoy the simplistic look of grey and also find it easier to read.&lt;/p&gt;
+        <title>How to add wishlist to shopify</title>
+        <description>&lt;p&gt;Shopify does not provide “add wishlist” feature natively. It becomes an obvious need for theme developers. So I will help you how to add wishlist to shopify.  &lt;a href=&quot;https://github.com/jimlakey/Shopify-Wish-List&quot; title=&quot;Wishlist-Shopify&quot;&gt;This Github Repo&lt;/a&gt; is all you need for a minimal effort development of this feature. So, I am going to tell how can you use the repo files and have the wishlist functionality to your shopify store.&lt;/p&gt;
 
-&lt;h2 id=&quot;why-use-simply-grey&quot;&gt;Why use Simply Grey?&lt;/h2&gt;
-&lt;p&gt;There are lots of reasons why I think you should use Simply Grey but I will list the main ones that I believe are more of benefit to you, the user.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;STEP 1&lt;/strong&gt;: Download the repo or clone it. you will get 3 files:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;em&gt;Easy to use and setup&lt;/em&gt; - Jekyll has a huge range of documentation to get you started writing posts and the Simply Grey theme makes your blog look beautiful.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Easy configuration&lt;/em&gt; - I developed this theme in order to be as customisable as possible. If you want to add more links to the navigation bar, all you have to do is edit the _config.yaml file and the &lt;code class=&quot;highlighter-rouge&quot;&gt;urls&lt;/code&gt; part of it.&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;You can change it&lt;/em&gt; - After being released with the MIT license (like Jekyll itself) you are free to change and basically do anything you want to this theme provided you keep the copyright notice in the files and distribute the license with it.&lt;/li&gt;
+  &lt;li&gt;wish-list.js&lt;/li&gt;
+  &lt;li&gt;wishlist-page.liquid&lt;/li&gt;
+  &lt;li&gt;wishlist-product.liquid&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;jekyll&quot;&gt;Jekyll&lt;/h2&gt;
-&lt;p&gt;Jekyll is a static site generator developed in ruby that generates websites from markdown and many other formats. The benefit of this is that you can have a highly customisable blog where you can generate posts by writing easy markdown code whilst still retaining the small memory imprint that Jekyll has.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;STEP 2&lt;/strong&gt;: Go to your shopify store’s admin panel. Navigate to your theme (http://your-store-url.com/admin/themes) and choose “Edit HTML/CSS” from the dropdown of active theme.&lt;/p&gt;
 
-&lt;h3 id=&quot;code-snippets&quot;&gt;Code Snippets&lt;/h3&gt;
-&lt;p&gt;Code Snippets are one of the main reasons why I love Jekyll and I think you will too. All code snippets become highlighted with great colours when you write the code in markdown. Here is an example of highlighted Ruby code in a weather application that I have made.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;STEP 3&lt;/strong&gt;: Upload wish-list.js in “assets” directory. [&lt;img src=&quot;http://codeasashu.tk/blog/wp-content/uploads/2015/07/add-assets-1024x318.jpg&quot; alt=&quot;add-assets&quot; class=&quot;aligncenter wp-image-31 size-large&quot; width=&quot;1024&quot; height=&quot;318&quot; /&gt;] Now you have to create wishlist-page.liquid and wishlist-product.liquid in snippets (just above “assets”). Create both the files and copy the contents of the same files you downloaded. [&lt;img src=&quot;http://codeasashu.tk/blog/wp-content/uploads/2015/07/wishlist.jpg&quot; alt=&quot;wishlist&quot; class=&quot;aligncenter wp-image-32 size-full&quot; width=&quot;969&quot; height=&quot;273&quot; /&gt;] Now that you’ve uploaded the 3 files to your shopify, you can forward to next step.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#!/usr/bin/env ruby&lt;/span&gt;
+&lt;p&gt;&lt;strong&gt;STEP 4&lt;/strong&gt;: Now let’s get the things running. So you need 2 things:&lt;/p&gt;
 
-&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;json&#39;&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;net/http&#39;&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;libnotify&#39;&lt;/span&gt;
+&lt;ol&gt;
+  &lt;li&gt;Adding a wishlist button to product pages&lt;/li&gt;
+  &lt;li&gt;Making a page where customers can view their wishlist&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;parsejson&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;http://api.openweathermap.org/data/2.5/find?q=London&amp;amp;mode=json&quot;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Net&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get_response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;URI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;weatherjson&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;body&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weatherjson&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;p&gt;So, open up product.liquid. What I’m going to do next is very important. So, make sure you do it carefully not making any mistake.&lt;/p&gt;
 
-    &lt;span class=&quot;c1&quot;&gt;# check for errors&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;has_key?&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Error&#39;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;raise&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;error with the url&quot;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;p&gt;Include the “wishlist-product.liquid” to get the “Add to wishlist” button. So include it as:&lt;/p&gt;
 
-    &lt;span class=&quot;n&quot;&gt;results&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% include &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;wishlist-product&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-    &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;list&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;listitem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;weather&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;listitem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;weather&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;weather&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;listitem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;main&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;temp&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;273&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;push&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;%.2f&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;p&gt;You can include it anywhere in product.liquid, but within “Add to cart” form. &lt;strong&gt;Make sure it is outside “Add to cart” form or it won’t work&lt;/strong&gt;. So, for a minimal example, it will go like:&lt;/p&gt;
 
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;results&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt; 
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;form&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/cart/add&quot;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;post&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enctype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;multipart/form-data&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;product&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itemscope&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itemtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;http://schema.org/Product&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itemprop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;url&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;{{ shop.url }}{{ product.url }}&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itemprop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;image&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;{{ product | img_url: &#39;grande&#39; }}&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% if &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;product&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;images&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;main_image&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;{{ &#39;&#39; | img_url: &#39;grande&#39; }}&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&amp;gt;
+      &amp;lt;div id=&quot;thumbnails&quot;&amp;gt;
+      &amp;lt;div class=&quot;thumbs&quot;&amp;gt;&amp;lt;img src=&quot;{{ &#39;&#39; | img_url: &#39;grande&#39; }}&quot;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;thumbs&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;{{ &#39;&#39; | img_url: &#39;grande&#39; }}&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&amp;gt;
+      &amp;lt;div class=&quot;thumbs&quot;&amp;gt;&amp;lt;img src=&quot;{{ &#39;&#39; | img_url: &#39;grande&#39; }}&quot;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&amp;gt;&amp;lt;!-- #thumbnails --&amp;gt;
+    &amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;!--&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#images --&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% else &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;notify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;no&quot;&gt;Libnotify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:body&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Current temperature is: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; degrees celsius.&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Current description of conditions: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:summary&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Weather Update&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:timeout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% assign &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;featured_image&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;product&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;selected_or_first_available_variant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;featured_image&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;default: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;product&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;featured_image&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%}
 
-&lt;span class=&quot;n&quot;&gt;notify&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parsejson&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&amp;lt;div id=&quot;images&quot;&amp;gt;
+&amp;lt;div id=&quot;main_image&quot;&amp;gt;&amp;lt;img class=&quot;showlight&quot; src=&quot;{{ featured_image | img_url: &#39;grande&#39; }&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;&amp;lt;/div&amp;gt;
+  &amp;lt;div id=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;thumbnails&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;
+  {% if product.images.size &amp;gt; 1 %}
+        {% for image in product.images %}
+        {% if forloop.index &amp;lt;= 3 %} 
+        &amp;lt;div class=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;thumbs&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;&amp;lt;img src=&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;image&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;img_url: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;small&#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;&amp;lt;/div&amp;gt;
+        {% endif %}
+        {% endfor %}
+  {% else %}
+    &amp;lt;div class=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;thumbs&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;&amp;lt;img src=&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;img_url: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;grande&#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;&amp;lt;/div&amp;gt;
+  {% endif %}
+  &amp;lt;/div&amp;gt;
+  {% endif %}
+  &amp;lt;/div&amp;gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/mojombo/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;.&lt;/p&gt;
+&amp;lt;div id=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;
+&amp;lt;div id=&quot;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;{{ product.title }}&amp;lt;/div&amp;gt;
+  {% assign variant = product.selected_or_first_available_variant %}
+          {% if product.compare_at_price &amp;gt; product.price %}
+          &amp;lt;div id=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;price2&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;{ variant.price | money }}&amp;lt;/div&amp;gt;
+          &amp;lt;s class=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;product&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compare&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;price&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;{{ variant.compare_at_price | money }}&amp;lt;/s&amp;gt;
+          {% else %}
+          &amp;lt;div id=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;price2&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;{{ variant.price | money }}&amp;lt;/div&amp;gt;
+          {% endif %}
+&amp;lt;div id=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;{{ product.description }}&amp;lt;/div&amp;gt;
+  &amp;lt;div id=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;product&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;variants&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;
+        &amp;lt;select id=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;product&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot; name=&quot;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;
+        {% for variant in product.variants %}
+          &amp;lt;option{% if variant == product.selected_or_first_available_variant %} selected{% endif %} value=&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;variant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;
+          {{ variant.title }} - {{ variant.price | money }}
+          &amp;lt;/option&amp;gt;
+        {% endfor %}
+        &amp;lt;/select&amp;gt;
+      &amp;lt;/div&amp;gt;     
+&amp;lt;div id=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;&amp;lt;input type=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;submit&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot; name=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot; id=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;addtocart&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot; class=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;primary&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot; value=&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;add_to_cart&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;escape&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/form&amp;gt;
+
+{% include &#39;wishlist-product&#39; %} &amp;lt;!-- Notice this is outside the &quot;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Add&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cart&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot; form --&amp;gt;
+&amp;lt;/div&amp;gt;
+{{ &#39;wish-list.js&#39; | asset_url | script_tag }} &amp;lt;!-- Placed at bottom of product.liquid --&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;If you save the file, you can see a “Add to wishlist” button on product page. Remember, you must be logged-in to make the button work. We’ve completed most of the hard part. The only thing remaining is to view the items of your wishlist.  For that, see next step.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;STEP 5&lt;/strong&gt;:  Creating a page to view wishlist items- Since there might be many pages already in your store, you should design a separate page for wishlist. Shopify provides it in much convenient way. Basic idea to get a unique page to display some unique content is to have a separate template for that page, then selecting that template in the unique page you create. Since you want wishlist page to show only wishlist items and no other bullshit, here is what you’d do:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Create a template for wishlist. Go to “Templates” - “Add a new template”. Select “page” from the dropdown and enter “wishlist” into textbox next to it. [&lt;img src=&quot;http://codeasashu.tk/blog/wp-content/uploads/2015/07/wishlist-page.jpg&quot; alt=&quot;wishlist-page&quot; class=&quot;aligncenter wp-image-34 size-full&quot; width=&quot;1018&quot; height=&quot;281&quot; /&gt;]&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;It will create a blank “page.wishlist.liquid” file. Enter following contents to it:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;wishlist-page&#39;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;wish-list.js&#39;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;asset_url&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;script_tag&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Note that the “wish-list.js” acts as a controller to wishlist. Removing it will disable the functionality.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Create a page from “http://your-store-url.com/admin/pages” . Enter Title “Wishlist” and scroll down. You can see a dropdown at bottom, in the “template” section. See the screenshot below[&lt;img src=&quot;http://codeasashu.tk/blog/wp-content/uploads/2015/07/page-1024x521.jpg&quot; alt=&quot;page&quot; class=&quot;aligncenter wp-image-35 size-large&quot; width=&quot;1024&quot; height=&quot;521&quot; /&gt;]&lt;/li&gt;
+  &lt;li&gt;Select “page.wishlist” from the dropdown. It is the same template you just create in previous steps. If you are not seeing any “template” section or dropdown like this, this means you have only “page.liquid” in “template” directory. Create “page.wishlist.liquid” as explained.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Now that you have this page where you can view your wishlist, you have completed all the steps. Try logging in and add a product to wishlist. Go to the wishlist page you created and it will show your wishlist items.&lt;/p&gt;
+
+&lt;p&gt;Please do comment below if you need any help.&lt;/p&gt;
 
 </description>
-        <pubDate>Sun, 22 Dec 2013 22:48:23 +0530</pubDate>
-        <link>https://agusmakmun.github.io/jekyll/2013/12/22/welcome-to-simply-grey.html</link>
-        <guid isPermaLink="true">https://agusmakmun.github.io/jekyll/2013/12/22/welcome-to-simply-grey.html</guid>
+        <pubDate>Thu, 09 Jul 2015 07:51:44 +0530</pubDate>
+        <link>http://localhost:4000/how-to-add-wishlist-to-shopify/</link>
+        <guid isPermaLink="true">http://localhost:4000/how-to-add-wishlist-to-shopify/</guid>
+        
+        <category>shopify</category>
+        
+        <category>theme development</category>
         
         
-        <category>jekyll</category>
+        <category>Shopify</category>
         
       </item>
     
@@ -564,37 +650,11 @@ EMAIL_BACKEND       = &#39;django.core.mail.backends.smtp.EmailBackend&#39;
 
 </description>
         <pubDate>Sun, 22 Dec 2013 22:48:23 +0530</pubDate>
-        <link>https://agusmakmun.github.io/ruby/2013/12/22/ruby-json.html</link>
-        <guid isPermaLink="true">https://agusmakmun.github.io/ruby/2013/12/22/ruby-json.html</guid>
+        <link>http://localhost:4000/ruby/2013/12/22/ruby-json.html</link>
+        <guid isPermaLink="true">http://localhost:4000/ruby/2013/12/22/ruby-json.html</guid>
         
         
         <category>ruby</category>
-        
-      </item>
-    
-      <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Tom&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
-
-</description>
-        <pubDate>Tue, 19 Feb 2013 19:58:15 +0530</pubDate>
-        <link>https://agusmakmun.github.io/jekyll/2013/02/19/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">https://agusmakmun.github.io/jekyll/2013/02/19/welcome-to-jekyll.html</guid>
-        
-        
-        <category>jekyll</category>
         
       </item>
     

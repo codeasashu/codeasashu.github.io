@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div id="home">
-    <h1>Stack Problems lol</h1>
+    <h1>Blog</h1>
     <hr />
     <ol class="posts">
     {% for post in paginator.posts %}
@@ -13,7 +13,7 @@ layout: default
 
     <!-- Pagination links -->
     {% if paginator.total_pages > 1 %}
-    <ul class="pagination">
+    <ul class="paginator">
       {% if paginator.previous_page %}
         <li>
           <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo;</a>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="shortcut icon" href="/static/img/favicon.ico" />
+        <title>Creating XMPP chat server - Ashutosh Chaudhary</title>
+        <meta name="author" content="Ashutosh Chaudhary" />
+        <meta name="description" content="Creating XMPP chat server" />
+        <meta name="keywords" content="Creating XMPP chat server, Ashutosh Chaudhary, Uncategorized" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+        <link rel="stylesheet" href="https://use.fontawesome.com/74dfc6cf47.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/static/css/syntax.css">
+
+        <!-- Bootstrap core CSS -->
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Fonts -->
+        <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,300italic,300,400italic,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+        <!-- Custom CSS -->        
+        <link rel="stylesheet" href="/static/css/thickbox.css">
+        <link rel="stylesheet" href="/static/css/super-search.css">
+        <link rel="stylesheet" href="/static/css/projects.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="col-sm-3">
+                <a href="/"><img id="about" src="/static/img/avatar.jpg" height="75px" width="75px" /></a>
+                <h1 class="author-name">Ashutosh Chaudhary</h1>
+                
+                <div id="about">
+                    Freelance web, apps developer
+                </div>
+                
+
+                <div class="social">
+	<ul>
+		
+			<li><a href="http://facebook.com/ashutosh2k12" target="_blank"><i class="fa fa-facebook"></i></a></li>
+		
+			<li><a href="skype:ashu2k111" target="_blank"><i class="fa fa-skype"></i></a></li>
+		
+			<li><a href="http://twitter.com/216ashutosh" target="_blank"><i class="fa fa-twitter"></i></a></li>
+		
+			<li><a href="https://in.linkedin.com/in/codeasashu" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+		
+			<li><a href="http://stackexchange.com/users/1155850/ashutosh" target="_blank"><i class="fa fa-stack-exchange"></i></a></li>
+		
+	</ul>
+</div>
+               
+                <div class="search" id="js-search">
+                  <input type="text" placeholder="(sitemap)~$ type to search" class="search__input form-control" id="js-search__input">
+                  <ul class="search__results" id="js-search__results"></ul>
+                </div>
+                <hr />
+                <div class="navigation">
+                <strong>Navigation</strong><br />
+                    &raquo; <a href="/">Home</a> <br />
+                
+                    &raquo; <a class="about" href="/about/">About Me</a><br />
+                
+                    &raquo; <a class="about" href="/projects/">Projects</a><br />
+                
+                    &raquo; <a class="about" href="https://drive.google.com/file/d/0B3Xfz0jTV0TnSjlMRS1DNGlSaTlxaHBEZHdoaGZWd1Q1Wkpn/view?usp=sharing">Resume</a><br />
+                
+                    &raquo; <a class="about" href="https://github.com/ashutosh2k12">Github</a><br />
+                
+                    &raquo; <a class="about" href="/feed.xml">XML Feed</a><br />
+                
+                </div>
+            </div>
+
+            <div class="col-sm-8 col-offset-1">
+                <h1>Creating XMPP chat server</h1>
+<span class="time">30 Apr 2016</span>
+
+<span class="categories">
+    &raquo; <a href="/category/Uncategorized">Uncategorized</a>
+</span>
+
+
+<div class="content">
+    <div class="post"><h2 id="creating-xmpp-chatserver">Creating XMPP chat server</h2>
+
+<p>In this part of series, I am going to show you how to create an XMPP chat server.</p>
+
+<p>To build your own XMPP based chat solution in android, you need to have two important things:</p>
+
+<ol>
+  <li>XMPP based chat server</li>
+  <li>XMPP integration in your android code</li>
+</ol>
+
+<p>XMPP chat server or XMPP server is the one that handles chat database, configurations, user, options etc. Basically, it is a chat server that handles your chat backend. What remains is to implement the chat in your own language and have fun.</p>
+
+<p>There are many variations of XMPP chat servers available today. You can use any of them depending on your requirements and available configurations. What I would recommend are <a href="http://www.igniterealtime.org/projects/openfire/">openfire</a> and <a href="https://www.ejabberd.im/">ejabberd</a>.</p>
+
+<p>Personally, I am going to use ejabberd to setup XMPP chat server. Let’s get into action. For now, I am using <a href="https://www.digitalocean.com">DigitalOcean VPS</a> with Ubuntu Server 14.04 LTS installed, to host the server. You can test it with your own localhost machine.</p>
+
+<ol>
+  <li>Connect to your ubuntu box using SSH. This will bring you to console screen. If you are using ubuntu in your local machine, you can safely skip this step.</li>
+  <li>Run the command <span class="lang:default decode:true crayon-inline">sudo apt-get update</span> to update any packages.</li>
+  <li>Enter following command to install ejabberd to your ubuntu powered machine:</li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[code]sudo apt-get -y install ejabberd[/code]&lt;/p&gt; 
+This will install ejabberd and will also create a configuration file which you can edit to have your own jabberd configuration. We will be editing the file in below step.&lt;/li&gt; 
+
+  * Time to edit the configuration file now. Enter the following command to bring up nano editor &lt;span class="lang:default decode:true crayon-inline "&gt;sudo nano /etc/ejabberd/ejabberd.cfg&lt;/span&gt; . You&amp;#8217;ll see a lot of text there and lot of options. Don&amp;#8217;t worry. You only have edit 3-4 options overall. I&amp;#8217;ll be doing them below, so pay attention.
+  * In the nano screen, you will see the configuration file as shown below &lt;div id="attachment_130" style="width: 1336px" class="wp-caption aligncenter"&gt;
+      &lt;a href="http://aboutashu.com/blog/wp-content/uploads/2016/04/nano.png"&gt;&lt;img class="wp-image-130 size-full" title="ejabberd.cfg" src="http://aboutashu.com/blog/wp-content/uploads/2016/04/nano.png" alt="ejabberd.cfg" width="1326" height="619" srcset="http://107.170.45.123/blog/wp-content/uploads/2016/04/nano.png 1326w, http://107.170.45.123/blog/wp-content/uploads/2016/04/nano-300x140.png 300w, http://107.170.45.123/blog/wp-content/uploads/2016/04/nano-768x359.png 768w, http://107.170.45.123/blog/wp-content/uploads/2016/04/nano-1024x478.png 1024w" sizes="(max-width: 1326px) 100vw, 1326px" /&gt;&lt;/a&gt;
+      
+      &lt;p class="wp-caption-text"&gt;
+        ejabberd configuration file
+      &lt;/p&gt;
+    &lt;/div&gt;
+    
+    Use your cursor to move below and find the line which has this text:
+    
+    &lt;pre class=""&gt;&lt;code&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%% %% Options which are set by Debconf and managed by ucf
+</code></pre>
+</div>
+
+<p>%% Admin user
+{acl, admin, {user, “admin”, “localhost”}}.</p>
+
+<p>%% Hostname
+{hosts, [“localhost”]}.</p>
+
+<p>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&lt;/code&gt;
+&lt;/pre&gt;</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    `{acl, admin, {user, "admin", "localhost"}}.` This line tells that user with username &amp;#8220;admin@localhost&amp;#8221; is admin of ejabberd configuration. We can add multiple users here to make them admin. Let&amp;#8217;s add one. So, press enter key and add similar line with different username.
+    
+    &lt;span class="lang:default decode:true crayon-inline "&gt;{acl, admin, {user, &amp;#8220;myusername&amp;#8221;, &amp;#8220;localhost&amp;#8221;}}.&lt;/span&gt;
+    
+    %% Hostname defines the server at which ejabberd should listen and connect. If you are not using a local machine (i.e you are using VPS such as DigitalOcean) to host the XMPP chat server, you can mention the domain name or IP address here. I am assuming example.com as my VPS domain name, hence I will modify this line as:
+    
+    &lt;pre class=""&gt;&lt;code&gt;%% Hostname {hosts, ["localhost","example.com"]}.&lt;/code&gt;&lt;/pre&gt;
+    
+    Thats all the changes you have to make for now. Once you have made the above changes, the cfg file will now look like:
+    
+    &lt;pre class=""&gt;&lt;code&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%% %% Options which are set by Debconf and managed by ucf
+</code></pre>
+</div>
+
+<p>%% Admin user
+{acl, admin, {user, “admin”, “localhost”}}.
+&lt;/code&gt;<code>{acl, admin, {user, "myusername", "localhost"}}</code></p>
+
+<p>&lt;/code&gt;<code> %% Hostname 
+{hosts, ["localhost","example.com"]}.</code></p>
+
+<p>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&lt;/code&gt;&lt;/pre&gt;</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  * Now exit the nano editor by pressing CTRL + X. This will prompt you if you want to overwrite the previous cfg file, press &amp;#8220;Y&amp;#8221;, then press Enter again to confirm. This will bring you back to terminal screen.
+  * We have mentioned that &amp;#8220;myusername&amp;#8221; is another user holding administrative rights to ejabberd, but we still didn&amp;#8217;t mentioned his password. User &amp;#8220;myusername&amp;#8221; has to be registered to XMPP server, right? Lets register him as well. Enter following command to register: &lt;pre class=""&gt;ejabberdctl register myusername localhost password
+</code></pre>
+</div>
+<p>&lt;/pre&gt;</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    Replace &amp;#8220;password&amp;#8221; with whatever password you want to use to login. Once you are done with this, You have to re-start your ejabberd server by issuing this command:
+    
+    &lt;pre class=""&gt;service ejabberd restart
+</code></pre>
+</div>
+<p>&lt;/pre&gt;</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  * Fire up your public domain name in your favorite browser on port 5280 to login to ejabberd server: http://example.com:5280 .This will bring up webpage asking you for username and password. Login with username: myusername@localhost, password: whatever you mentioned in step 7.**NOTE**: If you are using local machine, your domain would be your local ip address. In windows, you can find this by executing _ipconfig _command in command prompt (It will be in the form 192.168.0.xxx), while for ubuntu, you can use _ifconfig. _
+  
+    [&lt;img class="aligncenter size-full wp-image-131" src="http://aboutashu.com/blog/wp-content/uploads/2016/04/ejabberd-amin.png" alt="ejabberd amin" width="1366" height="561" srcset="http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-amin.png 1366w, http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-amin-300x123.png 300w, http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-amin-768x315.png 768w, http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-amin-1024x421.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /&gt;](http://aboutashu.com/blog/wp-content/uploads/2016/04/ejabberd-amin.png)
+  * Once logged in, you&amp;#8217;ll see admin panel like this[&lt;img class="aligncenter size-full wp-image-132" src="http://aboutashu.com/blog/wp-content/uploads/2016/04/ejabberd-admin-2.png" alt="ejabberd admin portal" width="1366" height="364" srcset="http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-admin-2.png 1366w, http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-admin-2-300x80.png 300w, http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-admin-2-768x205.png 768w, http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-admin-2-1024x273.png 1024w" sizes="(max-width: 1366px) 100vw, 1366px" /&gt;](http://aboutashu.com/blog/wp-content/uploads/2016/04/ejabberd-admin-2.png)&lt;/ol&gt; 
+
+&amp;nbsp;
+
+You have now successfully installed ejabberd on your machine and can be used to connect to any XMPP based chat client. In the next post, you&amp;#8217;ll learn how to implement XMPP chat client in android code. Have fun!!
+
+Thanks for going threw entire long post. Please like and share if you like the article. Ask anything in comments below.
+
+### Troubleshooting:
+
+Sometimes, ejabberd might not open up in your browser and will give &amp;#8220;Connection timed out&amp;#8221; error. It usually happens if firewall is blocking ports on which ejabberd relies for communication stuffs. Usually those ports are 5222, 5269, 5280. You can try opening those ports like I did below:
+
+  1. Enter following commands in terminal: 
+        iptables -A INPUT -p tcp --dport 5222 -j ACCEPT
+        iptables -A INPUT -p tcp --dport 5269 -j ACCEPT
+        iptables -A INPUT -p tcp --dport 5280 -j ACCEPT
+
+  2. Open up **/etc/hosts** file by &lt;span class="lang:default decode:true crayon-inline "&gt;sudo nano /etc/hosts&lt;/span&gt;  and add your domain name into it (assuming your public ip address is 123.123.10.210) : 
+        123.123.10.210 example.com
+
+  3. Allow ubuntu firewall 
+        sudo ufw allow 5222
+        sudo ufw allow 5269
+        sudo ufw allow 5280
+    
+    &amp;nbsp;&lt;/li&gt; &lt;/ol&gt; 
+    
+    This will open the ports and allow public connections, which should fix the issue.
+</code></pre>
+</div>
+</div>
+</div>
+
+
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+                
+                <div class="panel-body">
+                <h4>Related Posts</h4>
+                <ul>
+                
+                <li class="relatedPost">
+                    <a href="http://localhost:4000/implement-xmpp-chat-client-android-part-1/">Implement XMPP chat client in Android &#8211; Part 1</a>
+                    
+                        (Categories: <a href="/category/Uncategorized">Uncategorized</a>)
+                    
+                </li>
+                
+                
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+
+    </ul>
+    </div>
+
+
+<div class="PageNavigation">
+  
+    <a class="prev" href="/get-video-links-from-coursera/">&laquo; Get video links from Coursera</a>
+  
+  
+    <a class="next" href="/implement-xmpp-chat-client-android-part-1/">Implement XMPP chat client in Android &#8211; Part 1 &raquo;</a>
+  
+</div>
+
+
+<div class="disqus-comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* <![CDATA[ */
+
+        var disqus_shortname = "aboutashu";
+        var disqus_identifier = "http://localhost:4000_Creating XMPP chat server";
+        var disqus_title = "Creating XMPP chat server";
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    /* ]]> */
+    </script>
+</div>
+
+                <footer>
+                    &copy; Ashutosh Chaudhary
+                     
+                    - <a href="https://github.com/ashutosh2k12">https://github.com/ashutosh2k12</a> - Powered by Jekyll.
+                    
+                </footer>
+            </div><!-- end /.col-sm-8 -->
+        </div><!-- end /.container -->
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <!--
+        <script src="/static/js/jquery.min.js"></script>
+        -->
+        <script src="/static/js/thickbox-compressed.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/static/js/super-search.js"></script>
+        <script src="/static/js/main.js"></script>
+        <script src="/static/js/projects.js"></script>
+    </body>
+</html>

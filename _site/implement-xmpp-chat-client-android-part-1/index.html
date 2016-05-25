@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="shortcut icon" href="/static/img/favicon.ico" />
+        <title>Implement XMPP chat client in Android &#8211; Part 1 - Ashutosh Chaudhary</title>
+        <meta name="author" content="Ashutosh Chaudhary" />
+        <meta name="description" content="Implement XMPP chat client in Android &#8211; Part 1" />
+        <meta name="keywords" content="Implement XMPP chat client in Android &#8211; Part 1, Ashutosh Chaudhary, Uncategorized" />
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+        <link rel="stylesheet" href="https://use.fontawesome.com/74dfc6cf47.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/static/css/syntax.css">
+
+        <!-- Bootstrap core CSS -->
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Fonts -->
+        <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,300italic,300,400italic,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+        <!-- Custom CSS -->        
+        <link rel="stylesheet" href="/static/css/thickbox.css">
+        <link rel="stylesheet" href="/static/css/super-search.css">
+        <link rel="stylesheet" href="/static/css/projects.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="col-sm-3">
+                <a href="/"><img id="about" src="/static/img/avatar.jpg" height="75px" width="75px" /></a>
+                <h1 class="author-name">Ashutosh Chaudhary</h1>
+                
+                <div id="about">
+                    Freelance web, apps developer
+                </div>
+                
+
+                <div class="social">
+	<ul>
+		
+			<li><a href="http://facebook.com/ashutosh2k12" target="_blank"><i class="fa fa-facebook"></i></a></li>
+		
+			<li><a href="skype:ashu2k111" target="_blank"><i class="fa fa-skype"></i></a></li>
+		
+			<li><a href="http://twitter.com/216ashutosh" target="_blank"><i class="fa fa-twitter"></i></a></li>
+		
+			<li><a href="https://in.linkedin.com/in/codeasashu" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+		
+			<li><a href="http://stackexchange.com/users/1155850/ashutosh" target="_blank"><i class="fa fa-stack-exchange"></i></a></li>
+		
+	</ul>
+</div>
+               
+                <div class="search" id="js-search">
+                  <input type="text" placeholder="(sitemap)~$ type to search" class="search__input form-control" id="js-search__input">
+                  <ul class="search__results" id="js-search__results"></ul>
+                </div>
+                <hr />
+                <div class="navigation">
+                <strong>Navigation</strong><br />
+                    &raquo; <a href="/">Home</a> <br />
+                
+                    &raquo; <a class="about" href="/about/">About Me</a><br />
+                
+                    &raquo; <a class="about" href="/projects/">Projects</a><br />
+                
+                    &raquo; <a class="about" href="https://drive.google.com/file/d/0B3Xfz0jTV0TnSjlMRS1DNGlSaTlxaHBEZHdoaGZWd1Q1Wkpn/view?usp=sharing">Resume</a><br />
+                
+                    &raquo; <a class="about" href="https://github.com/ashutosh2k12">Github</a><br />
+                
+                    &raquo; <a class="about" href="/feed.xml">XML Feed</a><br />
+                
+                </div>
+            </div>
+
+            <div class="col-sm-8 col-offset-1">
+                <h1>Implement XMPP chat client in Android &#8211; Part 1</h1>
+<span class="time">01 May 2016</span>
+
+<span class="categories">
+    &raquo; <a href="/category/Uncategorized">Uncategorized</a>
+</span>
+
+
+<div class="content">
+    <div class="post"><p>In the <a href="http://aboutashu.com/blog/xmpp-chat-server/">last post</a> of this series, I talked about setting up XMPP based chat server, using ejabberd. In this post, I will be talking about how to implement XMPP chat client in android and let two users talk to each other. After reading this post, you’ll be able to</p>
+
+<ol>
+  <li>Implement chat system such as whatsapp in your own android app</li>
+  <li>Allow multiple users to chat with each other</li>
+  <li>Making the chat as service so that chat messages still come through even while app is in background</li>
+</ol>
+
+<h2 id="xmpp-client">XMPP Client</h2>
+
+<p>XMPP Clients is a software or application which allows you to connect to XMPP servers for instant messaging with other people. Simple enough!! If you are a frequent internet user, you must’ve used one to many XMPP clients such as pidgin, gtalk, Yahoo! IM etc. which allows you to send Instant Message to other users you are connected to. What we will do this in post is to make one such client in android.</p>
+
+<h2 id="what-you-will-need">What You will need</h2>
+
+<ol>
+  <li>An android IDE for app development. While I prefer <a href="http://developer.android.com/sdk/index.html">Android Studio</a>, while <a href="https://eclipse.org/">Eclipse</a> also does the job.</li>
+  <li>Decent Working internet.</li>
+  <li>1-2 hours patience</li>
+</ol>
+
+<h2 id="starting-the-project">Starting the Project</h2>
+
+<p>Lets begin!!</p>
+
+<h4 id="creating-the-project">Creating the project:</h4>
+
+<ol>
+  <li>Open Android studio and hit the button “Start a new Android Studio project”.</li>
+  <li>Enter anything in “Application name”. For ex- Chatterbox . Hit <em>next</em> button.</li>
+  <li>Choose API level here. Google for what you should choose. Mine have API level 15. Hit <em>next.</em></li>
+  <li>Choose “Blank Activity” in next screen and hit the <em>next</em> button.</li>
+  <li>Click “finish” button to start your project.</li>
+</ol>
+
+<p>After this, android studio will bring up XML layout editor and Activity with some default code. We will be using same activity to start a chat.</p>
+
+<h4 id="importing-necessary-things-i-mean-libraries">Importing necessary things (I mean, libraries):</h4>
+
+<ol>
+  <li>In the left pane of android studio, you will see lots of directory list and some files. Choose app’s build.gradle (not the one outside the app folder). See image below for reference.</li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[&lt;img class="aligncenter size-full wp-image-138" src="http://aboutashu.com/blog/wp-content/uploads/2016/04/gt1.png" alt="gt1" width="242" height="309" srcset="http://107.170.45.123/blog/wp-content/uploads/2016/04/gt1.png 242w, http://107.170.45.123/blog/wp-content/uploads/2016/04/gt1-235x300.png 235w" sizes="(max-width: 242px) 100vw, 242px" /&gt;](http://aboutashu.com/blog/wp-content/uploads/2016/04/gt1.png)   2. Enter following code in dependencies list 
+[code]
+  
+dependencies {
+  
+compile fileTree(dir: &amp;#8216;libs&amp;#8217;, include: [&amp;#8216;*.jar&amp;#8217;])
+  
+compile &amp;#8216;com.android.support:appcompat-v7:22.2.0&amp;#8217;
+  
+compile "org.igniterealtime.smack:smack-android-extensions:4.1.0"
+  
+compile "org.igniterealtime.smack:smack-tcp:4.1.0"
+  
+[/code]
+</code></pre>
+</div>
+</div>
+</div>
+
+
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+                
+                <div class="panel-body">
+                <h4>Related Posts</h4>
+                <ul>
+                
+                <li class="relatedPost">
+                    <a href="http://localhost:4000/xmpp-chat-server/">Creating XMPP chat server</a>
+                    
+                        (Categories: <a href="/category/Uncategorized">Uncategorized</a>)
+                    
+                </li>
+                
+                
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+
+    </ul>
+    </div>
+
+
+<div class="PageNavigation">
+  
+    <a class="prev" href="/xmpp-chat-server/">&laquo; Creating XMPP chat server</a>
+  
+  
+    <a class="next" href="/wordpress-html-encoded-image-alternate-text/">WordPress: HTML encoded image alternate text &raquo;</a>
+  
+</div>
+
+
+<div class="disqus-comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* <![CDATA[ */
+
+        var disqus_shortname = "aboutashu";
+        var disqus_identifier = "http://localhost:4000_Implement XMPP chat client in Android &#8211; Part 1";
+        var disqus_title = "Implement XMPP chat client in Android &#8211; Part 1";
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    /* ]]> */
+    </script>
+</div>
+
+                <footer>
+                    &copy; Ashutosh Chaudhary
+                     
+                    - <a href="https://github.com/ashutosh2k12">https://github.com/ashutosh2k12</a> - Powered by Jekyll.
+                    
+                </footer>
+            </div><!-- end /.col-sm-8 -->
+        </div><!-- end /.container -->
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <!--
+        <script src="/static/js/jquery.min.js"></script>
+        -->
+        <script src="/static/js/thickbox-compressed.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/static/js/super-search.js"></script>
+        <script src="/static/js/main.js"></script>
+        <script src="/static/js/projects.js"></script>
+    </body>
+</html>

@@ -193,3 +193,69 @@ div.col-sm-3 img#about {
 .PageNavigation .prev {
     text-align: left;
 }
+
+.paginator {
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+.paginator>li {
+    display: inline;
+}
+.paginator>.disabled>span {
+    color: #999;
+    background-color: #fff;
+    border-color: #ddd;
+    cursor: not-allowed;
+}
+.paginator>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    text-decoration: none;
+    color: #428bca;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-left: -1px;
+}
+.paginator>li>a, .paginator>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    text-decoration: none;
+    color: #777;
+    background-color: #fff;
+    margin-left: -1px;
+    border: none;
+}
+.paginator>.active>a{
+    z-index: 2;
+    color: #fff;
+    background-color: #777;
+    border-color: #777;
+    cursor: default;
+}
+
+.social{
+    display: block;
+    margin: 10px 0;
+}
+.social ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.social ul li {
+    display: inline-block;
+    margin: 0 5px;
+}
+.social li a {
+    font-size: 16px;
+}
+.navigation a {
+    font-size: 12px;
+    font-weight: 400;
+}

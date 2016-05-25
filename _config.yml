@@ -7,11 +7,31 @@ disqus_shortname: aboutashu
 urls:
     - text: About Me
       url: /about/
+    - text: Projects
+      url: /projects/
+    - text: Resume
+      url: https://drive.google.com/file/d/0B3Xfz0jTV0TnSjlMRS1DNGlSaTlxaHBEZHdoaGZWd1Q1Wkpn/view?usp=sharing
     - text: Github
       url: https://github.com/ashutosh2k12
     - text: XML Feed
       url: /feed.xml
-url: "http://aboutashu.com"
+      
+social:
+    - icon: fa-facebook
+      link: http://facebook.com/ashutosh2k12
+    - icon: fa-skype
+      link: skype:ashu2k111
+    - icon: fa-twitter
+      link: http://twitter.com/216ashutosh
+    - icon: fa-linkedin
+      link: https://in.linkedin.com/in/codeasashu
+    - icon: fa-stack-exchange
+      link: http://stackexchange.com/users/1155850/ashutosh
+
+enableTags: true
+tagarray: []
+
+url: "http://localhost:4000"
 baseurl: ""
 paginate: 20
 per_page: 20
