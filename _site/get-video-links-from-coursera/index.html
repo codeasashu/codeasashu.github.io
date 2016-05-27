@@ -103,21 +103,23 @@
 
 <p>Hence here is a small script I developed which would give you all video links from coursera. Here is what you’ll have to do:</p>
 
-<ol>
+<ul>
   <li>Goto your class. For ex- Mine was  <a href="https://www.coursera.org/course/startup">https://www.coursera.org/course/startup</a></li>
   <li>Enroll and go to video lectures from left tab. Here is the screenshot</li>
   <li>in chrome, press <kbd>f12</kbd> to bring up chrome inspector. You can also right click anywhere on webpage and click <strong>inspect element</strong>. Go to <strong>console</strong> tab.</li>
-  <li>Paste the following script into the console:
- <code class="highlighter-rouge">
- (function($){
-   $("ul.course-item-list-section-list &gt; li").each(function(){
-     var link = $(this).find("a[data-link-type=\"lecture:download.mp4\"]").attr('href');
-     console.log(link)
-     });
- })(jQuery);
-</code></li>
+  <li>Paste the following script into the console:</li>
+  <li>
+    <div class="language-js highlighter-rouge"><pre class="highlight"><code>    <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">){</span>
+      <span class="nx">$</span><span class="p">(</span><span class="s2">"ul.course-item-list-section-list &gt; li"</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="kd">var</span> <span class="nx">link</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s2">"a[data-link-type=\"lecture:download.mp4\"]"</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'href'</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">link</span><span class="p">)</span>
+      <span class="p">});</span>
+    <span class="p">})(</span><span class="nx">jQuery</span><span class="p">);</span>
+</code></pre>
+    </div>
+  </li>
   <li>Press enter and hopefully, it will parse every video link in the page.</li>
-</ol>
+</ul>
 
 <p>Hope you’ve liked the article and it helped you. Please do comment if I owe any explanations. Share, it might be helpful to others.</p>
 </div>
