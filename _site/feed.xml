@@ -5,8 +5,8 @@
     <description>My Personal Blog</description>
     <link>http://aboutashu.com/</link>
     <atom:link href="http://aboutashu.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 27 May 2016 11:27:03 +0530</pubDate>
-    <lastBuildDate>Fri, 27 May 2016 11:27:03 +0530</lastBuildDate>
+    <pubDate>Fri, 27 May 2016 11:33:53 +0530</pubDate>
+    <lastBuildDate>Fri, 27 May 2016 11:33:53 +0530</lastBuildDate>
     <generator>Jekyll v3.1.3</generator>
     
       <item>
@@ -326,36 +326,38 @@ Sometimes, ejabberd might not open up in your browser and will give &amp;amp;#82
     
       <item>
         <title>How to download multiple videos from youtube-dl</title>
-        <description>&lt;p&gt;Like me, you must’ve also faced a similar situation when you needed to download multiple videos from a site. In case you’re also a frequent webnair/seminar viewer or a youtube fan, you must’ve came across a beautiful ultility called &lt;a title=&quot;Youtube-dl &quot; href=&quot;https://rg3.github.io/youtube-dl&quot; target=&quot;_blank&quot;&gt;Youtube-dl&lt;/a&gt; to download videos from your favourite sites such as youtube, vimeo etc.&lt;/p&gt;
+        <description>&lt;p&gt;Like me, you must’ve also faced a similar situation when you needed to download multiple videos from a site. In case you’re also a frequent webnair/seminar viewer or a youtube fan, you must’ve came across a beautiful ultility called &lt;a href=&quot;https://rg3.github.io/youtube-dl&quot;&gt;Youtube-dl&lt;/a&gt; ( to download videos from your favourite sites such as youtube, vimeo etc.&lt;/p&gt;
 
 &lt;p&gt;Here is how to download multiple videos from your favourite sites (I am using videmo as an example).&lt;/p&gt;
 
-&lt;ol&gt;
+&lt;ul&gt;
   &lt;li&gt;
     &lt;p&gt;Open up a command prompt (windows) or terminal(Linux), and go to location where you want to download the videos.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt; Create a blank text file in that location. Paste your list of URLs in that file. Remember to press Enter after each link. Lets say, you named the file “download.txt”&lt;/p&gt;
   &lt;/li&gt;
+  &lt;li&gt;Copy and paste the following command in your terminal/command prompt&lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Copy and paste the following command in your terminal/command prompt&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;youtube-dl -ci --batch-file&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;download.txt
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
   &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre class=&quot;lang:batch decode:true &quot;&gt; youtube-dl -ci --batch-file=download.txt&lt;/pre&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;This will start downloading every url mentioned in the file.&lt;/p&gt;
 
-&lt;p&gt; &lt;/p&gt;
-
 &lt;p&gt;For me, the download speed was slow as compared to some download accelerator programs. I wanted just the download links, so I can download it via some custom made downloaders. Here is how you can output the links to another file.&lt;/p&gt;
 
-&lt;pre class=&quot;lang:batch decode:true&quot;&gt;youtube-dl -cgi --batch-file=download.txt &amp;gt; output.txt&lt;/pre&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;youtube-dl -cgi --batch-file&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;download.txt &amp;gt; output.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;If you also want the titles along with each link to be printed, just add “-e” switch to above command. This will become&lt;/p&gt;
+&lt;p&gt;If you also want the titles along with each link to be printed, just add &lt;strong&gt;-e&lt;/strong&gt; switch to above command. This will become&lt;/p&gt;
 
-&lt;pre class=&quot;lang:batch decode:true&quot;&gt;youtube-dl -cgei --batch-file=download.txt &amp;gt; output.txt
-&lt;/pre&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;youtube-dl -cgei --batch-file&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;download.txt &amp;gt; output.txt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 </description>
         <pubDate>Tue, 26 Jan 2016 00:08:03 +0530</pubDate>
         <link>http://aboutashu.com/how-to-download-multiple-videos-from-youtube-dl/</link>
