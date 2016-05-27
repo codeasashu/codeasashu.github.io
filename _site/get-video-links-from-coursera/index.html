@@ -104,15 +104,18 @@
 <p>Hence here is a small script I developed which would give you all video links from coursera. Here is what you’ll have to do:</p>
 
 <ol>
-  <li>Goto your class. For ex- Mine was  https://www.coursera.org/course/startup</li>
-  <li>Enroll and go to “video lectures” from left tab. Here is the screenshot</li>
+  <li>Goto your class. For ex- Mine was  <a href="https://www.coursera.org/course/startup">https://www.coursera.org/course/startup</a></li>
+  <li>Enroll and go to video lectures from left tab. Here is the screenshot</li>
+  <li>in chrome, press <kbd>f12</kbd> to bring up chrome inspector. You can also right click anywhere on webpage and click <strong>inspect element</strong>. Go to <strong>console</strong> tab.</li>
+  <li>Paste the following script into the console. Screenshot:</li>
 </ol>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;a href="http://aboutashu.com/blog/wp-content/uploads/2016/01/v1.jpg" rel="attachment wp-att-79"&gt;&lt;img class="alignnone size-medium wp-image-79" src="http://aboutashu.com/blog/wp-content/uploads/2016/01/v1-300x277.jpg" alt="v1" width="300" height="277" srcset="http://107.170.45.123/blog/wp-content/uploads/2016/01/v1-300x277.jpg 300w, http://107.170.45.123/blog/wp-content/uploads/2016/01/v1.jpg 702w" sizes="(max-width: 300px) 100vw, 300px" /&gt;&lt;/a&gt;   3. in chrome, press \`f12\` to bring up chrome inspector. You can also right click anywhere on webpage and click &amp;#8220;inspect element&amp;#8221;. Go to **console** tab.   4. Paste the following script into the console. Screenshot:
-  
-&lt;a href="http://aboutashu.com/blog/wp-content/uploads/2016/01/v2.jpg" rel="attachment wp-att-80"&gt;&lt;img class="alignnone size-medium wp-image-80" src="http://aboutashu.com/blog/wp-content/uploads/2016/01/v2-300x86.jpg" alt="v2" width="300" height="86" srcset="http://107.170.45.123/blog/wp-content/uploads/2016/01/v2-300x86.jpg 300w, http://107.170.45.123/blog/wp-content/uploads/2016/01/v2-768x221.jpg 768w, http://107.170.45.123/blog/wp-content/uploads/2016/01/v2-1024x295.jpg 1024w, http://107.170.45.123/blog/wp-content/uploads/2016/01/v2.jpg 1366w" sizes="(max-width: 300px) 100vw, 300px" /&gt;&lt;/a&gt;Script:&lt;/p&gt; &lt;pre class="lang:js decode:true"&gt;(function($){ $("ul.course-item-list-section-list &amp;gt; li").each(function(){ var link = $(this).find("a[data-link-type=\"lecture:download.mp4\"]").attr('href'); console.log(link) }); })(jQuery);&lt;/pre&gt;
-</code></pre>
-</div>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">){</span>
+<span class="nx">$</span><span class="p">(</span><span class="s2">"ul.course-item-list-section-list &gt; li"</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+<span class="kd">var</span> <span class="nx">link</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s2">"a[data-link-type=\"lecture:download.mp4\"]"</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'href'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">link</span><span class="p">)</span>
+<span class="p">});</span>
+<span class="p">})(</span><span class="nx">jQuery</span><span class="p">);</span></code></pre></figure>
 
 <ol>
   <li>Press enter and hopefully, it will parse every video link in the page.</li>
