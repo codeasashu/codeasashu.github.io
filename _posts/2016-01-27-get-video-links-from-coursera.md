@@ -25,16 +25,16 @@ Hence here is a small script I developed which would give you all video links fr
 1. Goto your class. For ex- Mine was  [https://www.coursera.org/course/startup](https://www.coursera.org/course/startup)
 2. Enroll and go to video lectures from left tab. Here is the screenshot
 3. in chrome, press <kbd>f12</kbd> to bring up chrome inspector. You can also right click anywhere on webpage and click **inspect element**. Go to **console** tab.
-4. Paste the following script into the console. Screenshot:
-{% highlight javascript %}
-(function($){
-$("ul.course-item-list-section-list > li").each(function(){
-var link = $(this).find("a[data-link-type=\"lecture:download.mp4\"]").attr('href');
-console.log(link)
-});
-})(jQuery);
-{% endhighlight %}
-
+4. Paste the following script into the console:
+    ```js
+    (function($){
+      $("ul.course-item-list-section-list > li").each(function(){
+        var link = $(this).find("a[data-link-type=\"lecture:download.mp4\"]").attr('href');
+        console.log(link)
+        });
+    })(jQuery);
+    ```
 5. Press enter and hopefully, it will parse every video link in the page.
+
 
 Hope you've liked the article and it helped you. Please do comment if I owe any explanations. Share, it might be helpful to others.
