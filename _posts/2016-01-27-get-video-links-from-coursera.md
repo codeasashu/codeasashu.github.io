@@ -26,7 +26,7 @@ Hence here is a small script I developed which would give you all video links fr
 2. Enroll and go to video lectures from left tab. Here is the screenshot
 3. in chrome, press <kbd>f12</kbd> to bring up chrome inspector. You can also right click anywhere on webpage and click **inspect element**. Go to **console** tab.
 4. Paste the following script into the console:
-    ```js
+    ```
     (function($){
       $("ul.course-item-list-section-list > li").each(function(){
         var link = $(this).find("a[data-link-type=\"lecture:download.mp4\"]").attr('href');
