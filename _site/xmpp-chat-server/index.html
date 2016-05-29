@@ -231,13 +231,13 @@ Once you have made the above changes, the cfg file will now look like:</p>
 <p>Sometimes, ejabberd might not open up in your browser and will give <code class="highlighter-rouge">Connection timed out</code> error. It usually happens if firewall is blocking ports on which ejabberd relies for communication stuffs. Usually those ports are 5222, 5269, 5280. You can try opening those ports like I did below:</p>
 
 <ul>
+  <li>Enter following commands in terminal:</li>
   <li>
-    <p>Enter following commands in terminal: 
-<code class="highlighter-rouge">bash
-iptables -A INPUT -p tcp --dport 5222 -j ACCEPT
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code>iptables -A INPUT -p tcp --dport 5222 -j ACCEPT
 iptables -A INPUT -p tcp --dport 5269 -j ACCEPT
 iptables -A INPUT -p tcp --dport 5280 -j ACCEPT
-</code></p>
+</code></pre>
+    </div>
   </li>
   <li>Open up <code class="highlighter-rouge">/etc/hosts</code> file. <code class="highlighter-rouge">sudo nano /etc/hosts</code>  and add your domain name into it (assuming your public ip address is 123.123.10.210) :</li>
   <li>

@@ -143,6 +143,7 @@ Thanks for going threw entire long post. Please like and share if you like the 
 Sometimes, ejabberd might not open up in your browser and will give `Connection timed out` error. It usually happens if firewall is blocking ports on which ejabberd relies for communication stuffs. Usually those ports are 5222, 5269, 5280. You can try opening those ports like I did below:
     
 - Enter following commands in terminal: 
+- 
 ```bash
 iptables -A INPUT -p tcp --dport 5222 -j ACCEPT
 iptables -A INPUT -p tcp --dport 5269 -j ACCEPT
