@@ -99,59 +99,57 @@
 
 
 <div class="content">
-    <div class="post"><p>The WordPress media manager allows you to add captions to your images, which can be inserted into your post content wrapped in the <strong>caption</strong> shortcode. However, image alternate text are inserted as plaintext. You can now use HTML encoded image alternate text with few lines of code.</p>
+    <div class="post"><p>One problem with wordpress is that it doesn’t allow HTML encoded strings in image alternate text. Even if you provide your image alternate text as a HTML string, wordpress will covert it down to plaintext, removing any HTML attributes and the image will then have only plaintext of your alternate text.</p>
 
-<div id="attachment_145" style="width: 295px" class="wp-caption aligncenter">
-  <a href="http://aboutashu.com/blog/wp-content/uploads/2016/05/image_alt.png"><img class="wp-image-145 size-full" title="Image alternate text" src="http://aboutashu.com/blog/wp-content/uploads/2016/05/image_alt.png" alt="Sample gallery image" width="285" height="480" srcset="http://107.170.45.123/blog/wp-content/uploads/2016/05/image_alt.png 285w, http://107.170.45.123/blog/wp-content/uploads/2016/05/image_alt-178x300.png 178w" sizes="(max-width: 285px) 100vw, 285px" /></a>
-  
-  <p class="wp-caption-text">
-    Sample gallery image
-  </p>
+<p>i.e even if you write your image alternate section such as this</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>Hey, I am <span class="nt">&lt;i&gt;</span> italic text <span class="nt">&lt;/i&gt;</span>
+</code></pre>
 </div>
 
-<p>As you can see, I’ve left the “Alt text” section blank, while providing the caption for the image. The caption I provided contains HTML string, containing <i> and <br /> attributes. You may also want to include links to original author of image, or may want to link to some sources.  Wordpress, upon encountering blank image alternate text (Alt text section in above image), uses caption to fill the “alt” attribute of the image. Hence the image on post page will look like:</i></p>
+<p>this would output in frontend as</p>
 
-<p>[code] &lt;img src=”http://someexamplesite.com/path/to/image/image.jpg” alt=”your caption in plaintext here” …. /&gt;[/code]</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>Hey, I am italic text
+</code></pre>
+</div>
 
-<h3 id="the-problem">The problem</h3>
+<p>This is not cool. Sometimes, you rely on some plugins which reads image alternate text and display below the images in pretty cool style.</p>
 
-<p>When you are using some plugins to show image gallery, they generally rely on caption and alternate text to show image description. In such cases, it becomes necessity to have alternate text in HTML entity rather than plaintext. But wordpress converts down the caption to plaintext and then fills up alt attribute of image. Hence, even if your caption reads</p>
+<h2 id="options">Options</h2>
 
-<p>[code]<b>Hey, this is <i>caption</i></b>[/code]</p>
+<p>One option which came to my mind is to leave alternate text blank and provide the image <em>caption</em> in HTML format. For ex, check below image:</p>
 
-<p>, the image alt will come up like:</p>
+<p><img src="/assets/wordpess_caption.png" alt="Wp Caption" /></p>
 
-<p>[code] <img src="http://image-url/image.jpg" alt="Hey, this is caption" />[/code]</p>
+<p>Wordpres has this feature where if you leave the alternate text blank, it would fill the caption text in alternate text. I thought it would work since I can provide HTML in captions. But again, the same problem. Captions were turned back into plaintext.</p>
 
-<p>This is when you might want to fill up image alt attribute in HTML encoded string, or in simple words, may want the above image tag to look something like this:</p>
+<p>Thus, for the above image, the output was something like this:</p>
 
-<p>[code] <img src="http://image-url/image.jpg" alt="&lt;b&gt;Hey, this is &lt;i&gt;caption&lt;/i&gt;&lt;/b&gt;" />[/code]</p>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://yourwebsite.com/path/to/image/image.jpg"</span> <span class="na">alt=</span><span class="s">"Hello, this is sample caption. This text is in bold"</span> <span class="nt">/&gt;</span>
+</code></pre>
+</div>
 
 <h3 id="the-solution">The solution</h3>
 
-<p>Luckily, WordPress provides image hooks which you can use to modify image attributes on the fly. Hence, Here is one function which I think would work best</p>
+<p>Luckily, WordPress provides image hooks which you can use to modify image attributes on the fly. The one which I want to use is <a href="https://developer.wordpress.org/reference/hooks/wp_get_attachment_image_attributes/">wp_get_attachment_image_attributes</a></p>
 
-<p>[code]<a href="https://developer.wordpress.org/reference/hooks/wp\_get\_attachment\_image\_attributes/">wp_get_attachment_image_attributes</a>[/code]</p>
+<p>We can use this hook to see what image attribute we want to change, read its value, format it in HTML and return back our new value.</p>
 
-<p>. Here is my solution. You can just copy paste the below code and drop into your theme’s functions.php.</p>
+<p>Hence, open up your theme’s <code class="highlighter-rouge">functions.php</code> and create a new function where you want to attach this hook. I am calling the function <code class="highlighter-rouge">custom_filter_gallery_img_atts</code>.</p>
 
-<p>[code lang=”php”]</p>
+<div class="language-php highlighter-rouge"><pre class="highlight"><code>//Filename: functions.php
+function custom_filter_gallery_img_atts( $atts, $attachment ) {
+$atts["alt"] = get_post($attachment-&gt;ID)-&gt;post_excerpt; //This returns image caption (which is in HTML format)
+return $atts;
+}
+  
+add_filter( "wp_get_attachment_image_attributes", "custom_filter_gallery_img_atts", 10, 2 );
+</code></pre>
+</div>
 
-<p>function my_filter_gallery_img_atts( $atts, $attachment ) {</p>
+<p>What we did above is attaching <code class="highlighter-rouge">wp_get_attachment_image_attributes</code> to our custom defined function <code class="highlighter-rouge">custom_filter_gallery_img_atts</code> inside which we read the image caption and stored the value in image alternate text.</p>
 
-<p>$atts[‘alt’] = get_post($attachment-&gt;ID)-&gt;post_excerpt; //This get HTML encoded caption for an image</p>
-
-<p>return $atts;</p>
-
-<p>}</p>
-
-<p>add_filter( ‘wp_get_attachment_image_attributes’, ‘my_filter_gallery_img_atts’, 10, 2 );</p>
-
-<p>[/code]</p>
-
-<p> </p>
-
-<p>Hope it works for you. See you next time.</p>
+<p>Hope you enjoyed the article. If you have any doubts, please comment below. See you soon.</p>
 </div>
 </div>
 
