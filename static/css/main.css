@@ -93,17 +93,11 @@ div.content {
 }
 
 div.content pre {
-    background: #333333;
     padding: 10px;
-    color: #FFF;
     overflow-x: auto;
     font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
-    font-size: 12px;
+    font-size: 14px;
     border: none;
-}
-
-div.content .highlight {
-	background: #333333;
 }
 
 footer {

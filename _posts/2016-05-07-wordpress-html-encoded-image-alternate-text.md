@@ -55,7 +55,8 @@ We can use this hook to see what image attribute we want to change, read its val
 
 Hence, open up your theme's `functions.php` and create a new function where you want to attach this hook. I am calling the function `custom_filter_gallery_img_atts`.
 
-```php
+{% highlight php %}
+<?php
 //Filename: functions.php
 function custom_filter_gallery_img_atts( $atts, $attachment ) {
 $atts["alt"] = get_post($attachment->ID)->post_excerpt; //This returns image caption (which is in HTML format)
@@ -63,7 +64,8 @@ return $atts;
 }
   
 add_filter( "wp_get_attachment_image_attributes", "custom_filter_gallery_img_atts", 10, 2 );
-```
+?>
+{% endhighlight %}
 
 What we did above is attaching `wp_get_attachment_image_attributes` to our custom defined function `custom_filter_gallery_img_atts` inside which we read the image caption and stored the value in image alternate text. 
 

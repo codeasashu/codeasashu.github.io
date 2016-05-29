@@ -5,8 +5,8 @@
     <description>My Personal Blog</description>
     <link>http://aboutashu.com/</link>
     <atom:link href="http://aboutashu.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 29 May 2016 12:08:25 +0530</pubDate>
-    <lastBuildDate>Sun, 29 May 2016 12:08:25 +0530</lastBuildDate>
+    <pubDate>Sun, 29 May 2016 13:18:44 +0530</pubDate>
+    <lastBuildDate>Sun, 29 May 2016 13:18:44 +0530</lastBuildDate>
     <generator>Jekyll v3.1.3</generator>
     
       <item>
@@ -49,15 +49,15 @@
 
 &lt;p&gt;Hence, open up your theme’s &lt;code class=&quot;highlighter-rouge&quot;&gt;functions.php&lt;/code&gt; and create a new function where you want to attach this hook. I am calling the function &lt;code class=&quot;highlighter-rouge&quot;&gt;custom_filter_gallery_img_atts&lt;/code&gt;.&lt;/p&gt;
 
-&lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//Filename: functions.php
-function custom_filter_gallery_img_atts( $atts, $attachment ) {
-$atts[&quot;alt&quot;] = get_post($attachment-&amp;gt;ID)-&amp;gt;post_excerpt; //This returns image caption (which is in HTML format)
-return $atts;
-}
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//Filename: functions.php
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;custom_filter_gallery_img_atts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$atts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$attachment&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$atts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;alt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;get_post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$attachment&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;post_excerpt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//This returns image caption (which is in HTML format)
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$atts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   
-add_filter( &quot;wp_get_attachment_image_attributes&quot;, &quot;custom_filter_gallery_img_atts&quot;, 10, 2 );
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;span class=&quot;nx&quot;&gt;add_filter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;wp_get_attachment_image_attributes&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;custom_filter_gallery_img_atts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;What we did above is attaching &lt;code class=&quot;highlighter-rouge&quot;&gt;wp_get_attachment_image_attributes&lt;/code&gt; to our custom defined function &lt;code class=&quot;highlighter-rouge&quot;&gt;custom_filter_gallery_img_atts&lt;/code&gt; inside which we read the image caption and stored the value in image alternate text.&lt;/p&gt;
 
@@ -150,9 +150,7 @@ compile &quot;org.igniterealtime.smack:smack-tcp:4.1.0&quot;
     
       <item>
         <title>Creating XMPP chat server</title>
-        <description>&lt;h2 id=&quot;creating-xmpp-chatserver&quot;&gt;Creating XMPP chat server&lt;/h2&gt;
-
-&lt;p&gt;In this part of series, I am going to show you how to create an XMPP chat server.&lt;/p&gt;
+        <description>&lt;p&gt;In this part of series, I am going to show you how to create an XMPP chat server.&lt;/p&gt;
 
 &lt;p&gt;To build your own XMPP based chat solution in android, you need to have two important things:&lt;/p&gt;
 
@@ -165,110 +163,150 @@ compile &quot;org.igniterealtime.smack:smack-tcp:4.1.0&quot;
 
 &lt;p&gt;There are many variations of XMPP chat servers available today. You can use any of them depending on your requirements and available configurations. What I would recommend are &lt;a href=&quot;http://www.igniterealtime.org/projects/openfire/&quot;&gt;openfire&lt;/a&gt; and &lt;a href=&quot;https://www.ejabberd.im/&quot;&gt;ejabberd&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Personally, I am going to use ejabberd to setup XMPP chat server. Let’s get into action. For now, I am using &lt;a href=&quot;https://www.digitalocean.com&quot;&gt;DigitalOcean VPS&lt;/a&gt; with Ubuntu Server 14.04 LTS installed, to host the server. You can test it with your own localhost machine.&lt;/p&gt;
+&lt;p&gt;Personally, I am going to use ejabberd to setup XMPP chat server. Let’s get into action. First, you will need a web server.For now, I am using &lt;a href=&quot;https://www.digitalocean.com&quot;&gt;DigitalOcean VPS&lt;/a&gt; with Ubuntu Server 14.04 LTS installed, to host the server. Don’t worry if you do not have a VPS right now. You can still test it with your own localhost machine.&lt;/p&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;Connect to your ubuntu box using SSH. This will bring you to console screen. If you are using ubuntu in your local machine, you can safely skip this step.&lt;/li&gt;
-  &lt;li&gt;Run the command &lt;span class=&quot;lang:default decode:true crayon-inline&quot;&gt;sudo apt-get update&lt;/span&gt; to update any packages.&lt;/li&gt;
-  &lt;li&gt;Enter following command to install ejabberd to your ubuntu powered machine:&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2 id=&quot;installing-ejabberd&quot;&gt;Installing Ejabberd&lt;/h2&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[code]sudo apt-get -y install ejabberd[/code]&amp;lt;/p&amp;gt; 
-This will install ejabberd and will also create a configuration file which you can edit to have your own jabberd configuration. We will be editing the file in below step.&amp;lt;/li&amp;gt; 
+&lt;p&gt;Run following command in your terminal to update current package list.&lt;/p&gt;
 
-  * Time to edit the configuration file now. Enter the following command to bring up nano editor &amp;lt;span class=&quot;lang:default decode:true crayon-inline &quot;&amp;gt;sudo nano /etc/ejabberd/ejabberd.cfg&amp;lt;/span&amp;gt; . You&amp;amp;#8217;ll see a lot of text there and lot of options. Don&amp;amp;#8217;t worry. You only have edit 3-4 options overall. I&amp;amp;#8217;ll be doing them below, so pay attention.
-  * In the nano screen, you will see the configuration file as shown below &amp;lt;div id=&quot;attachment_130&quot; style=&quot;width: 1336px&quot; class=&quot;wp-caption aligncenter&quot;&amp;gt;
-      &amp;lt;a href=&quot;http://aboutashu.com/blog/wp-content/uploads/2016/04/nano.png&quot;&amp;gt;&amp;lt;img class=&quot;wp-image-130 size-full&quot; title=&quot;ejabberd.cfg&quot; src=&quot;http://aboutashu.com/blog/wp-content/uploads/2016/04/nano.png&quot; alt=&quot;ejabberd.cfg&quot; width=&quot;1326&quot; height=&quot;619&quot; srcset=&quot;http://107.170.45.123/blog/wp-content/uploads/2016/04/nano.png 1326w, http://107.170.45.123/blog/wp-content/uploads/2016/04/nano-300x140.png 300w, http://107.170.45.123/blog/wp-content/uploads/2016/04/nano-768x359.png 768w, http://107.170.45.123/blog/wp-content/uploads/2016/04/nano-1024x478.png 1024w&quot; sizes=&quot;(max-width: 1326px) 100vw, 1326px&quot; /&amp;gt;&amp;lt;/a&amp;gt;
-      
-      &amp;lt;p class=&quot;wp-caption-text&quot;&amp;gt;
-        ejabberd configuration file
-      &amp;lt;/p&amp;gt;
-    &amp;lt;/div&amp;gt;
-    
-    Use your cursor to move below and find the line which has this text:
-    
-    &amp;lt;pre class=&quot;&quot;&amp;gt;&amp;lt;code&amp;gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%% %% Options which are set by Debconf and managed by ucf
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;%% Admin user
-{acl, admin, {user, “admin”, “localhost”}}.&lt;/p&gt;
+&lt;p&gt;To install &lt;strong&gt;ejabberd&lt;/strong&gt;, just enter the below command and you are done. So easy.&lt;/p&gt;
 
-&lt;p&gt;%% Hostname
-{hosts, [“localhost”]}.&lt;/p&gt;
-
-&lt;p&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&amp;lt;/code&amp;gt;
-&amp;lt;/pre&amp;gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    `{acl, admin, {user, &quot;admin&quot;, &quot;localhost&quot;}}.` This line tells that user with username &amp;amp;#8220;admin@localhost&amp;amp;#8221; is admin of ejabberd configuration. We can add multiple users here to make them admin. Let&amp;amp;#8217;s add one. So, press enter key and add similar line with different username.
-    
-    &amp;lt;span class=&quot;lang:default decode:true crayon-inline &quot;&amp;gt;{acl, admin, {user, &amp;amp;#8220;myusername&amp;amp;#8221;, &amp;amp;#8220;localhost&amp;amp;#8221;}}.&amp;lt;/span&amp;gt;
-    
-    %% Hostname defines the server at which ejabberd should listen and connect. If you are not using a local machine (i.e you are using VPS such as DigitalOcean) to host the XMPP chat server, you can mention the domain name or IP address here. I am assuming example.com as my VPS domain name, hence I will modify this line as:
-    
-    &amp;lt;pre class=&quot;&quot;&amp;gt;&amp;lt;code&amp;gt;%% Hostname {hosts, [&quot;localhost&quot;,&quot;example.com&quot;]}.&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-    
-    Thats all the changes you have to make for now. Once you have made the above changes, the cfg file will now look like:
-    
-    &amp;lt;pre class=&quot;&quot;&amp;gt;&amp;lt;code&amp;gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% %%%%%%%%%%%% %% Options which are set by Debconf and managed by ucf
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get -y install ejabberd
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;%% Admin user
-{acl, admin, {user, “admin”, “localhost”}}.
-&amp;lt;/code&amp;gt;&lt;code&gt;{acl, admin, {user, &quot;myusername&quot;, &quot;localhost&quot;}}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;This will install ejabberd and will also create a configuration file which you can edit to have your own jabberd configuration. The ejabberd configuration file can be found at &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/ejabberd/ejabberd.cfg&lt;/code&gt;. Lets edit it. Back on your terminal screen, enter this command to edit the file:&lt;/p&gt;
 
-&lt;p&gt;&amp;lt;/code&amp;gt;&lt;code&gt; %% Hostname 
-{hosts, [&quot;localhost&quot;,&quot;example.com&quot;]}.&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  * Now exit the nano editor by pressing CTRL + X. This will prompt you if you want to overwrite the previous cfg file, press &amp;amp;#8220;Y&amp;amp;#8221;, then press Enter again to confirm. This will bring you back to terminal screen.
-  * We have mentioned that &amp;amp;#8220;myusername&amp;amp;#8221; is another user holding administrative rights to ejabberd, but we still didn&amp;amp;#8217;t mentioned his password. User &amp;amp;#8220;myusername&amp;amp;#8221; has to be registered to XMPP server, right? Lets register him as well. Enter following command to register: &amp;lt;pre class=&quot;&quot;&amp;gt;ejabberdctl register myusername localhost password
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nano /etc/ejabberd/ejabberd.cfg
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;&amp;lt;/pre&amp;gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    Replace &amp;amp;#8220;password&amp;amp;#8221; with whatever password you want to use to login. Once you are done with this, You have to re-start your ejabberd server by issuing this command:
-    
-    &amp;lt;pre class=&quot;&quot;&amp;gt;service ejabberd restart
+&lt;p&gt;This will bring up &lt;code class=&quot;highlighter-rouge&quot;&gt;nano&lt;/code&gt; editor, where you can use up and down keys on your keyboard to edit the file. For Ubuntu desktops or other graphical environments, you can use &lt;code class=&quot;highlighter-rouge&quot;&gt;gedit&lt;/code&gt;. Hence, use this command instead &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo gedit /etc/ejabberd/ejabberd.cfg&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;In the editor screen, You’ll see a lot of text there and lot of options. Don’t panic. You only have edit 3-4 options overall. I will be doing them below, so pay attention.&lt;/p&gt;
+
+&lt;p&gt;The ejabberd.cfg file will look something like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/ejabberd_cfg.png&quot; alt=&quot;ejabberd.cfg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Use your cursor to move below and find the line which has this text:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;%% Admin user
+{acl, admin, {user, &quot;admin&quot;, &quot;localhost&quot;}}.
+
+%% Hostname
+{hosts, [&quot;localhost&quot;]}.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;&amp;lt;/pre&amp;gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  * Fire up your public domain name in your favorite browser on port 5280 to login to ejabberd server: http://example.com:5280 .This will bring up webpage asking you for username and password. Login with username: myusername@localhost, password: whatever you mentioned in step 7.**NOTE**: If you are using local machine, your domain would be your local ip address. In windows, you can find this by executing _ipconfig _command in command prompt (It will be in the form 192.168.0.xxx), while for ubuntu, you can use _ifconfig. _
-  
-    [&amp;lt;img class=&quot;aligncenter size-full wp-image-131&quot; src=&quot;http://aboutashu.com/blog/wp-content/uploads/2016/04/ejabberd-amin.png&quot; alt=&quot;ejabberd amin&quot; width=&quot;1366&quot; height=&quot;561&quot; srcset=&quot;http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-amin.png 1366w, http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-amin-300x123.png 300w, http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-amin-768x315.png 768w, http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-amin-1024x421.png 1024w&quot; sizes=&quot;(max-width: 1366px) 100vw, 1366px&quot; /&amp;gt;](http://aboutashu.com/blog/wp-content/uploads/2016/04/ejabberd-amin.png)
-  * Once logged in, you&amp;amp;#8217;ll see admin panel like this[&amp;lt;img class=&quot;aligncenter size-full wp-image-132&quot; src=&quot;http://aboutashu.com/blog/wp-content/uploads/2016/04/ejabberd-admin-2.png&quot; alt=&quot;ejabberd admin portal&quot; width=&quot;1366&quot; height=&quot;364&quot; srcset=&quot;http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-admin-2.png 1366w, http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-admin-2-300x80.png 300w, http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-admin-2-768x205.png 768w, http://107.170.45.123/blog/wp-content/uploads/2016/04/ejabberd-admin-2-1024x273.png 1024w&quot; sizes=&quot;(max-width: 1366px) 100vw, 1366px&quot; /&amp;gt;](http://aboutashu.com/blog/wp-content/uploads/2016/04/ejabberd-admin-2.png)&amp;lt;/ol&amp;gt; 
+&lt;p&gt;Lets decode what’s written line by line so that you can get confortable enough to do this on your own next time.&lt;/p&gt;
 
-&amp;amp;nbsp;
+&lt;p&gt;&lt;strong&gt;Admin user&lt;/strong&gt; defines what user (user must be registered with ejabberd) holds the administrative privilages of ejabberd server. &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;acl,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;admin,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;{user,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;admin&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;localhost&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}}.&lt;/span&gt;&lt;/code&gt; This line tells that user with username &lt;strong&gt;admin@localhost&lt;/strong&gt; is admin of ejabberd configuration. We can add multiple users here to make them admin. Let’s add one. So, press enter key and add similar line with different username.&lt;/p&gt;
 
-You have now successfully installed ejabberd on your machine and can be used to connect to any XMPP based chat client. In the next post, you&amp;amp;#8217;ll learn how to implement XMPP chat client in android code. Have fun!!
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;acl,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;admin,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;{user,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;myusername&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;localhost&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}}.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-Thanks for going threw entire long post. Please like and share if you like the article. Ask anything in comments below.
+&lt;p&gt;The file will now look like:&lt;/p&gt;
 
-### Troubleshooting:
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;%% Admin user
+{acl, admin, {user, &quot;admin&quot;, &quot;localhost&quot;}}.
+{acl, admin, {user, &quot;myusername&quot;, &quot;localhost&quot;}}.
 
-Sometimes, ejabberd might not open up in your browser and will give &amp;amp;#8220;Connection timed out&amp;amp;#8221; error. It usually happens if firewall is blocking ports on which ejabberd relies for communication stuffs. Usually those ports are 5222, 5269, 5280. You can try opening those ports like I did below:
-
-  1. Enter following commands in terminal: 
-        iptables -A INPUT -p tcp --dport 5222 -j ACCEPT
-        iptables -A INPUT -p tcp --dport 5269 -j ACCEPT
-        iptables -A INPUT -p tcp --dport 5280 -j ACCEPT
-
-  2. Open up **/etc/hosts** file by &amp;lt;span class=&quot;lang:default decode:true crayon-inline &quot;&amp;gt;sudo nano /etc/hosts&amp;lt;/span&amp;gt;  and add your domain name into it (assuming your public ip address is 123.123.10.210) : 
-        123.123.10.210 example.com
-
-  3. Allow ubuntu firewall 
-        sudo ufw allow 5222
-        sudo ufw allow 5269
-        sudo ufw allow 5280
-    
-    &amp;amp;nbsp;&amp;lt;/li&amp;gt; &amp;lt;/ol&amp;gt; 
-    
-    This will open the ports and allow public connections, which should fix the issue.
+%% Hostname
+{hosts, [&quot;localhost&quot;]}.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+
+&lt;p&gt;You might be wondering the user “myusername” isn’t yet registered with ejabberd, how come we defined here. We will registered him shortly after we are done with editing configuration file.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hostname&lt;/strong&gt; defines the server at which ejabberd should listen and connect. If you are not using a local machine (i.e you are using VPS such as DigitalOcean) to host the XMPP chat server, you can mention the domain name or IP address here. I am assuming example.com as my VPS domain name, hence I will modify this line as:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;hosts,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;localhost&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;example.com&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;]}.&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Thats all the changes you have to make for now. Wasn’t that simple?
+Once you have made the above changes, the cfg file will now look like:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;%% Options which are set by Debconf and managed by ucf
+
+%% Admin user
+{acl, admin, {user, &quot;admin&quot;, &quot;localhost&quot;}}.
+{acl, admin, {user, &quot;myusername&quot;, &quot;localhost&quot;}}
+
+%% Hostname 
+{hosts, [&quot;localhost&quot;,&quot;example.com&quot;]}. 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Now exit the nano editor by pressing CTRL + X. This will prompt you if you want to overwrite the previous cfg file, press &lt;strong&gt;Y&lt;/strong&gt;, then press Enter again to confirm. This will bring you back to terminal screen.&lt;/p&gt;
+
+&lt;p&gt;We have mentioned that “myusername” is another user holding administrative rights to ejabberd, but we still haven’t registered him yet. Lets register him as well. Enter following command to register:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ejabberdctl register myusername localhost password
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Replace “password” with whatever password you want to use to login. Once you are done with this, You have to re-start your ejabberd server by issuing this command:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service ejabberd restart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Congradulations, We have successfully setup our ejabberd chat server. Lets visit the administrative control panel and see what we got there. Fire up your public domain name in your favorite browser on port 5280 to login to ejabberd server: http://example.com:5280 .This will bring up webpage asking you for username and password. Login with username: myusername@localhost, password: whatever you mentioned earlier.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;- The &lt;em&gt;localhost&lt;/em&gt; in above username &lt;em&gt;myusername@localhost&lt;/em&gt; represents domain name of user. If you are not sure, edit &lt;em&gt;ejabberd.cfg&lt;/em&gt; and check for user. The line, for “myusername” looks like &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;acl,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;admin,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;{user,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;myusername&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;localhost&quot;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}}&lt;/span&gt;&lt;/code&gt;, the last part is domain name.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;EDIT&lt;/strong&gt;- For users running on local machines, you can simple use http://localhost:5280. To find your locally accessible ip address, run following command (&lt;code class=&quot;highlighter-rouge&quot;&gt;ipconfig&lt;/code&gt; for windows user):&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ifconfig
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;and look for address in the form &lt;code class=&quot;highlighter-rouge&quot;&gt;192.168.0.xxx&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Once done, following screen will show up:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://assets.digitalocean.com/articles/community/eJabberdAdmin1.png&quot; alt=&quot;ejabberd admin panel&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You have now successfully installed ejabberd on your machine and can be used to connect to any XMPP based chat client. In the next post, you’ll learn how to implement XMPP chat client in android code. Have fun!!&lt;/p&gt;
+
+&lt;p&gt;Thanks for going threw entire long post. Please like and share if you like the article. Ask anything in comments below.&lt;/p&gt;
+
+&lt;h3 id=&quot;troubleshooting&quot;&gt;Troubleshooting:&lt;/h3&gt;
+
+&lt;p&gt;Sometimes, ejabberd might not open up in your browser and will give &lt;code class=&quot;highlighter-rouge&quot;&gt;Connection timed out&lt;/code&gt; error. It usually happens if firewall is blocking ports on which ejabberd relies for communication stuffs. Usually those ports are 5222, 5269, 5280. You can try opening those ports like I did below:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Enter following commands in terminal: 
+&lt;code class=&quot;highlighter-rouge&quot;&gt;bash
+iptables -A INPUT -p tcp --dport 5222 -j ACCEPT
+iptables -A INPUT -p tcp --dport 5269 -j ACCEPT
+iptables -A INPUT -p tcp --dport 5280 -j ACCEPT
+&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Open up &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/hosts&lt;/code&gt; file. &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo nano /etc/hosts&lt;/code&gt;  and add your domain name into it (assuming your public ip address is 123.123.10.210) :&lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;123.123.10.210 example.com
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Allow ubuntu firewall&lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo ufw allow 5222
+sudo ufw allow 5269
+sudo ufw allow 5280
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This will open the ports and allow public connections, which should fix the issue.&lt;/p&gt;
 </description>
         <pubDate>Sat, 30 Apr 2016 15:32:06 +0530</pubDate>
         <link>http://aboutashu.com/xmpp-chat-server/</link>

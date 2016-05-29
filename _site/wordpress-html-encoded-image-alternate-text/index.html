@@ -137,15 +137,15 @@
 
 <p>Hence, open up your theme’s <code class="highlighter-rouge">functions.php</code> and create a new function where you want to attach this hook. I am calling the function <code class="highlighter-rouge">custom_filter_gallery_img_atts</code>.</p>
 
-<div class="language-php highlighter-rouge"><pre class="highlight"><code>//Filename: functions.php
-function custom_filter_gallery_img_atts( $atts, $attachment ) {
-$atts["alt"] = get_post($attachment-&gt;ID)-&gt;post_excerpt; //This returns image caption (which is in HTML format)
-return $atts;
-}
+<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="c1">//Filename: functions.php
+</span><span class="k">function</span> <span class="nf">custom_filter_gallery_img_atts</span><span class="p">(</span> <span class="nv">$atts</span><span class="p">,</span> <span class="nv">$attachment</span> <span class="p">)</span> <span class="p">{</span>
+<span class="nv">$atts</span><span class="p">[</span><span class="s2">"alt"</span><span class="p">]</span> <span class="o">=</span> <span class="nx">get_post</span><span class="p">(</span><span class="nv">$attachment</span><span class="o">-&gt;</span><span class="na">ID</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">post_excerpt</span><span class="p">;</span> <span class="c1">//This returns image caption (which is in HTML format)
+</span><span class="k">return</span> <span class="nv">$atts</span><span class="p">;</span>
+<span class="p">}</span>
   
-add_filter( "wp_get_attachment_image_attributes", "custom_filter_gallery_img_atts", 10, 2 );
-</code></pre>
-</div>
+<span class="nx">add_filter</span><span class="p">(</span> <span class="s2">"wp_get_attachment_image_attributes"</span><span class="p">,</span> <span class="s2">"custom_filter_gallery_img_atts"</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span> <span class="p">);</span>
+<span class="cp">?&gt;</span></code></pre></figure>
 
 <p>What we did above is attaching <code class="highlighter-rouge">wp_get_attachment_image_attributes</code> to our custom defined function <code class="highlighter-rouge">custom_filter_gallery_img_atts</code> inside which we read the image caption and stored the value in image alternate text.</p>
 
