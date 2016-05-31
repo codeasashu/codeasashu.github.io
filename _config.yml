@@ -29,6 +29,11 @@ social:
     - icon: fa-stack-exchange
       link: http://stackexchange.com/users/1155850/ashutosh
 
+share:
+  twitter_username: 216ashutosh
+  fb_appid: 1159707894060864
+
+
 enableTags: true
 tagarray: []
 
