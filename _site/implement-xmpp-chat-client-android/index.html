@@ -6,15 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="shortcut icon" href="/static/img/favicon.ico" />
-        <title>WordPress: HTML encoded image alternate text - Ashutosh Chaudhary</title>
+        <title>Implement XMPP chat client in Android - Ashutosh Chaudhary</title>
         <meta name="author" content="Ashutosh Chaudhary" />
-        <meta name="description" content="WordPress: HTML encoded image alternate text" />
-        <meta name="keywords" content="WordPress: HTML encoded image alternate text, Ashutosh Chaudhary, Wordpress" />
+        <meta name="description" content="Implement XMPP chat client in Android" />
+        <meta name="keywords" content="Implement XMPP chat client in Android, Ashutosh Chaudhary, Uncategorized" />
 
         <meta content="1159707894060864" property="fb:app_id">
         <meta content="Ashutosh Chaudhary" property="og:site_name">
         
-          <meta content="WordPress: HTML encoded image alternate text" property="og:title">
+          <meta content="Implement XMPP chat client in Android" property="og:title">
         
         
           <meta content="article" property="og:type">
@@ -23,10 +23,10 @@
           <meta content="My Personal Blog" property="og:description">
         
         
-          <meta content="http://aboutashu.com/wordpress-html-encoded-image-alternate-text/" property="og:url">
+          <meta content="http://aboutashu.com/implement-xmpp-chat-client-android/" property="og:url">
         
         
-          <meta content="2016-05-07T12:50:59+05:30" property="article:published_time">
+          <meta content="2016-05-01T14:09:37+05:30" property="article:published_time">
           <meta content="http://aboutashu.com/about/" property="article:author">
         
         
@@ -34,26 +34,20 @@
         
         
           
-          <meta content="Wordpress" property="article:section">
+          <meta content="Uncategorized" property="article:section">
           
         
         
-          
-          <meta content="filter" property="article:tag">
-          
-          <meta content="image" property="article:tag">
-          
-          <meta content="wordpress" property="article:tag">
           
         
         <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="@216ashutosh">
         <meta name="twitter:creator" content="@216ashutosh">
         
-          <meta name="twitter:title" content="WordPress: HTML encoded image alternate text">
+          <meta name="twitter:title" content="Implement XMPP chat client in Android">
         
         
-          <meta name="twitter:url" content="http://aboutashu.com/wordpress-html-encoded-image-alternate-text/">
+          <meta name="twitter:url" content="http://aboutashu.com/implement-xmpp-chat-client-android/">
         
         
           <meta name="twitter:description" content="My Personal Blog">
@@ -148,73 +142,34 @@
 
 
 
-<h1>WordPress: HTML encoded image alternate text</h1>
-<span class="time">07 May 2016</span>
+<h1>Implement XMPP chat client in Android</h1>
+<span class="time">01 May 2016</span>
 
 <span class="categories">
-    &raquo; <a href="/category/Wordpress">Wordpress</a>
+    &raquo; <a href="/category/Uncategorized">Uncategorized</a>
 </span>
 
 
+<span class="part-series">
+    &raquo; Series Post
+</span>
+
 
 <div class="content">
-    <div class="post"><p>One problem with wordpress is that it doesn’t allow HTML encoded strings in image alternate text. Even if you provide your image alternate text as a HTML string, wordpress will covert it down to plaintext, removing any HTML attributes and the image will then have only plaintext of your alternate text.</p>
+    <div class="post"><p>In the <a href="http://aboutashu.com/blog/xmpp-chat-server/">last post</a> of this series, I talked about setting up XMPP based chat server, using ejabberd. In this post, I will be talking about how to implement XMPP chat client in android and let two users talk to each other. After reading this post, you’ll be able to</p>
 
-<p>i.e even if you write your image alternate section such as this</p>
-
-<div class="language-html highlighter-rouge"><pre class="highlight"><code>Hey, I am <span class="nt">&lt;i&gt;</span> italic text <span class="nt">&lt;/i&gt;</span>
-</code></pre>
-</div>
-
-<p>this would output in frontend as</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>Hey, I am italic text
-</code></pre>
-</div>
-
-<p>This is not cool. Sometimes, you rely on some plugins which reads image alternate text and display below the images in pretty cool style.</p>
-
-<h2 id="options">Options</h2>
-
-<p>One option which came to my mind is to leave alternate text blank and provide the image <em>caption</em> in HTML format. For ex, check below image:</p>
-
-<p><img src="/assets/wordpess_caption.png" alt="Wp Caption" /></p>
-
-<p>Wordpres has this feature where if you leave the alternate text blank, it would fill the caption text in alternate text. I thought it would work since I can provide HTML in captions. But again, the same problem. Captions were turned back into plaintext.</p>
-
-<p>Thus, for the above image, the output was something like this:</p>
-
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://yourwebsite.com/path/to/image/image.jpg"</span> <span class="na">alt=</span><span class="s">"Hello, this is sample caption. This text is in bold"</span> <span class="nt">/&gt;</span>
-</code></pre>
-</div>
-
-<h3 id="the-solution">The solution</h3>
-
-<p>Luckily, WordPress provides image hooks which you can use to modify image attributes on the fly. The one which I want to use is <a href="https://developer.wordpress.org/reference/hooks/wp_get_attachment_image_attributes/">wp_get_attachment_image_attributes</a></p>
-
-<p>We can use this hook to see what image attribute we want to change, read its value, format it in HTML and return back our new value.</p>
-
-<p>Hence, open up your theme’s <code class="highlighter-rouge">functions.php</code> and create a new function where you want to attach this hook. I am calling the function <code class="highlighter-rouge">custom_filter_gallery_img_atts</code>.</p>
-
-<figure class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-<span class="c1">//Filename: functions.php
-</span><span class="k">function</span> <span class="nf">custom_filter_gallery_img_atts</span><span class="p">(</span> <span class="nv">$atts</span><span class="p">,</span> <span class="nv">$attachment</span> <span class="p">)</span> <span class="p">{</span>
-<span class="nv">$atts</span><span class="p">[</span><span class="s2">"alt"</span><span class="p">]</span> <span class="o">=</span> <span class="nx">get_post</span><span class="p">(</span><span class="nv">$attachment</span><span class="o">-&gt;</span><span class="na">ID</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">post_excerpt</span><span class="p">;</span> <span class="c1">//This returns image caption (which is in HTML format)
-</span><span class="k">return</span> <span class="nv">$atts</span><span class="p">;</span>
-<span class="p">}</span>
-  
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s2">"wp_get_attachment_image_attributes"</span><span class="p">,</span> <span class="s2">"custom_filter_gallery_img_atts"</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span> <span class="p">);</span>
-<span class="cp">?&gt;</span></code></pre></figure>
-
-<p>What we did above is attaching <code class="highlighter-rouge">wp_get_attachment_image_attributes</code> to our custom defined function <code class="highlighter-rouge">custom_filter_gallery_img_atts</code> inside which we read the image caption and stored the value in image alternate text.</p>
-
-<p>Hope you enjoyed the article. If you have any doubts, please comment below. See you soon.</p>
 </div>
 
     
-	
+	 
+    <hr />
+    <div class="panel">
+        <div class="panel-body">
+        <h4> Posts in this series </h4>
+        <ul id="post-series-list">
     
-    
+         <li> <a href="http://aboutashu.com/xmpp-chat-server/">Creating XMPP chat server</a> </li>       <li> <a href="http://aboutashu.com/implement-xmpp-chat-client-android-part-1/">Implement XMPP chat client in Android &#8211; Part 1</a> </li>  
+     </ul> </div> </div> 
 
 
     <div class="share-page">
@@ -227,7 +182,7 @@
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 
 <!-- Facebook -->
-<div class="fb-share-button" data-href="http://aboutashu.com/wordpress-html-encoded-image-alternate-text/" data-layout="button_count" style="position: relative; top: -8px; left: 3px;"></div>
+<div class="fb-share-button" data-href="http://aboutashu.com/implement-xmpp-chat-client-android/" data-layout="button_count" style="position: relative; top: -8px; left: 3px;"></div>
 </div>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -281,6 +236,37 @@
     
         
             
+                
+                <div class="panel-body">
+                <h4>Related Posts</h4>
+                <ul>
+                
+                <li class="relatedPost">
+                    <a href="http://aboutashu.com/implement-xmpp-chat-client-android-part-1/">Implement XMPP chat client in Android &#8211; Part 1</a>
+                    
+                        (Categories: <a href="/category/Uncategorized">Uncategorized</a>)
+                    
+                </li>
+                
+                
+            
+        
+    
+
+    
+    
+        
+            
+                
+                <li class="relatedPost">
+                    <a href="http://aboutashu.com/xmpp-chat-server/">Creating XMPP chat server</a>
+                    
+                        (Categories: <a href="/category/Uncategorized">Uncategorized</a>)
+                    
+                </li>
+                
+                
+            
         
     
 
@@ -304,13 +290,6 @@
             
         
     
-
-    
-    
-        
-            
-        
-    
         
             
         
@@ -341,14 +320,17 @@
         
     
 
+
+    </ul>
+    </div>
 
 
 <div class="PageNavigation">
   
-    <a class="prev" href="/implement-xmpp-chat-client-android/">&laquo; Implement XMPP chat client in Android</a>
+    <a class="prev" href="/implement-xmpp-chat-client-android-part-1/">&laquo; Implement XMPP chat client in Android &#8211; Part 1</a>
   
   
-    <a class="next" href="/implement-series-post-jekyll-part-1/">Implement series post in Jekyll - Part 1 &raquo;</a>
+    <a class="next" href="/wordpress-html-encoded-image-alternate-text/">WordPress: HTML encoded image alternate text &raquo;</a>
   
 </div>
 
@@ -359,8 +341,8 @@
         /* <![CDATA[ */
 
         var disqus_shortname = "aboutashu";
-        var disqus_identifier = "http://aboutashu.com_WordPress: HTML encoded image alternate text";
-        var disqus_title = "WordPress: HTML encoded image alternate text";
+        var disqus_identifier = "http://aboutashu.com_Implement XMPP chat client in Android";
+        var disqus_title = "Implement XMPP chat client in Android";
 
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {

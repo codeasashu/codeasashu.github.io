@@ -6,15 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="shortcut icon" href="/static/img/favicon.ico" />
-        <title>Get video links from Coursera - Ashutosh Chaudhary</title>
+        <title>Jekyll - Ashutosh Chaudhary</title>
         <meta name="author" content="Ashutosh Chaudhary" />
-        <meta name="description" content="Get video links from Coursera" />
-        <meta name="keywords" content="Get video links from Coursera, Ashutosh Chaudhary, Javascript" />
+        <meta name="description" content="Jekyll" />
+        <meta name="keywords" content="Jekyll, Ashutosh Chaudhary, jekyll" />
 
         <meta content="1159707894060864" property="fb:app_id">
         <meta content="Ashutosh Chaudhary" property="og:site_name">
         
-          <meta content="Get video links from Coursera" property="og:title">
+          <meta content="Jekyll" property="og:title">
         
         
           <meta content="article" property="og:type">
@@ -23,39 +23,26 @@
           <meta content="My Personal Blog" property="og:description">
         
         
-          <meta content="http://aboutashu.com/get-video-links-from-coursera/" property="og:url">
+          <meta content="http://aboutashu.com/category/jekyll" property="og:url">
         
-        
-          <meta content="2016-01-27T11:20:23+05:30" property="article:published_time">
-          <meta content="http://aboutashu.com/about/" property="article:author">
         
         
           <meta content="http://aboutashu.com/static/img/logo-high-resolution.png" property="og:image">
         
         
           
-          <meta content="Javascript" property="article:section">
+          <meta content="jekyll" property="article:section">
           
         
-        
-          
-          <meta content="coursera" property="article:tag">
-          
-          <meta content="download" property="article:tag">
-          
-          <meta content="javascript" property="article:tag">
-          
-          <meta content="jquery" property="article:tag">
-          
         
         <meta name="twitter:card" content="summary">
         <meta name="twitter:site" content="@216ashutosh">
         <meta name="twitter:creator" content="@216ashutosh">
         
-          <meta name="twitter:title" content="Get video links from Coursera">
+          <meta name="twitter:title" content="Jekyll">
         
         
-          <meta name="twitter:url" content="http://aboutashu.com/get-video-links-from-coursera/">
+          <meta name="twitter:url" content="http://aboutashu.com/category/jekyll">
         
         
           <meta name="twitter:description" content="My Personal Blog">
@@ -142,208 +129,126 @@
             </div>
 
             <div class="col-sm-8 col-offset-1">
+                <header id="post-header">
+    <h1 id="post-subtitle">Articles by category: jekyll</h1>
+</header>
+
+<div id="post-content">
+    <hr />
+    
+        
+        
+            
+                <a href="/category/ruby" class="btn btn-sm btn-default">ruby</a>
+            
+        
+    
+        
+        
+            
+                <a href="/category/Shopify" class="btn btn-sm btn-default">Shopify</a>
+            
+        
+    
+        
+        
+            
+                <a href="/category/M.Tech" class="btn btn-sm btn-default">M.Tech</a>
+            
+        
+    
+        
+        
+            
+                <a href="/category/Mobile Computing" class="btn btn-sm btn-default">Mobile Computing</a>
+            
+        
+    
+        
+        
+            
+                <a href="/category/python" class="btn btn-sm btn-default">python</a>
+            
+        
+    
+        
+        
+            
+                <a href="/category/Javascript" class="btn btn-sm btn-default">Javascript</a>
+            
+        
+    
+        
+        
+            
+                <a href="/category/Uncategorized" class="btn btn-sm btn-default">Uncategorized</a>
+            
+        
+    
+        
+        
+            
+                <a href="/category/Wordpress" class="btn btn-sm btn-default">Wordpress</a>
+            
+        
+    
+        
+        
+            
+                <button class="btn btn-sm btn-default active">jekyll</button>
+            
+        
+    
+    <hr />
+
+    
+        
+            
+            
+                <h4>2016</h4><div class="list-group">
+            
+            
+            
+            
+            <ul class="posts">
+                <li><a href="/implement-series-post-jekyll/">Implement series post in Jekyll</a> &raquo; <i><span>15 Jun 2016</span></i></li>
+            </ul>
+
+            
+        
+            
+            
+            
+            
                 
+                
+                
+            
+            
+            <ul class="posts">
+                <li><a href="/implement-series-post-jekyll-part-2/">Implement series post in Jekyll - Part 2</a> &raquo; <i><span>15 Jun 2016</span></i></li>
+            </ul>
 
-
-
-
-
-
-
-<h1>Get video links from Coursera</h1>
-<span class="time">27 Jan 2016</span>
-
-<span class="categories">
-    &raquo; <a href="/category/Javascript">Javascript</a>
-</span>
-
-
-
-<div class="content">
-    <div class="post"><p>I have gone threw coursera classes now and then. What I felt is need for a coursera video downloader. I searched but couldn’t found any good working one.</p>
-
-<p>Hence here is a small script I developed which would give you all video links from coursera. Here is what you’ll have to do:</p>
-
-<ul>
-  <li>Goto your class. For ex- Mine was  <a href="https://www.coursera.org/course/startup">https://www.coursera.org/course/startup</a></li>
-  <li>Enroll and go to video lectures from left tab. Here is the screenshot</li>
-  <li>in chrome, press <kbd>f12</kbd> to bring up chrome inspector. You can also right click anywhere on webpage and click <strong>inspect element</strong>. Go to <strong>console</strong> tab.</li>
-  <li>Paste the following script into the console:</li>
-  <li>
-    <div class="language-js highlighter-rouge"><pre class="highlight"><code>    <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">){</span>
-      <span class="nx">$</span><span class="p">(</span><span class="s2">"ul.course-item-list-section-list &gt; li"</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-        <span class="kd">var</span> <span class="nx">link</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s2">"a[data-link-type=\"lecture:download.mp4\"]"</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s1">'href'</span><span class="p">);</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">link</span><span class="p">)</span>
-      <span class="p">});</span>
-    <span class="p">})(</span><span class="nx">jQuery</span><span class="p">);</span>
-</code></pre>
-    </div>
-  </li>
-  <li>Press enter and hopefully, it will parse every video link in the page.</li>
-</ul>
-
-<p>Hope you’ve liked the article and it helped you. Please do comment if I owe any explanations. Share, it might be helpful to others.</p>
-</div>
-
-    
-	
-    
-    
-
-
-    <div class="share-page">
-    Share this on &rarr;
- <a href="https://twitter.com/share" class="twitter-share-button" data-via="216ashutosh">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-<!-- Google + -->
-<div class="g-plus" data-action="share" data-annotation="bubble"></div>
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-
-<!-- Facebook -->
-<div class="fb-share-button" data-href="http://aboutashu.com/get-video-links-from-coursera/" data-layout="button_count" style="position: relative; top: -8px; left: 3px;"></div>
-</div>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1159707894060864";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-</div>
-
-
-
-
-    
-    
+            
         
+            
+            
+            
+            
+                
+                
+                
+            
+            
+            <ul class="posts">
+                <li><a href="/implement-series-post-jekyll-part-1/">Implement series post in Jekyll - Part 1</a> &raquo; <i><span>15 Jun 2016</span></i></li>
+            </ul>
+
+            
+                </div>
             
         
     
-
-    
-    
-        
-            
-        
-    
-
-    
-    
-        
-            
-        
-    
-
-    
-    
-        
-            
-        
-    
-
-    
-    
-        
-            
-        
-    
-
-    
-    
-        
-            
-        
-    
-
-    
-    
-        
-            
-        
-    
-
-    
-    
-        
-            
-        
-    
-
-    
-    
-        
-            
-        
-    
-
-    
-    
-        
-            
-        
-    
-        
-            
-        
-    
-
-    
-    
-        
-            
-        
-    
-        
-            
-        
-    
-
-    
-    
-        
-            
-        
-    
-
-    
-    
-        
-            
-        
-    
-
-
-
-<div class="PageNavigation">
-  
-    <a class="prev" href="/how-to-download-multiple-videos-from-youtube-dl/">&laquo; How to download multiple videos from youtube-dl</a>
-  
-  
-    <a class="next" href="/xmpp-chat-server/">Creating XMPP chat server &raquo;</a>
-  
-</div>
-
-
-<div class="disqus-comments">
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* <![CDATA[ */
-
-        var disqus_shortname = "aboutashu";
-        var disqus_identifier = "http://aboutashu.com_Get video links from Coursera";
-        var disqus_title = "Get video links from Coursera";
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    /* ]]> */
-    </script>
 </div>
 
                 <footer>

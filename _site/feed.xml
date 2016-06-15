@@ -5,9 +5,151 @@
     <description>My Personal Blog</description>
     <link>http://aboutashu.com/</link>
     <atom:link href="http://aboutashu.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 31 May 2016 06:58:35 +0530</pubDate>
-    <lastBuildDate>Tue, 31 May 2016 06:58:35 +0530</lastBuildDate>
-    <generator>Jekyll v3.1.3</generator>
+    <pubDate>Wed, 15 Jun 2016 18:53:05 +0530</pubDate>
+    <lastBuildDate>Wed, 15 Jun 2016 18:53:05 +0530</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Implement series post in Jekyll</title>
+        <description>&lt;p&gt;This is a series of posts explaining how to implement a post series in plain simple style, within your favorutie static site generator - &lt;code class=&quot;highlighter-rouge&quot;&gt;Jekyll&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;This post also shows how I already used the system that I am about to explain, to show the post you are reading, as a part of series.&lt;/p&gt;
+
+&lt;p&gt;This post acts as index file for series of posts, i.e. it will list all sub-posts of the series and you can reach any part of it, anytime. A link to this post will also show up in the individual sub-posts, so you can get back here easily. Also, your blog index can list this post as a single entity, rather than listing all sub-posts.&lt;/p&gt;
+
+&lt;p&gt;Below you will find releavent posts explaining the implementation.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 15 Jun 2016 00:00:00 +0530</pubDate>
+        <link>http://aboutashu.com/implement-series-post-jekyll/</link>
+        <guid isPermaLink="true">http://aboutashu.com/implement-series-post-jekyll/</guid>
+        
+        
+        <category>jekyll</category>
+        
+      </item>
+    
+      <item>
+        <title>Implement series post in Jekyll - Part 2</title>
+        <description>&lt;p&gt;In the last post of this series, I explained how you can make a series of post and connect it to a singular post, maintaing series index.
+We also learnt how I made a bare layout which listed all posts within series.&lt;/p&gt;
+
+&lt;p&gt;This post will explain how to list only series index post on blog index page.&lt;/p&gt;
+
+&lt;p&gt;Open the page where you are showing your blog index. For me, its &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt;. It will probably contain a paginator loop, something like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;rest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;html&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ul&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% for &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;paginator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;posts&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%}
+	&amp;lt;li&amp;gt;&amp;lt;a href=&quot;{{ post.url }&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;{{ post.title }}&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
+{% endfor %}
+&amp;lt;/ul&amp;gt;
+
+
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Since we need to show posts which are either not a part of any series, or the series index posts, we have to filter out the sub-posts. Quite simple. We just need to check if a post in the loop is series sub-post or not. Still unsure? Check out code below-&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;rest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;html&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ul&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% for &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;paginator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;posts&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%}
+	{% if post.series == nil %}&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;{{ post.url }}&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/a&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% endif &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% endfor &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/ul&amp;gt;
+
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Done.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 15 Jun 2016 00:00:00 +0530</pubDate>
+        <link>http://aboutashu.com/implement-series-post-jekyll-part-2/</link>
+        <guid isPermaLink="true">http://aboutashu.com/implement-series-post-jekyll-part-2/</guid>
+        
+        
+        <category>jekyll</category>
+        
+      </item>
+    
+      <item>
+        <title>Implement series post in Jekyll - Part 1</title>
+        <description>&lt;p&gt;This is first post in the series explaining how I implemented post series without any ruby-gem or anything, just simple liquid syntaxes.&lt;/p&gt;
+
+&lt;p&gt;The purpose has been stated earlier. I am only going to talk about the implementation now on. Lets get started.&lt;/p&gt;
+
+&lt;p&gt;Since we need a single index page for series post, lets make one. Create a file and fill releavent front matter. Since we need a way to recognize if this is the series page that holds all the sub-posts within, we need to add a variable. I found &lt;code class=&quot;highlighter-rouge&quot;&gt;series-slug&lt;/code&gt; more intimidating, since it is more human readable and makes sense to sub-posts. Thus, the front matter may now look like:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;title: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Some series title&#39;&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;layout: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;categories: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;series_slug: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;some&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;series&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Fill in the content for the post. You have created an index page. Lets create sub-posts (parts of series) that series will contain. Lets make two posts to start with. I am calling it &lt;code class=&quot;highlighter-rouge&quot;&gt;post A&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;post B&lt;/code&gt;. Create another two files for these and fill in releavent YAML front matter. Now, to link the post to the series post, I am declaring a variable within these posts which will connect them. So, I declared the variable &lt;code class=&quot;highlighter-rouge&quot;&gt;series&lt;/code&gt; in front matter and fill in the series slug I declared earlier. Thus, the front matter for these posts will look like:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;title: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Part of series post - Part 1&#39;&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;layout: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;categories: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;series: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;some&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;series&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Good enough. Not so much!! We did declared a series and posts linking to it. However, we still need to show above posts in the series index. Since series has the &lt;code class=&quot;highlighter-rouge&quot;&gt;layout: post&lt;/code&gt;, edit &lt;code class=&quot;highlighter-rouge&quot;&gt;post.html&lt;/code&gt; in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts&lt;/code&gt; directory. Enter the following line just below YAML front matter in &lt;code class=&quot;highlighter-rouge&quot;&gt;post.html&lt;/code&gt; :&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;layout: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% include &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;series&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%}
+
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;If you are familier with jekyll, you must know that &lt;code class=&quot;highlighter-rouge&quot;&gt;include&lt;/code&gt; tag includes a file with the name following it, from &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes&lt;/code&gt; directory. In the above code, I just told jekyll to look for a file &lt;code class=&quot;highlighter-rouge&quot;&gt;post-series.html&lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes&lt;/code&gt; directory, and include the code within it to current file. Thus would help me keep my code modular, in a separate place. This will enable me to write the code for post series thing in a single file called &lt;code class=&quot;highlighter-rouge&quot;&gt;post-series.html&lt;/code&gt; and I can just call releavent variables whereever I like to.&lt;/p&gt;
+
+&lt;p&gt;For the series index page, we would like to show up all the sub-posts it contains. Quite easy. We will use a for loop to go threw each posts and check if it has a &lt;code class=&quot;highlighter-rouge&quot;&gt;series&lt;/code&gt; variable in their front matter and if that matches our current series index’s &lt;code class=&quot;highlighter-rouge&quot;&gt;series_slug&lt;/code&gt;. Open up &lt;code class=&quot;highlighter-rouge&quot;&gt;post-series.html&lt;/code&gt; and write the code below:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% comment &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;We&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;need&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;an&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hold&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sub&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;series&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Below&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;line&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kind&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hack&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;make&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;one&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% endcomment &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% assign &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seriesarray&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;|&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;split&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;|&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% for &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;posts&lt;/span&gt;  &lt;span class=&quot;sx&quot;&gt;%}
+
+	{% comment %}&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;loop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sub&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;does&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;match&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;series&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;slug?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% endcomment &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% if &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;series&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;series_slug&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;series&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;series_slug&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%}
+
+        {% capture postitem %}&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;{{ site.url }}{{ post.url }}&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;title&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/a&amp;gt; &amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% endcapture &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% assign &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seriesarray&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seriesarray&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;push: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;postitem&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%}
+
+    {% endif %}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% endfor &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% comment &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;At&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;this&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;point&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seriesarray&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;will&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hold&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;all&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;the&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sub&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;posts&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;this&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;series&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Just&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iterate&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;threw&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;them&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;below&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% endcomment &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% if &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seriesarray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ul&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% endif &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% for &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;seriesarray&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%} {{ post }&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% endfor &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% if &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;seriesarray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ul&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% endif &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We can use &lt;code class=&quot;highlighter-rouge&quot;&gt;seriesarray&lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;post.html&lt;/code&gt; to show the posts. I’d to show the list after the post content. Thus used the above for loop after &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;&lt;/code&gt;  in &lt;code class=&quot;highlighter-rouge&quot;&gt;post.html&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;If this works out for you, you can check part 2 of the post where I’ve explained how to list only series index post (instead of sub-posts individually) on the blog index page.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 15 Jun 2016 00:00:00 +0530</pubDate>
+        <link>http://aboutashu.com/implement-series-post-jekyll-part-1/</link>
+        <guid isPermaLink="true">http://aboutashu.com/implement-series-post-jekyll-part-1/</guid>
+        
+        
+        <category>jekyll</category>
+        
+      </item>
     
       <item>
         <title>WordPress: HTML encoded image alternate text</title>
@@ -75,6 +217,20 @@
         
         
         <category>Wordpress</category>
+        
+      </item>
+    
+      <item>
+        <title>Implement XMPP chat client in Android</title>
+        <description>&lt;p&gt;In the &lt;a href=&quot;http://aboutashu.com/blog/xmpp-chat-server/&quot;&gt;last post&lt;/a&gt; of this series, I talked about setting up XMPP based chat server, using ejabberd. In this post, I will be talking about how to implement XMPP chat client in android and let two users talk to each other. After reading this post, you’ll be able to&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 01 May 2016 14:09:37 +0530</pubDate>
+        <link>http://aboutashu.com/implement-xmpp-chat-client-android/</link>
+        <guid isPermaLink="true">http://aboutashu.com/implement-xmpp-chat-client-android/</guid>
+        
+        
+        <category>Uncategorized</category>
         
       </item>
     
@@ -460,242 +616,6 @@ sudo ufw allow 5280
         <category>M.Tech</category>
         
         <category>Mobile Computing</category>
-        
-      </item>
-    
-      <item>
-        <title>Mobile Computing notes</title>
-        <description>&lt;p&gt;This is only a gentle introduction. I will try to cover as much as I can in further posts. Will make posts topic wise so as to cover everything related to a topic in a single post.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Process Migration- &lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Act of transferring processes between two computers, through a wired or wireless medium.&lt;/li&gt;
-  &lt;li&gt;A process has its process table, code segments, some data and pointers etc. This all needs to be transferred by some logic.&lt;/li&gt;
-  &lt;li&gt;Used to balance load on systems. One overloaded machine can transfer process to an under-loaded one.&lt;/li&gt;
-  &lt;li&gt;Originated with distributed systems. Still used in multicore(multiple processors) systems as part of process scheduling of OS.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Mobile Computing-&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Defined as &lt;em&gt;ability to use technology&lt;/em&gt;(&lt;em&gt;this part is called as computing&lt;/em&gt;) to access to some centrally located resources/information by remote and mobile devices such as  smartphones.&lt;/li&gt;
-  &lt;li&gt;Mobility is divided into 3 categories:
-    &lt;ol&gt;
-      &lt;li&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;Macro Mobility&lt;/span&gt;: When moving into and out of a global network. Maintaining connectivity is main challenge here. &lt;em&gt;Mobile IP&lt;/em&gt; take cares for this one.&lt;/li&gt;
-      &lt;li&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;Micro Mobility&lt;/span&gt;: When moving inside one region(cell) only. &lt;em&gt;Cellular IP&lt;/em&gt; take cares for this&lt;/li&gt;
-      &lt;li&gt;&lt;span style=&quot;text-decoration: underline;&quot;&gt;Ad hoc Mobility&lt;/span&gt;: Refers to mobility within an Mobile Ad hoc Networks(MANET). Happens due to continuous changes in the network infrastructure. Thus, the infrastructure-less networks (&lt;em&gt;MANET&lt;/em&gt;) take cares for this one.&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Major benefit is increased computation power regardless of location/infrastructure. Wether be it a office or restaurant, you’ll always be connected to remote services, thus increasing productivity.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;Mobile Agents&lt;/strong&gt;–&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Programs that moves across the networks, here and there, on behalf of user.&lt;/li&gt;
-  &lt;li&gt;Gathers information as well as execute automated tasks given by users.&lt;/li&gt;
-  &lt;li&gt;Specifically, “&lt;em&gt;A mobile agent is a composition of computer program, data, and execution state, which is able to move from one computer to another autonomously and continue its execution on the destination computer&lt;/em&gt;“&lt;/li&gt;
-  &lt;li&gt;Widely used by e-commerce industries, stock holders etc. It is a specific form of &lt;a title=&quot;Wikipedia&quot; href=&quot;https://en.wikipedia.org/wiki/Mobile_code&quot; target=&quot;_blank&quot;&gt;mobile code&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Examples are- agent Tcl, aglet etc.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Working (TL;DR)&lt;/strong&gt; : The program can suspend its execution at an arbitrary point, transport itself to another machine, and then resume execution from the point of suspension.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt; &lt;/p&gt;
-
-&lt;p&gt; &lt;/p&gt;
-</description>
-        <pubDate>Sun, 27 Sep 2015 21:43:55 +0530</pubDate>
-        <link>http://aboutashu.com/mobile-computing-notes/</link>
-        <guid isPermaLink="true">http://aboutashu.com/mobile-computing-notes/</guid>
-        
-        <category>mobile computing</category>
-        
-        <category>mtech</category>
-        
-        
-        <category>M.Tech</category>
-        
-        <category>Mobile Computing</category>
-        
-      </item>
-    
-      <item>
-        <title>How to add wishlist to shopify</title>
-        <description>&lt;p&gt;Shopify does not provide “add wishlist” feature natively. It becomes an obvious need for theme developers. So I will help you how to add wishlist to shopify.  &lt;a href=&quot;https://github.com/jimlakey/Shopify-Wish-List&quot; title=&quot;Wishlist-Shopify&quot;&gt;This Github Repo&lt;/a&gt; is all you need for a minimal effort development of this feature. So, I am going to tell how can you use the repo files and have the wishlist functionality to your shopify store.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;STEP 1&lt;/strong&gt;: Download the repo or clone it. you will get 3 files:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;wish-list.js&lt;/li&gt;
-  &lt;li&gt;wishlist-page.liquid&lt;/li&gt;
-  &lt;li&gt;wishlist-product.liquid&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;STEP 2&lt;/strong&gt;: Go to your shopify store’s admin panel. Navigate to your theme (http://your-store-url.com/admin/themes) and choose “Edit HTML/CSS” from the dropdown of active theme.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;STEP 3&lt;/strong&gt;: Upload wish-list.js in “assets” directory. [&lt;img src=&quot;http://codeasashu.tk/blog/wp-content/uploads/2015/07/add-assets-1024x318.jpg&quot; alt=&quot;add-assets&quot; class=&quot;aligncenter wp-image-31 size-large&quot; width=&quot;1024&quot; height=&quot;318&quot; /&gt;] Now you have to create wishlist-page.liquid and wishlist-product.liquid in snippets (just above “assets”). Create both the files and copy the contents of the same files you downloaded. [&lt;img src=&quot;http://codeasashu.tk/blog/wp-content/uploads/2015/07/wishlist.jpg&quot; alt=&quot;wishlist&quot; class=&quot;aligncenter wp-image-32 size-full&quot; width=&quot;969&quot; height=&quot;273&quot; /&gt;] Now that you’ve uploaded the 3 files to your shopify, you can forward to next step.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;STEP 4&lt;/strong&gt;: Now let’s get the things running. So you need 2 things:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Adding a wishlist button to product pages&lt;/li&gt;
-  &lt;li&gt;Making a page where customers can view their wishlist&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;So, open up product.liquid. What I’m going to do next is very important. So, make sure you do it carefully not making any mistake.&lt;/p&gt;
-
-&lt;p&gt;Include the “wishlist-product.liquid” to get the “Add to wishlist” button. So include it as:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% include &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;wishlist-product&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
- &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;You can include it anywhere in product.liquid, but within “Add to cart” form. &lt;strong&gt;Make sure it is outside “Add to cart” form or it won’t work&lt;/strong&gt;. So, for a minimal example, it will go like:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt; 
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;form&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/cart/add&quot;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;post&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enctype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;multipart/form-data&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;product&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itemscope&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itemtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;http://schema.org/Product&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itemprop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;url&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;{{ shop.url }}{{ product.url }}&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itemprop&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;image&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;{{ product | img_url: &#39;grande&#39; }}&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% if &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;product&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;images&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;main_image&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;{{ &#39;&#39; | img_url: &#39;grande&#39; }}&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&amp;gt;
-      &amp;lt;div id=&quot;thumbnails&quot;&amp;gt;
-      &amp;lt;div class=&quot;thumbs&quot;&amp;gt;&amp;lt;img src=&quot;{{ &#39;&#39; | img_url: &#39;grande&#39; }}&quot;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;thumbs&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;{{ &#39;&#39; | img_url: &#39;grande&#39; }}&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&amp;gt;
-      &amp;lt;div class=&quot;thumbs&quot;&amp;gt;&amp;lt;img src=&quot;{{ &#39;&#39; | img_url: &#39;grande&#39; }}&quot;&amp;gt;&amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/div&amp;gt;&amp;lt;!-- #thumbnails --&amp;gt;
-    &amp;lt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;!--&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#images --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% else &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% assign &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;featured_image&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;product&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;selected_or_first_available_variant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;featured_image&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;default: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;product&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;featured_image&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;%}
-
-&amp;lt;div id=&quot;images&quot;&amp;gt;
-&amp;lt;div id=&quot;main_image&quot;&amp;gt;&amp;lt;img class=&quot;showlight&quot; src=&quot;{{ featured_image | img_url: &#39;grande&#39; }&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;&amp;lt;/div&amp;gt;
-  &amp;lt;div id=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;thumbnails&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;
-  {% if product.images.size &amp;gt; 1 %}
-        {% for image in product.images %}
-        {% if forloop.index &amp;lt;= 3 %} 
-        &amp;lt;div class=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;thumbs&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;&amp;lt;img src=&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;image&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;img_url: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;small&#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;&amp;lt;/div&amp;gt;
-        {% endif %}
-        {% endfor %}
-  {% else %}
-    &amp;lt;div class=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;thumbs&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;&amp;lt;img src=&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;&#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;img_url: &lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;grande&#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;&amp;lt;/div&amp;gt;
-  {% endif %}
-  &amp;lt;/div&amp;gt;
-  {% endif %}
-  &amp;lt;/div&amp;gt;
-
-&amp;lt;div id=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;
-&amp;lt;div id=&quot;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;{{ product.title }}&amp;lt;/div&amp;gt;
-  {% assign variant = product.selected_or_first_available_variant %}
-          {% if product.compare_at_price &amp;gt; product.price %}
-          &amp;lt;div id=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;price2&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;{ variant.price | money }}&amp;lt;/div&amp;gt;
-          &amp;lt;s class=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;product&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;compare&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;price&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;{{ variant.compare_at_price | money }}&amp;lt;/s&amp;gt;
-          {% else %}
-          &amp;lt;div id=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;price2&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;{{ variant.price | money }}&amp;lt;/div&amp;gt;
-          {% endif %}
-&amp;lt;div id=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;{{ product.description }}&amp;lt;/div&amp;gt;
-  &amp;lt;div id=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;product&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;variants&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;
-        &amp;lt;select id=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;product&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot; name=&quot;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;
-        {% for variant in product.variants %}
-          &amp;lt;option{% if variant == product.selected_or_first_available_variant %} selected{% endif %} value=&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;variant&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;
-          {{ variant.title }} - {{ variant.price | money }}
-          &amp;lt;/option&amp;gt;
-        {% endfor %}
-        &amp;lt;/select&amp;gt;
-      &amp;lt;/div&amp;gt;     
-&amp;lt;div id=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;&amp;lt;input type=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;submit&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot; name=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot; id=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;addtocart&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot; class=&quot;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;primary&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;button&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot; value=&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;add_to_cart&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;escape&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&amp;gt;&amp;lt;/div&amp;gt;
-&amp;lt;/form&amp;gt;
-
-{% include &#39;wishlist-product&#39; %} &amp;lt;!-- Notice this is outside the &quot;&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Add&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cart&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot; form --&amp;gt;
-&amp;lt;/div&amp;gt;
-{{ &#39;wish-list.js&#39; | asset_url | script_tag }} &amp;lt;!-- Placed at bottom of product.liquid --&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;If you save the file, you can see a “Add to wishlist” button on product page. Remember, you must be logged-in to make the button work. We’ve completed most of the hard part. The only thing remaining is to view the items of your wishlist.  For that, see next step.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;STEP 5&lt;/strong&gt;:  Creating a page to view wishlist items- Since there might be many pages already in your store, you should design a separate page for wishlist. Shopify provides it in much convenient way. Basic idea to get a unique page to display some unique content is to have a separate template for that page, then selecting that template in the unique page you create. Since you want wishlist page to show only wishlist items and no other bullshit, here is what you’d do:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Create a template for wishlist. Go to “Templates” - “Add a new template”. Select “page” from the dropdown and enter “wishlist” into textbox next to it. [&lt;img src=&quot;http://codeasashu.tk/blog/wp-content/uploads/2015/07/wishlist-page.jpg&quot; alt=&quot;wishlist-page&quot; class=&quot;aligncenter wp-image-34 size-full&quot; width=&quot;1018&quot; height=&quot;281&quot; /&gt;]&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;It will create a blank “page.wishlist.liquid” file. Enter following contents to it:&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;wishlist-page&#39;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&#39;wish-list.js&#39;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;asset_url&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;script_tag&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Note that the “wish-list.js” acts as a controller to wishlist. Removing it will disable the functionality.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Create a page from “http://your-store-url.com/admin/pages” . Enter Title “Wishlist” and scroll down. You can see a dropdown at bottom, in the “template” section. See the screenshot below[&lt;img src=&quot;http://codeasashu.tk/blog/wp-content/uploads/2015/07/page-1024x521.jpg&quot; alt=&quot;page&quot; class=&quot;aligncenter wp-image-35 size-large&quot; width=&quot;1024&quot; height=&quot;521&quot; /&gt;]&lt;/li&gt;
-  &lt;li&gt;Select “page.wishlist” from the dropdown. It is the same template you just create in previous steps. If you are not seeing any “template” section or dropdown like this, this means you have only “page.liquid” in “template” directory. Create “page.wishlist.liquid” as explained.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Now that you have this page where you can view your wishlist, you have completed all the steps. Try logging in and add a product to wishlist. Go to the wishlist page you created and it will show your wishlist items.&lt;/p&gt;
-
-&lt;p&gt;Please do comment below if you need any help.&lt;/p&gt;
-
-</description>
-        <pubDate>Thu, 09 Jul 2015 07:51:44 +0530</pubDate>
-        <link>http://aboutashu.com/how-to-add-wishlist-to-shopify/</link>
-        <guid isPermaLink="true">http://aboutashu.com/how-to-add-wishlist-to-shopify/</guid>
-        
-        <category>shopify</category>
-        
-        <category>theme development</category>
-        
-        
-        <category>Shopify</category>
-        
-      </item>
-    
-      <item>
-        <title>Parsing JSON with Ruby</title>
-        <description>&lt;p&gt;Parsing JSON with Ruby is actually extremely easy. All you have to do is have the json gem installed (&lt;code class=&quot;highlighter-rouge&quot;&gt;gem install json&lt;/code&gt;) and call the &lt;code class=&quot;highlighter-rouge&quot;&gt;JSON.parse&lt;/code&gt; method on the JSON data to convert it to ruby hashes. If you look at this small program here, you can see how I have implemented parsing JSON in Ruby.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#!/usr/bin/env ruby&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;json&#39;&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;net/http&#39;&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;libnotify&#39;&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;parsejson&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;http://api.openweathermap.org/data/2.5/find?q=London&amp;amp;mode=json&quot;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Net&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get_response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;URI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;weatherjson&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;body&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weatherjson&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-    &lt;span class=&quot;c1&quot;&gt;# check for errors&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;has_key?&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;Error&#39;&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;raise&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;error with the url&quot;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;results&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-
-    &lt;span class=&quot;n&quot;&gt;actual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;list&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;listitem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;weather&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;listitem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;weather&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;weather&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;listitem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;main&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;temp&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;273&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;results&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;push&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;%.2f&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;results&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-</description>
-        <pubDate>Sun, 22 Dec 2013 22:48:23 +0530</pubDate>
-        <link>http://aboutashu.com/ruby/2013/12/22/ruby-json.html</link>
-        <guid isPermaLink="true">http://aboutashu.com/ruby/2013/12/22/ruby-json.html</guid>
-        
-        
-        <category>ruby</category>
         
       </item>
     

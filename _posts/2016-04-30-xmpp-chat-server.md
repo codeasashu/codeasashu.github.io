@@ -5,6 +5,7 @@ date: 2016-04-30T10:02:06+00:00
 author: Ashutosh
 layout: post
 permalink: /xmpp-chat-server/
+series: android-xmpp-client
 views:
   - 33
 dsq_thread_id:

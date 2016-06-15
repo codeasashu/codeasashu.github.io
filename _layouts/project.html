@@ -11,6 +11,13 @@ layout: default
   <div class="post-content">
     {{ content }}
 
+    {% assign p_array = "" | split:"|"  %}
+    {% for project in site.project %}
+    {% capture p_slug %}{{ project.url | split:"/" | last }},{{ project.url }}{% endcapture %}
+    {% assign p_slug_arr = p_slug | split:"," %}
+    {% assign p_array = p_array | push: p_slug_arr  %}
+    {% endfor %}
+
     <div class="projects">
     {% include project_tags.html %}
     {% for i in site.data.projects %}
@@ -19,9 +26,16 @@ layout: default
     			<a href="/static/projects/{{ i.image }}" class="thickbox">
     			<div class="project-img bordered" style="background-image: url('/static/projects/{{ i.image }}');"></div>
                 </a>
-                {% if i.url %} <a href="{{ i.url }}"> {% endif %}
+                {% assign p_url = nil %}
+                {% for pr in p_array %}
+                    {% if pr contains i.slug %}
+                        {% assign p_url = pr[1] %}
+                    {% endif %}
+                {% endfor %}
+                {% if p_url == nil %}{% assign p_url = i.url %}{% endif %}
+                {% if p_url %}<a href="{{ p_url }}">{% endif %}
     			<h3 class="project-headlines">{{ i.name }}</h3>
-    			{% if i.url %} </a> {% endif %}
+    			{% if p_url %} </a> {% endif %}
     			<div class="project-content">
     				<div class="tag-holder">
     				{% if i.tags %} 

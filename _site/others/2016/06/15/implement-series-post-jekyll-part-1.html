@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="shortcut icon" href="/static/img/favicon.ico" />
+        <title>Implement series post in Jekyll - Part 1 - Ashutosh Chaudhary</title>
+        <meta name="author" content="Ashutosh Chaudhary" />
+        <meta name="description" content="Implement series post in Jekyll - Part 1" />
+        <meta name="keywords" content="Implement series post in Jekyll - Part 1, Ashutosh Chaudhary, others" />
+
+        <meta content="1159707894060864" property="fb:app_id">
+        <meta content="Ashutosh Chaudhary" property="og:site_name">
+        
+          <meta content="Implement series post in Jekyll - Part 1" property="og:title">
+        
+        
+          <meta content="article" property="og:type">
+        
+        
+          <meta content="My Personal Blog" property="og:description">
+        
+        
+          <meta content="http://aboutashu.com/others/2016/06/15/implement-series-post-jekyll-part-1.html" property="og:url">
+        
+        
+          <meta content="2016-06-15T00:00:00+05:30" property="article:published_time">
+          <meta content="http://aboutashu.com/about/" property="article:author">
+        
+        
+          <meta content="http://aboutashu.com/static/img/logo-high-resolution.png" property="og:image">
+        
+        
+          
+          <meta content="others" property="article:section">
+          
+        
+        
+          
+        
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@216ashutosh">
+        <meta name="twitter:creator" content="@216ashutosh">
+        
+          <meta name="twitter:title" content="Implement series post in Jekyll - Part 1">
+        
+        
+          <meta name="twitter:url" content="http://aboutashu.com/others/2016/06/15/implement-series-post-jekyll-part-1.html">
+        
+        
+          <meta name="twitter:description" content="My Personal Blog">
+        
+        
+
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+        <link rel="stylesheet" href="https://use.fontawesome.com/74dfc6cf47.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/static/css/syntax.css">
+
+        <!-- Bootstrap core CSS -->
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Fonts -->
+        <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:400,300italic,300,400italic,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+        <!-- Custom CSS -->        
+        <link rel="stylesheet" href="/static/css/thickbox.css">
+        <link rel="stylesheet" href="/static/css/super-search.css">
+        <link rel="stylesheet" href="/static/css/projects.css">
+        <link rel="stylesheet" href="/static/css/main.css">
+        <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-72862926-5', 'auto');
+  ga('send', 'pageview');
+
+</script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="col-sm-3">
+                <a href="/"><img id="about" src="/static/img/avatar.jpg" height="75px" width="75px" /></a>
+                <h1 class="author-name">Ashutosh Chaudhary</h1>
+                
+                <div id="about">
+                    Freelance web, apps developer
+                </div>
+                
+
+                <div class="social">
+	<ul>
+		
+			<li><a href="http://facebook.com/ashutosh2k12" target="_blank"><i class="fa fa-facebook"></i></a></li>
+		
+			<li><a href="skype:ashu2k111" target="_blank"><i class="fa fa-skype"></i></a></li>
+		
+			<li><a href="http://twitter.com/216ashutosh" target="_blank"><i class="fa fa-twitter"></i></a></li>
+		
+			<li><a href="https://in.linkedin.com/in/codeasashu" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+		
+			<li><a href="http://stackexchange.com/users/1155850/ashutosh" target="_blank"><i class="fa fa-stack-exchange"></i></a></li>
+		
+	</ul>
+</div>
+               
+                <div class="search" id="js-search">
+                  <input type="text" placeholder="(sitemap)~$ type to search" class="search__input form-control" id="js-search__input">
+                  <ul class="search__results" id="js-search__results"></ul>
+                </div>
+                <hr />
+                <div class="navigation">
+                <strong>Navigation</strong><br />
+                    &raquo; <a href="/">Home</a> <br />
+                
+                    &raquo; <a class="about" href="/about/">About Me</a><br />
+                
+                    &raquo; <a class="about" href="/projects/">Projects</a><br />
+                
+                    &raquo; <a class="about" href="https://drive.google.com/file/d/0B3Xfz0jTV0TnSjlMRS1DNGlSaTlxaHBEZHdoaGZWd1Q1Wkpn/view?usp=sharing">Resume</a><br />
+                
+                    &raquo; <a class="about" href="https://github.com/ashutosh2k12">Github</a><br />
+                
+                    &raquo; <a class="about" href="/feed.xml">XML Feed</a><br />
+                
+                </div>
+            </div>
+
+            <div class="col-sm-8 col-offset-1">
+                
+
+
+
+
+
+
+
+<h1>Implement series post in Jekyll - Part 1</h1>
+<span class="time">15 Jun 2016</span>
+
+<span class="categories">
+    &raquo; <a href="/category/others">others</a>
+</span>
+
+
+<span class="part-series">
+    &raquo; This posts is part of series -  <a href="http://aboutashu.com/implement-series-post-jekyll/">Implement series post in Jekyll</a>  
+</span>
+
+
+<div class="content">
+    <div class="post"><p>This is first post in the series explaining how I implemented post series without any ruby-gem or anything, just simple liquid syntaxes.</p>
+
+<p>The purpose has been stated earlier. I am only going to talk about the implementation now on. Lets get started.</p>
+
+<p>Since we need a single index page for series post, lets make one. Create a file and fill releavent front matter. Since we need a way to recognize if this is the series page that holds all the sub-posts within, we need to add a variable. I found <code class="highlighter-rouge">series-slug</code> more intimidating, since it is more human readable and makes sense to sub-posts. Thus, the front matter may now look like:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="o">---</span>
+<span class="ss">title: </span><span class="s1">'Some series title'</span>
+<span class="ss">layout: </span><span class="n">post</span>
+<span class="ss">categories: </span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]</span>
+<span class="ss">series_slug: </span><span class="n">some</span><span class="o">-</span><span class="n">series</span>
+<span class="o">---</span>
+</code></pre>
+</div>
+
+<p>Fill in the content for the post. You have created an index page. Lets create sub-posts (parts of series) that series will contain. Lets make two posts to start with. I am calling it <code class="highlighter-rouge">post A</code> and <code class="highlighter-rouge">post B</code>. Create another two files for these and fill in releavent YAML front matter. Now, to link the post to the series post, I am declaring a variable within these posts which will connect them. So, I declared the variable <code class="highlighter-rouge">series</code> in front matter and fill in the series slug I declared earlier. Thus, the front matter for these posts will look like:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="o">---</span>
+<span class="ss">title: </span><span class="s1">'Part of series post - Part 1'</span>
+<span class="ss">layout: </span><span class="n">post</span>
+<span class="ss">categories: </span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+<span class="ss">series: </span><span class="n">some</span><span class="o">-</span><span class="n">series</span>
+<span class="o">---</span>
+</code></pre>
+</div>
+
+<p>Good enough. Not so much!! We did declared a series and posts linking to it. However, we still need to show above posts in the series index. Since series has the <code class="highlighter-rouge">layout: post</code>, edit <code class="highlighter-rouge">post.html</code> in your <code class="highlighter-rouge">_layouts</code> directory. Enter the following line just below YAML front matter in <code class="highlighter-rouge">post.html</code> :</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="o">---</span>
+<span class="ss">layout: </span><span class="n">default</span>
+<span class="o">---</span>
+<span class="p">{</span><span class="sx">% include </span><span class="n">post</span><span class="o">-</span><span class="n">series</span><span class="p">.</span><span class="nf">html</span> <span class="sx">%}
+
+</span></code></pre>
+</div>
+
+<p>If you are familier with jekyll, you must know that <code class="highlighter-rouge">include</code> tag includes a file with the name following it, from <code class="highlighter-rouge">_includes</code> directory. In the above code, I just told jekyll to look for a file <code class="highlighter-rouge">post-series.html</code> in <code class="highlighter-rouge">_includes</code> directory, and include the code within it to current file. Thus would help me keep my code modular, in a separate place. This will enable me to write the code for post series thing in a single file called <code class="highlighter-rouge">post-series.html</code> and I can just call releavent variables whereever I like to.</p>
+
+<p>For the series index page, we would like to show up all the sub-posts it contains. Quite easy. We will use a for loop to go threw each posts and check if it has a <code class="highlighter-rouge">series</code> variable in their front matter and if that matches our current series index’s <code class="highlighter-rouge">series_slug</code>. Open up <code class="highlighter-rouge">post-series.html</code> and write the code below:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="sx">% comment </span><span class="o">%</span><span class="p">}</span> <span class="no">We</span> <span class="n">need</span> <span class="n">an</span> <span class="n">array</span> <span class="n">to</span> <span class="n">hold</span> <span class="nb">sub</span> <span class="n">posts</span> <span class="n">of</span> <span class="n">the</span> <span class="n">series</span><span class="o">.</span> <span class="no">Below</span> <span class="n">line</span> <span class="n">is</span> <span class="n">kind</span> <span class="n">of</span> <span class="n">hack</span> <span class="n">to</span> <span class="n">make</span> <span class="n">one</span> <span class="p">{</span><span class="sx">% endcomment </span><span class="o">%</span><span class="p">}</span>
+<span class="p">{</span><span class="sx">% assign </span><span class="n">seriesarray</span> <span class="o">=</span> <span class="s1">'|'</span> <span class="o">|</span> <span class="nb">split</span> <span class="p">:</span> <span class="s1">'|'</span> <span class="o">%</span><span class="p">}</span>
+
+<span class="p">{</span><span class="sx">% for </span><span class="n">post</span> <span class="k">in</span> <span class="n">site</span><span class="p">.</span><span class="nf">posts</span>  <span class="sx">%}
+
+	{% comment %}</span> <span class="no">Is</span> <span class="n">this</span><span class="p">(</span><span class="kp">loop</span><span class="p">)</span> <span class="n">a</span> <span class="nb">sub</span><span class="o">-</span><span class="n">post</span> <span class="n">and</span> <span class="n">does</span> <span class="n">it</span> <span class="n">match</span> <span class="n">the</span> <span class="n">series</span> <span class="n">index</span> <span class="n">slug?</span> <span class="p">{</span><span class="sx">% endcomment </span><span class="o">%</span><span class="p">}</span>
+	<span class="p">{</span><span class="sx">% if </span><span class="n">post</span><span class="p">.</span><span class="nf">series</span> <span class="n">and</span> <span class="n">page</span><span class="p">.</span><span class="nf">series_slug</span> <span class="o">!=</span> <span class="kp">nil</span> <span class="n">and</span> <span class="n">post</span><span class="p">.</span><span class="nf">series</span> <span class="o">==</span> <span class="n">page</span><span class="p">.</span><span class="nf">series_slug</span> <span class="sx">%}
+
+        {% capture postitem %}</span>    <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">"{{ site.url }}{{ post.url }}"</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">post</span><span class="p">.</span><span class="nf">title</span> <span class="p">}}</span><span class="o">&lt;</span><span class="sr">/a&gt; &lt;/</span><span class="n">li</span><span class="o">&gt;</span> <span class="p">{</span><span class="sx">% endcapture </span><span class="o">%</span><span class="p">}</span>
+        <span class="p">{</span><span class="sx">% assign </span><span class="n">seriesarray</span> <span class="o">=</span> <span class="n">seriesarray</span> <span class="o">|</span> <span class="ss">push: </span><span class="n">postitem</span> <span class="sx">%}
+
+    {% endif %}</span>
+<span class="p">{</span><span class="sx">% endfor </span><span class="o">%</span><span class="p">}</span>
+
+<span class="p">{</span><span class="sx">% comment </span><span class="o">%</span><span class="p">}</span> <span class="no">At</span> <span class="n">this</span> <span class="n">point</span><span class="p">,</span> <span class="n">seriesarray</span> <span class="n">will</span> <span class="n">hold</span> <span class="n">all</span> <span class="n">the</span> <span class="nb">sub</span><span class="o">-</span><span class="n">posts</span> <span class="k">for</span> <span class="n">this</span> <span class="n">series</span><span class="o">.</span> <span class="no">Just</span> <span class="n">iterate</span> <span class="n">threw</span> <span class="n">them</span> <span class="n">to</span> <span class="n">like</span> <span class="n">below</span><span class="o">.</span> <span class="p">{</span><span class="sx">% endcomment </span><span class="o">%</span><span class="p">}</span>
+<span class="p">{</span><span class="sx">% if </span><span class="n">seriesarray</span><span class="p">.</span><span class="nf">size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">%</span><span class="p">}</span> <span class="o">&lt;</span><span class="n">ul</span><span class="o">&gt;</span> <span class="p">{</span><span class="sx">% endif </span><span class="o">%</span><span class="p">}</span>
+<span class="p">{</span><span class="sx">% for </span><span class="n">post</span> <span class="k">in</span> <span class="n">seriesarray</span> <span class="sx">%} {{ post }</span><span class="p">}</span> <span class="p">{</span><span class="sx">% endfor </span><span class="o">%</span><span class="p">}</span>
+<span class="p">{</span><span class="sx">% if </span><span class="n">seriesarray</span><span class="p">.</span><span class="nf">size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">%</span><span class="p">}</span> <span class="o">&lt;</span><span class="n">ul</span><span class="o">&gt;</span> <span class="p">{</span><span class="sx">% endif </span><span class="o">%</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>We can use <code class="highlighter-rouge">seriesarray</code> in <code class="highlighter-rouge">post.html</code> to show the posts. I’d to show the list after the post content. Thus used the above for loop after <code class="highlighter-rouge"><span class="p">{</span><span class="err">{</span><span class="w"> </span><span class="err">content</span><span class="w"> </span><span class="p">}</span><span class="err">}</span></code>  in <code class="highlighter-rouge">post.html</code>.</p>
+
+<p>If this works out for you, you can check part 2 of the post where I’ve explained how to list only series index post (instead of sub-posts individually) on the blog index page.</p>
+</div>
+
+    
+	 
+    <hr />
+    <div class="panel">
+        <div class="panel-body">
+        <h4> This posts is part of series -  <a href="http://aboutashu.com/implement-series-post-jekyll/">Implement series post in Jekyll</a>   </h4>
+        <ul id="post-series-list">
+    
+         <li> Implement series post in Jekyll - Part 1 </li>       <li> <a href="http://aboutashu.com/others/2016/06/15/implement-series-post-jekyll-part-2.html">Implement series post in Jekyll - Part 2</a> </li>  
+     </ul> </div> </div> 
+
+
+    <div class="share-page">
+    Share this on &rarr;
+ <a href="https://twitter.com/share" class="twitter-share-button" data-via="216ashutosh">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Google + -->
+<div class="g-plus" data-action="share" data-annotation="bubble"></div>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+<!-- Facebook -->
+<div class="fb-share-button" data-href="http://aboutashu.com/others/2016/06/15/implement-series-post-jekyll-part-1.html" data-layout="button_count" style="position: relative; top: -8px; left: 3px;"></div>
+</div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1159707894060864";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+</div>
+
+
+
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+                
+                <div class="panel-body">
+                <h4>Related Posts</h4>
+                <ul>
+                
+                <li class="relatedPost">
+                    <a href="http://aboutashu.com/others/2016/06/15/implement-series-post-jekyll-part-2.html">Implement series post in Jekyll - Part 2</a>
+                    
+                        (Categories: <a href="/category/others">others</a>)
+                    
+                </li>
+                
+                
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+    
+    
+        
+            
+        
+    
+
+
+    </ul>
+    </div>
+
+
+<div class="PageNavigation">
+  
+    <a class="prev" href="/wordpress-html-encoded-image-alternate-text/">&laquo; WordPress: HTML encoded image alternate text</a>
+  
+  
+    <a class="next" href="/others/2016/06/15/implement-series-post-jekyll-part-2.html">Implement series post in Jekyll - Part 2 &raquo;</a>
+  
+</div>
+
+
+<div class="disqus-comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* <![CDATA[ */
+
+        var disqus_shortname = "aboutashu";
+        var disqus_identifier = "http://aboutashu.com_Implement series post in Jekyll - Part 1";
+        var disqus_title = "Implement series post in Jekyll - Part 1";
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    /* ]]> */
+    </script>
+</div>
+
+                <footer>
+                    &copy; Ashutosh Chaudhary
+                     
+                    - <a href="https://github.com/ashutosh2k12">https://github.com/ashutosh2k12</a> - Powered by Jekyll.
+                    
+                </footer>
+            </div><!-- end /.col-sm-8 -->
+        </div><!-- end /.container -->
+
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <!--
+        <script src="/static/js/jquery.min.js"></script>
+        -->
+        <script src="/static/js/thickbox-compressed.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/static/js/super-search.js"></script>
+        <script src="/static/js/main.js"></script>
+        <script src="/static/js/projects.js"></script>
+    </body>
+</html>

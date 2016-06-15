@@ -6,6 +6,7 @@ author: Ashutosh
 layout: post
 guid: http://aboutashu.com/blog/?p=137
 permalink: /implement-xmpp-chat-client-android-part-1/
+series: android-xmpp-client
 views:
   - 14
 dsq_thread_id:

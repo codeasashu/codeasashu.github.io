@@ -1,14 +1,22 @@
 (function($){
 	$(document).ready(function(){
 		$(document).on('click','.tag-filter',function(){
+			var $this = $(this);
+			
 			$('span.tag-filter').removeClass("active");
-			$(this).addClass("active");
+			$this.addClass("active");
 
-			if( $(this).hasClass('all')){
+
+			$('.tag-group').children().each(function(){
+				if( $(this).data('tag') ==  $this.data('tag')){
+					$(this).addClass("active");
+				}
+			});
+
+			if( $(this).hasClass('all'))
 				$('.project-item').showAll();
-			}else{
+			else
 				$('.project-item').filterTags( $(this).data('tag') );
-			}
 		});
 	});
 
