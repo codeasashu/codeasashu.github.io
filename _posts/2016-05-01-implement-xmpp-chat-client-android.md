@@ -14,5 +14,4 @@ dsq_thread_id:
 categories:
   - Uncategorized
 ---
-In the [last post](http://aboutashu.com/blog/xmpp-chat-server/) of this series, I talked about setting up XMPP based chat server, using ejabberd. In this post, I will be talking about how to implement XMPP chat client in android and let two users talk to each other. After reading this post, you&#8217;ll be able to
-
+Since it would take more than one post to share how to implement XMPP client in android, I made a series post which would explain in better way, the structure of XMPP client. I have tried to keep the code modular such that any part can be reused in any other application. The actual code for whole application can be found at [https://github.com/ashutosh2k12/XmppDemo](https://github.com/ashutosh2k12/XmppDemo)

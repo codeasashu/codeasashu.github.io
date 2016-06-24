@@ -5,9 +5,20 @@
     <description>My Personal Blog</description>
     <link>http://aboutashu.com/</link>
     <atom:link href="http://aboutashu.com/sitemap.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jun 2016 17:08:58 +0530</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2016 17:08:58 +0530</lastBuildDate>
+    <pubDate>Fri, 24 Jun 2016 14:31:04 +0530</pubDate>
+    <lastBuildDate>Fri, 24 Jun 2016 14:31:04 +0530</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Implement Xmpp Chat Client Android Part 2</title>
+        <description>
+</description>
+        <pubDate>Tue, 21 Jun 2016 00:00:00 +0530</pubDate>
+        <link>http://aboutashu.com/2016/06/21/implement-xmpp-chat-client-android-part-2.html</link>
+        <guid isPermaLink="true">http://aboutashu.com/2016/06/21/implement-xmpp-chat-client-android-part-2.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Implement series post in Jekyll</title>
@@ -222,8 +233,7 @@ We also learnt how I made a bare layout which listed all posts within series.&lt
     
       <item>
         <title>Implement XMPP chat client in Android</title>
-        <description>&lt;p&gt;In the &lt;a href=&quot;http://aboutashu.com/blog/xmpp-chat-server/&quot;&gt;last post&lt;/a&gt; of this series, I talked about setting up XMPP based chat server, using ejabberd. In this post, I will be talking about how to implement XMPP chat client in android and let two users talk to each other. After reading this post, you’ll be able to&lt;/p&gt;
-
+        <description>&lt;p&gt;Since it would take more than one post to share how to implement XMPP client in android, I made a series post which would explain in better way, the structure of XMPP client. I have tried to keep the code modular such that any part can be reused in any other application. The actual code for whole application can be found at &lt;a href=&quot;https://github.com/ashutosh2k12/XmppDemo&quot;&gt;https://github.com/ashutosh2k12/XmppDemo&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 01 May 2016 14:09:37 +0530</pubDate>
         <link>http://aboutashu.com/implement-xmpp-chat-client-android/</link>
@@ -236,13 +246,17 @@ We also learnt how I made a bare layout which listed all posts within series.&lt
     
       <item>
         <title>Implement XMPP chat client in Android &amp;#8211; Part 1</title>
-        <description>&lt;p&gt;In the &lt;a href=&quot;http://aboutashu.com/blog/xmpp-chat-server/&quot;&gt;last post&lt;/a&gt; of this series, I talked about setting up XMPP based chat server, using ejabberd. In this post, I will be talking about how to implement XMPP chat client in android and let two users talk to each other. After reading this post, you’ll be able to&lt;/p&gt;
+        <description>&lt;h2 id=&quot;part-1---xmpp-basics&quot;&gt;Part 1 - XMPP Basics&lt;/h2&gt;
+
+&lt;p&gt;In the &lt;a href=&quot;http://aboutashu.com/blog/xmpp-chat-server/&quot;&gt;last post&lt;/a&gt; of this series, I talked about setting up XMPP based chat server, using ejabberd. In this post, I will be talking about how to implement XMPP chat client in android and let two users talk to each other. After reading this post series, you’ll be able to&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;Implement chat system such as whatsapp in your own android app&lt;/li&gt;
-  &lt;li&gt;Allow multiple users to chat with each other&lt;/li&gt;
+  &lt;li&gt;Allow yourself to chat with online users (roasters)&lt;/li&gt;
   &lt;li&gt;Making the chat as service so that chat messages still come through even while app is in background&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;p&gt;Since it would be too long to explain everything within a single post, I am going to explain part by part code structure and basics of XMPP here.&lt;/p&gt;
 
 &lt;h2 id=&quot;xmpp-client&quot;&gt;XMPP Client&lt;/h2&gt;
 
@@ -251,9 +265,8 @@ We also learnt how I made a bare layout which listed all posts within series.&lt
 &lt;h2 id=&quot;what-you-will-need&quot;&gt;What You will need&lt;/h2&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;An android IDE for app development. While I prefer &lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;Android Studio&lt;/a&gt;, while &lt;a href=&quot;https://eclipse.org/&quot;&gt;Eclipse&lt;/a&gt; also does the job.&lt;/li&gt;
+  &lt;li&gt;An android IDE for app development. While I prefer &lt;a href=&quot;http://developer.android.com/sdk/index.html&quot;&gt;Android Studio&lt;/a&gt;, &lt;a href=&quot;https://eclipse.org/&quot;&gt;Eclipse&lt;/a&gt; also does the job.&lt;/li&gt;
   &lt;li&gt;Decent Working internet.&lt;/li&gt;
-  &lt;li&gt;1-2 hours patience&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&quot;starting-the-project&quot;&gt;Starting the Project&lt;/h2&gt;
@@ -262,38 +275,70 @@ We also learnt how I made a bare layout which listed all posts within series.&lt
 
 &lt;h4 id=&quot;creating-the-project&quot;&gt;Creating the project:&lt;/h4&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;Open Android studio and hit the button “Start a new Android Studio project”.&lt;/li&gt;
-  &lt;li&gt;Enter anything in “Application name”. For ex- Chatterbox . Hit &lt;em&gt;next&lt;/em&gt; button.&lt;/li&gt;
-  &lt;li&gt;Choose API level here. Google for what you should choose. Mine have API level 15. Hit &lt;em&gt;next.&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;Choose “Blank Activity” in next screen and hit the &lt;em&gt;next&lt;/em&gt; button.&lt;/li&gt;
-  &lt;li&gt;Click “finish” button to start your project.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;Create a blank project in android studio. Once you get to editor screen, add following dependencies to your app specific &lt;code class=&quot;highlighter-rouge&quot;&gt;build.gradle&lt;/code&gt;:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;
+compile &#39;org.igniterealtime.smack:smack-android-extensions:4.1.0&#39;
+compile &#39;org.igniterealtime.smack:smack-tcp:4.1.0&#39;
+compile &#39;com.google.code.gson:gson:2.6.2&#39;
+&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;After this, android studio will bring up XML layout editor and Activity with some default code. We will be using same activity to start a chat.&lt;/p&gt;
+&lt;p&gt;The first two lines are mandatory for getting smack to work on android. The third line (about gson) allows you to convert raw messages in GSON format. Since we will be sending messages in GSON format, I added it to my needs. Check out &lt;a href=&quot;https://github.com/ashutosh2k12/XmppDemo/blob/master/app/build.gradle&quot;&gt;build.gradle&lt;/a&gt; of my app to get an idea.&lt;/p&gt;
 
-&lt;h4 id=&quot;importing-necessary-things-i-mean-libraries&quot;&gt;Importing necessary things (I mean, libraries):&lt;/h4&gt;
+&lt;h2 id=&quot;basics&quot;&gt;Basics&lt;/h2&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;In the left pane of android studio, you will see lots of directory list and some files. Choose app’s build.gradle (not the one outside the app folder). See image below for reference.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;Before diving straight into the code, lets understand few things about XMPP and in what manner are we going to implement them.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[&amp;lt;img class=&quot;aligncenter size-full wp-image-138&quot; src=&quot;http://aboutashu.com/blog/wp-content/uploads/2016/04/gt1.png&quot; alt=&quot;gt1&quot; width=&quot;242&quot; height=&quot;309&quot; srcset=&quot;http://107.170.45.123/blog/wp-content/uploads/2016/04/gt1.png 242w, http://107.170.45.123/blog/wp-content/uploads/2016/04/gt1-235x300.png 235w&quot; sizes=&quot;(max-width: 242px) 100vw, 242px&quot; /&amp;gt;](http://aboutashu.com/blog/wp-content/uploads/2016/04/gt1.png)   2. Enter following code in dependencies list 
-[code]
-  
-dependencies {
-  
-compile fileTree(dir: &amp;amp;#8216;libs&amp;amp;#8217;, include: [&amp;amp;#8216;*.jar&amp;amp;#8217;])
-  
-compile &amp;amp;#8216;com.android.support:appcompat-v7:22.2.0&amp;amp;#8217;
-  
-compile &quot;org.igniterealtime.smack:smack-android-extensions:4.1.0&quot;
-  
-compile &quot;org.igniterealtime.smack:smack-tcp:4.1.0&quot;
-  
-[/code]
+&lt;h4 id=&quot;what-is-xmpp&quot;&gt;What is XMPP?&lt;/h4&gt;
+
+&lt;p&gt;XMPP is basically a set of protocols (or rules) to allow communication based on XML. Thus, whenever you send a message, or your presence (available, unavailable etc.) to some other user (or server), it goes out in XML format, like this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;presence&amp;gt;
+  &amp;lt;show&amp;gt;dnd&amp;lt;/show&amp;gt;
+&amp;lt;/presence&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+
+&lt;p&gt;But we don’t have to go threw this right now. You just need to know that whenever you are seeing someone online, or sending a message, the client communicates with each other in this mannar. Read more about these &lt;a href=&quot;https://xmpp.org/rfcs/rfc3921.html&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;jabber-id&quot;&gt;Jabber ID&lt;/h4&gt;
+
+&lt;p&gt;Jabber Id or simply JID is a unique ID (just like your username on facebook) which helps you recognize in XMPP environments. Jabber ID is usually in the format &lt;code class=&quot;highlighter-rouge&quot;&gt;username@domain&lt;/code&gt;. Sometimes, you may see your JID in form of &lt;code class=&quot;highlighter-rouge&quot;&gt;username@domain/resource&lt;/code&gt; .Resource is nothing but a string representing your chat environment.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;username@domain&lt;/code&gt; sometimes is reffered to as &lt;em&gt;Bare JID&lt;/em&gt; while &lt;code class=&quot;highlighter-rouge&quot;&gt;username@domain/resource&lt;/code&gt; as &lt;em&gt;Full JID&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h4 id=&quot;roasters&quot;&gt;Roasters&lt;/h4&gt;
+
+&lt;p&gt;Just like you have facebook friends, that only they can check out your shared items, XMPP too does have this security thing of its own kind. Whenever you gets connected to a XMPP server, few things about you travels along to server. So, for example, whenever you login to your GTalk, or pidgin, you instantly gets this “green”  button to show you are online. You also see your last status that you’ve put up. you see your friendlist and online friends from them.&lt;/p&gt;
+
+&lt;p&gt;The information associated with you, as soon as you login to any XMPP client, includes mainly:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Your presence information (wether you are available or not)&lt;/li&gt;
+  &lt;li&gt;Your status&lt;/li&gt;
+  &lt;li&gt;Whom you are subscribed to (and who subscribed to you)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;These informations are kept on server in database. XMPP have certain security features that decides who is going to see those informations. For ex, if you are subscribed to User A, and user A is also subscribed to you, then you both can see each other’s presences. However, if only user A has subscribed to you, only you can see his presence.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Roasters&lt;/strong&gt; are people (or group of people) who are subscribed to you (or you are subscribed to them). They are like your friends on facebook, with limited access depending upon the subscription status between you both.&lt;/p&gt;
+
+&lt;p&gt;To put it simply, the online users that you see in your gtalk are roasters. Any user whom you have added as contact on  XMPP clients are roasters.&lt;/p&gt;
+
+&lt;h4 id=&quot;subscriptions&quot;&gt;Subscriptions&lt;/h4&gt;
+
+&lt;p&gt;Subscriptions is one way of saying &lt;em&gt;sending friend requests&lt;/em&gt;. Just like, when you send someone a friend request on facebook, you subscribe to someone on XMPP. You subscribe to someone by sending them a subscription presence packet to their JID. While I will begin with code, I will show you how to send a subscription packets and receive one. Thus, subscription state exists between two users.&lt;/p&gt;
+
+&lt;p&gt;For sake of simplicity, you just need to know that in order to make someone friends on XMPP, or allowing someone to make you a friend, you need subscription.&lt;/p&gt;
+
+&lt;p&gt;Subscriptions have 4 modes: &lt;code class=&quot;highlighter-rouge&quot;&gt;subscribe_none&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;subscribe_to&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;subscribe_from&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;subscribe_both&lt;/code&gt;.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;subscribe_none&lt;/strong&gt; - When you are not subscribed in any way to a given user.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;subscribe_to&lt;/strong&gt; - When only you are subscribed to a given user (one way).&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;subscribe_from&lt;/strong&gt; - When you are not subscribed in any way to a given user.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;subscribe_both&lt;/strong&gt; - When you are not subscribed in any way to a given user.&lt;/li&gt;
+&lt;/ol&gt;
+
 </description>
         <pubDate>Sun, 01 May 2016 14:09:37 +0530</pubDate>
         <link>http://aboutashu.com/implement-xmpp-chat-client-android-part-1/</link>
