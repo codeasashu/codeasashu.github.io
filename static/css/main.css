@@ -61,6 +61,10 @@ a, a:link, a:active {
     color: #d03c3c;
 }
 
+.sidenav a, .sidenav a:link,.sidenav a:active {
+	color: #8C8C8C;
+}
+
 a:hover {
     color: #B3B3B3;
     text-decoration: underline;
