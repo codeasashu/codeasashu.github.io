@@ -1,7 +1,7 @@
 title: Ashutosh Chaudhary
 description: My Personal Blog
 author: Ashutosh Chaudhary
-github: https://github.com/ashutosh2k12
+github: https://github.com/codeasashu
 about: Freelance web, apps developer
 disqus_shortname: aboutashu
 google_analytics: UA-72862926-1
@@ -19,7 +19,7 @@ urls:
     - text: Resume
       url: https://drive.google.com/file/d/0B3Xfz0jTV0TnSjlMRS1DNGlSaTlxaHBEZHdoaGZWd1Q1Wkpn/view?usp=sharing
     - text: Github
-      url: https://github.com/ashutosh2k12
+      url: https://github.com/codeasashu
     - text: XML Feed
       url: /feed.xml
       
