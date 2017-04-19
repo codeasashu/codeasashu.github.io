@@ -17,7 +17,7 @@ urls:
     - text: Projects
       url: /projects/
     - text: Resume
-      url: https://drive.google.com/file/d/0B3Xfz0jTV0TnSjlMRS1DNGlSaTlxaHBEZHdoaGZWd1Q1Wkpn/view?usp=sharing
+      url: https://drive.google.com/open?id=0B3Xfz0jTV0TnTnZtN0pBVVpoUVU
     - text: Github
       url: https://github.com/codeasashu
     - text: XML Feed
