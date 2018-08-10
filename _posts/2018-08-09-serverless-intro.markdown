@@ -1,11 +1,11 @@
 ---
 id: 66
-title: Process Migration
-date: 2015-09-28T04:53:38+00:00
+title: Getting started with Serverless and AWS
+date: 2018-08-10T04:53:38+00:00
 author: Ashutosh Chaudhary
 layout: post
-guid: http://codeasashu.tk/blog/?p=66
-permalink: /process-migration/
+guid: http://codeasashu.github.io/blog/?p=66
+permalink: /get-started-serverless-aws/
 dsq_thread_id:
   - 4196426863
 views:
@@ -13,11 +13,11 @@ views:
 sociallikes:
   - 1
 categories:
-  - M.Tech
-  - Mobile Computing
+  - serverless
+  - aws
 tags:
-  - mobile computing
-  - mtech
+  - serverless
+  - aws
 ---
 
 # Serverless setup with AWS
